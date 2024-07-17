@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed: int = 225
 var direction: Vector2 = Vector2(0,1)
-@onready var projectile = preload("res://Scenes/Player/projectile.tscn")
+@onready var projectile_pool = $Projectiles
 
 
 func _physics_process(delta: float) -> void:
@@ -22,13 +22,13 @@ func _physics_process(delta: float) -> void:
 		direction = inputDirection
 		
 		
-	$SpawnPoint.position = direction*16
+	$SpawnPoint.position = direction*10
 	if Input.is_action_just_pressed("Fire"):
 		##TODO Make A Projectile That fires to a Mouse Cursor
-		var projectileTemp = projectile.instantiate()
+		var projectileTemp = projectile_pool.get_projectile()
 		projectileTemp.velocity = direction * 500
 		projectileTemp.global_position = $SpawnPoint.global_position
-		$Projectiles.add_child(projectileTemp)
+		projectileTemp.show()
 		
 	velocity = inputDirection * speed
 	move_and_slide()
