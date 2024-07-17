@@ -1,27 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://rm8pwxkc3sen"]
+[gd_scene load_steps=5 format=3 uid="uid://rm8pwxkc3sen"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_r5lmh"]
-[ext_resource type="Texture2D" uid="uid://b0phmd6h2dq43" path="res://Assets/Vixcanvian_Player.png" id="1_uyrdt"]
+[ext_resource type="Texture2D" uid="uid://do0pcrslupxmp" path="res://Assets/dwarf.png" id="2_cb2od"]
+[ext_resource type="Script" path="res://Scripts/Player/projectilePool.gd" id="3_ys5ct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yok8o"]
-size = Vector2(32, 32)
+size = Vector2(20, 21)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player_Dwarf" type="CharacterBody2D"]
 script = ExtResource("1_r5lmh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_yok8o")
 
-[node name="VixcanvianPlayer" type="Sprite2D" parent="."]
-texture = ExtResource("1_uyrdt")
+[node name="Dwarf Model" type="Sprite2D" parent="."]
+position = Vector2(2, -3)
+texture = ExtResource("2_cb2od")
 
 [node name="Projectiles" type="Node" parent="."]
+script = ExtResource("3_ys5ct")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 z_index = 3
-position = Vector2(0, 16)
+position = Vector2(0, 10)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
