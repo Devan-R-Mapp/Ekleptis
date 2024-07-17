@@ -1,1 +1,1 @@
-THis is a tower defense game about Alchemy and Shadows
+This is a tower defense game about Alchemy and Shadows
