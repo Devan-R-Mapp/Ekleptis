@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Ekleptis"
 config/description="A Tower Defense Concerning Cauldrons and Shadows"
-run/main_scene="res://Scenes/world.tscn"
+run/main_scene="res://Scenes/World/world.tscn"
 config/features=PackedStringArray("4.2")
 
 [display]
