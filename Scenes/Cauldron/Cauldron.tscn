@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhpugiw0bq6b4"]
+
+[ext_resource type="Texture2D" uid="uid://dvtom1aytyjln" path="res://Assets/Cauldron.png" id="1_bpcrg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlwrt"]
+radius = 17.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Cauldron" type="Sprite2D" parent="."]
+position = Vector2(2, -9)
+texture = ExtResource("1_bpcrg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -9)
+shape = SubResource("CircleShape2D_mlwrt")
