@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctoevlayqyeju"
-path="res://.godot/imported/Center.png-3e53b57d5b8344b757fee18f030368d0.ctex"
+path="res://.godot/imported/Center.png-cab4c09883dcca6843bff4c25fdc218c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Center.png"
-dest_files=["res://.godot/imported/Center.png-3e53b57d5b8344b757fee18f030368d0.ctex"]
+source_file="res://Assets/Map Assets/Center.png"
+dest_files=["res://.godot/imported/Center.png-cab4c09883dcca6843bff4c25fdc218c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0phmd6h2dq43"
-path="res://.godot/imported/Vixcanvian_Player.png-f350d1f37f99537eca0c999d3eb35d4b.ctex"
+uid="uid://yc2mm0jqu7oa"
+path="res://.godot/imported/Basic_Wand.png-ce17d4300866b70669254c0283662454.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Vixcanvian_Player.png"
-dest_files=["res://.godot/imported/Vixcanvian_Player.png-f350d1f37f99537eca0c999d3eb35d4b.ctex"]
+source_file="res://Assets/Weapons/Basic_Wand.png"
+dest_files=["res://.godot/imported/Basic_Wand.png-ce17d4300866b70669254c0283662454.ctex"]
 
 [params]
 

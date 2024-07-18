@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhpugiw0bq6b4"]
 
-[ext_resource type="Texture2D" uid="uid://dvtom1aytyjln" path="res://Assets/Cauldron.png" id="1_bpcrg"]
+[ext_resource type="Texture2D" uid="uid://dvtom1aytyjln" path="res://Assets/Map Assets/Cauldron.png" id="1_bpcrg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlwrt"]
 radius = 17.0
