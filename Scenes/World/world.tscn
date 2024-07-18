@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bedmwjr2wdjui"]
+[gd_scene load_steps=10 format=3 uid="uid://bedmwjr2wdjui"]
 
-[ext_resource type="Texture2D" uid="uid://ctoevlayqyeju" path="res://Assets/Center.png" id="1_bo05i"]
-[ext_resource type="Texture2D" uid="uid://b4rgqurb3l0qy" path="res://Assets/Floor.png" id="2_tf6pq"]
+[ext_resource type="Texture2D" uid="uid://ctoevlayqyeju" path="res://Assets/Map Assets/Center.png" id="1_bo05i"]
+[ext_resource type="Texture2D" uid="uid://b4rgqurb3l0qy" path="res://Assets/Map Assets/Floor.png" id="2_tf6pq"]
 [ext_resource type="PackedScene" uid="uid://rm8pwxkc3sen" path="res://Scenes/Player/player.tscn" id="3_1eifu"]
 [ext_resource type="PackedScene" uid="uid://bhpugiw0bq6b4" path="res://Scenes/Cauldron/Cauldron.tscn" id="4_os2b8"]
+[ext_resource type="Script" path="res://Scripts/MobPooling.gd" id="6_wd7yn"]
+[ext_resource type="Texture2D" uid="uid://btrbnvuu0m6sv" path="res://Assets/Map Assets/Portal.png" id="7_lbbqj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o5n5"]
 texture = ExtResource("1_bo05i")
@@ -32,5 +34,18 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608,
 position = Vector2(240, 142)
 scale = Vector2(2, 2)
 
-[node name="StaticBody2D" parent="." instance=ExtResource("4_os2b8")]
+[node name="Cauldron" parent="." instance=ExtResource("4_os2b8")]
 position = Vector2(286, 167)
+
+[node name="EkleptisSpawner" type="Node2D" parent="."]
+position = Vector2(-398, 155)
+script = ExtResource("6_wd7yn")
+
+[node name="Portal" type="Sprite2D" parent="EkleptisSpawner"]
+scale = Vector2(3, 3)
+texture = ExtResource("7_lbbqj")
+
+[node name="Timer" type="Timer" parent="EkleptisSpawner"]
+autostart = true
+
+[connection signal="timeout" from="EkleptisSpawner/Timer" to="EkleptisSpawner" method="_on_timer_timeout"]

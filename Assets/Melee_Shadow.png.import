@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do0pcrslupxmp"
-path="res://.godot/imported/dwarf.png-162ca1c9e30e5647fcca8ea58e077e8e.ctex"
+uid="uid://cmgklo6k1rswy"
+path="res://.godot/imported/Melee_Shadow.png-64c62fb3b97ec8c67b6579f3ce5531f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/dwarf.png"
-dest_files=["res://.godot/imported/dwarf.png-162ca1c9e30e5647fcca8ea58e077e8e.ctex"]
+source_file="res://Assets/Melee_Shadow.png"
+dest_files=["res://.godot/imported/Melee_Shadow.png-64c62fb3b97ec8c67b6579f3ce5531f8.ctex"]
 
 [params]
 

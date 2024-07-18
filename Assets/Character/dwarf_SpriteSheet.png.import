@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4rgqurb3l0qy"
-path="res://.godot/imported/Floor.png-2014aba4533b5b820b53643445fc62e4.ctex"
+uid="uid://ig8ijbujbeyo"
+path="res://.godot/imported/dwarf_SpriteSheet.png-a8f38117d1508720bae0caf4e8749ba8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Floor.png"
-dest_files=["res://.godot/imported/Floor.png-2014aba4533b5b820b53643445fc62e4.ctex"]
+source_file="res://Assets/Character/dwarf_SpriteSheet.png"
+dest_files=["res://.godot/imported/dwarf_SpriteSheet.png-a8f38117d1508720bae0caf4e8749ba8.ctex"]
 
 [params]
 
