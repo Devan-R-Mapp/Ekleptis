@@ -18,7 +18,7 @@ shape = SubResource("RectangleShape2D_yok8o")
 [node name="Dwarf Model" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
 texture = ExtResource("2_y3jme")
-vframes = 2
+vframes = 3
 frame = 1
 
 [node name="Projectiles" type="Node" parent="."]

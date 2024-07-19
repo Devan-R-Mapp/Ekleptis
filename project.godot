@@ -15,6 +15,10 @@ config/description="A Tower Defense Concerning Cauldrons and Shadows"
 run/main_scene="res://Scenes/World/world.tscn"
 config/features=PackedStringArray("4.2")
 
+[autoload]
+
+Game="*res://Scripts/Player/game.gd"
+
 [display]
 
 window/size/viewport_width=576

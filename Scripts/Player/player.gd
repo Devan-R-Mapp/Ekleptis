@@ -5,14 +5,18 @@ var direction: Vector2 = Vector2(0,1)
 @onready var projectile_pool = $Projectiles
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var inputDirection: Vector2 = Vector2(Input.get_axis("Left", "Right"),Input.get_axis("Up", "Down")).normalized()
 	
 	if inputDirection.x > 0:
 		#Check if player is moving right
+		get_node("Dwarf Model").frame = 2
+		get_node("Dwarf Model").flip_h = true
 		direction = inputDirection
 	elif inputDirection.x < 0:
 		#Check if player is moving left
+		get_node("Dwarf Model").frame = 2
+		get_node("Dwarf Model").flip_h = false
 		direction = inputDirection
 	elif inputDirection.y > 0:
 		#Check if player is moving down

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4rgqurb3l0qy" path="res://Assets/Map Assets/Floor.png" id="2_tf6pq"]
 [ext_resource type="PackedScene" uid="uid://rm8pwxkc3sen" path="res://Scenes/Player/player.tscn" id="3_1eifu"]
 [ext_resource type="PackedScene" uid="uid://bhpugiw0bq6b4" path="res://Scenes/Cauldron/Cauldron.tscn" id="4_os2b8"]
-[ext_resource type="Script" path="res://Scripts/MobPooling.gd" id="6_wd7yn"]
+[ext_resource type="Script" path="res://Scripts/ai/MobPooling.gd" id="6_wd7yn"]
 [ext_resource type="Texture2D" uid="uid://btrbnvuu0m6sv" path="res://Assets/Map Assets/Portal.png" id="7_lbbqj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o5n5"]

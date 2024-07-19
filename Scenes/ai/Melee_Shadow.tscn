@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://gkuf5wh6k03d"]
+
+[ext_resource type="Script" path="res://Scripts/ai/Melee_Shadow.gd" id="1_ro8b6"]
+[ext_resource type="Texture2D" uid="uid://cmgklo6k1rswy" path="res://Assets/Melee_Shadow.png" id="2_kngvg"]
+[ext_resource type="Script" path="res://Scripts/ai/aiprojectilePool.gd" id="3_h324o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrwx4"]
+size = Vector2(31, 30)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rni2y"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il3e2"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="Shadow" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 2
+script = ExtResource("1_ro8b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_hrwx4")
+
+[node name="MeleeShadow" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture = ExtResource("2_kngvg")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -19.0
+offset_right = 15.0
+offset_bottom = -15.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rni2y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_il3e2")
+value = 50.0
+show_percentage = false
+
+[node name="Player Detection" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player Detection"]
+polygon = PackedVector2Array(-3, 15, -4, 4, -16, 10, -17, 3, -6, -1, -9, -4, -9, -10, -3, -14, 5, -12, 7, -8, 7, -5, 3, 0, 3, 1, 11, 2, 16, 7, 12, 9, 9, 4, 2, 4, 5, 15)
+
+[node name="Projectiles" type="Node2D" parent="."]
+script = ExtResource("3_h324o")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-1, -4)
+
+[node name="Shoot Bullet" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="Player Detection" to="." method="_on_player_detection_body_entered"]
+[connection signal="timeout" from="Shoot Bullet" to="." method="_on_shoot_bullet_timeout"]
