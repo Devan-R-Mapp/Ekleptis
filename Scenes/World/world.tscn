@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bedmwjr2wdjui"]
+[gd_scene load_steps=12 format=3 uid="uid://bedmwjr2wdjui"]
 
+[ext_resource type="Script" path="res://Scenes/World/world.gd" id="1_04y0u"]
 [ext_resource type="Texture2D" uid="uid://ctoevlayqyeju" path="res://Assets/Map Assets/Center.png" id="1_bo05i"]
 [ext_resource type="Texture2D" uid="uid://b4rgqurb3l0qy" path="res://Assets/Map Assets/Floor.png" id="2_tf6pq"]
 [ext_resource type="PackedScene" uid="uid://rm8pwxkc3sen" path="res://Scenes/Player/player.tscn" id="3_1eifu"]
 [ext_resource type="PackedScene" uid="uid://bhpugiw0bq6b4" path="res://Scenes/Cauldron/Cauldron.tscn" id="4_os2b8"]
+[ext_resource type="PackedScene" uid="uid://bb3mfckyrdi4c" path="res://Scenes/Menus/pause_menu.tscn" id="5_vawud"]
 [ext_resource type="Script" path="res://Scripts/MobPooling.gd" id="6_wd7yn"]
 [ext_resource type="Texture2D" uid="uid://btrbnvuu0m6sv" path="res://Assets/Map Assets/Portal.png" id="7_lbbqj"]
 
@@ -23,6 +25,7 @@ sources/0 = SubResource("TileSetAtlasSource_8o5n5")
 sources/1 = SubResource("TileSetAtlasSource_6sajb")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_04y0u")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_sbll3")
@@ -33,6 +36,18 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608,
 [node name="Player" parent="." instance=ExtResource("3_1eifu")]
 position = Vector2(240, 142)
 scale = Vector2(2, 2)
+
+[node name="pauseMenu" parent="Player" instance=ExtResource("5_vawud")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -35.0
+offset_top = -40.0
+offset_right = 43.0
+offset_bottom = 29.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Cauldron" parent="." instance=ExtResource("4_os2b8")]
 position = Vector2(286, 167)
