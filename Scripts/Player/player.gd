@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed: int = 225
 var direction: Vector2 = Vector2(0,1)
 @onready var projectile_pool = $Projectiles
+@onready var _animated_sprite = $"Dwarf Model"
 
 
 func _physics_process(delta: float) -> void:
@@ -16,12 +17,14 @@ func _physics_process(delta: float) -> void:
 		direction = inputDirection
 	elif inputDirection.y > 0:
 		#Check if player is moving down
-		get_node("Dwarf Model").frame = 1
+		_animated_sprite.play("move_down")
 		direction = inputDirection
 	elif inputDirection.y < 0:
 		#Check if player is moving up
 		get_node("Dwarf Model").frame = 0
 		direction = inputDirection
+	else:
+		_animated_sprite.stop()
 		
 		
 	$SpawnPoint.position = direction*10

@@ -1,11 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://rm8pwxkc3sen"]
+[gd_scene load_steps=10 format=3 uid="uid://rm8pwxkc3sen"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_r5lmh"]
-[ext_resource type="Texture2D" uid="uid://ig8ijbujbeyo" path="res://Assets/Character/dwarf_SpriteSheet.png" id="2_y3jme"]
+[ext_resource type="Texture2D" uid="uid://cfbbu81t3nhst" path="res://Assets/Character/dwarf_down_spritesheet.png" id="2_7tamr"]
 [ext_resource type="Script" path="res://Scripts/Player/projectilePool.gd" id="3_ys5ct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yok8o"]
 size = Vector2(22, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmwr7"]
+atlas = ExtResource("2_7tamr")
+region = Rect2(0, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8qk2"]
+atlas = ExtResource("2_7tamr")
+region = Rect2(25, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5bsr"]
+atlas = ExtResource("2_7tamr")
+region = Rect2(0, 32, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj6nh"]
+atlas = ExtResource("2_7tamr")
+region = Rect2(25, 32, 25, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1fh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmwr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8qk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5bsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj6nh")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 6.0
+}]
 
 [node name="Player_Dwarf" type="CharacterBody2D"]
 script = ExtResource("1_r5lmh")
@@ -15,11 +51,13 @@ z_index = 1
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_yok8o")
 
-[node name="Dwarf Model" type="Sprite2D" parent="."]
-position = Vector2(0, -6)
-texture = ExtResource("2_y3jme")
-vframes = 2
-frame = 1
+[node name="Dwarf Model" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_h1fh0")
+animation = &"move_down"
+frame = 3
+frame_progress = 0.0673568
 
 [node name="Projectiles" type="Node" parent="."]
 script = ExtResource("3_ys5ct")
