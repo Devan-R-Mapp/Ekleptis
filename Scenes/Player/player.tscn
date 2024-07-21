@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://rm8pwxkc3sen"]
+[gd_scene load_steps=25 format=3 uid="uid://rm8pwxkc3sen"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_r5lmh"]
 [ext_resource type="Texture2D" uid="uid://cfbbu81t3nhst" path="res://Assets/Character/dwarf_down_spritesheet.png" id="2_7tamr"]
+[ext_resource type="Texture2D" uid="uid://phabs1m12hw7" path="res://Assets/Character/dwarf_up_spritesheet.png" id="3_ggnut"]
+[ext_resource type="Texture2D" uid="uid://c4g23qj8aj5v8" path="res://Assets/Character/dwarf_left_spritesheet.png" id="3_qr16r"]
 [ext_resource type="Script" path="res://Scripts/Player/projectilePool.gd" id="3_ys5ct"]
+[ext_resource type="Texture2D" uid="uid://lt04vyupkfg3" path="res://Assets/Character/dwarf_right_spritesheet.png" id="4_1irpe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yok8o"]
 size = Vector2(22, 23)
@@ -23,6 +26,54 @@ region = Rect2(0, 32, 25, 32)
 atlas = ExtResource("2_7tamr")
 region = Rect2(25, 32, 25, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbu30"]
+atlas = ExtResource("3_qr16r")
+region = Rect2(0, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06y4t"]
+atlas = ExtResource("3_qr16r")
+region = Rect2(25, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ppks"]
+atlas = ExtResource("3_qr16r")
+region = Rect2(0, 32, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lduxk"]
+atlas = ExtResource("3_qr16r")
+region = Rect2(25, 32, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7msx2"]
+atlas = ExtResource("4_1irpe")
+region = Rect2(0, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps8jh"]
+atlas = ExtResource("4_1irpe")
+region = Rect2(25, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7r5q"]
+atlas = ExtResource("4_1irpe")
+region = Rect2(0, 32, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyvtg"]
+atlas = ExtResource("4_1irpe")
+region = Rect2(25, 32, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e45p"]
+atlas = ExtResource("3_ggnut")
+region = Rect2(0, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svohn"]
+atlas = ExtResource("3_ggnut")
+region = Rect2(25, 0, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m42j"]
+atlas = ExtResource("3_ggnut")
+region = Rect2(0, 32, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cak6"]
+atlas = ExtResource("3_ggnut")
+region = Rect2(25, 32, 25, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_h1fh0"]
 animations = [{
 "frames": [{
@@ -41,6 +92,57 @@ animations = [{
 "loop": true,
 "name": &"move_down",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbu30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06y4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ppks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lduxk")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7msx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps8jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7r5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyvtg")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e45p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svohn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m42j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cak6")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 6.0
 }]
 
 [node name="Player_Dwarf" type="CharacterBody2D"]
@@ -55,9 +157,8 @@ shape = SubResource("RectangleShape2D_yok8o")
 texture_filter = 1
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_h1fh0")
-animation = &"move_down"
-frame = 3
-frame_progress = 0.0673568
+animation = &"move_left"
+frame_progress = 0.700822
 
 [node name="Projectiles" type="Node" parent="."]
 script = ExtResource("3_ys5ct")

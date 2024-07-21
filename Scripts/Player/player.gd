@@ -11,9 +11,11 @@ func _physics_process(delta: float) -> void:
 	
 	if inputDirection.x > 0:
 		#Check if player is moving right
+		_animated_sprite.play("move_right")
 		direction = inputDirection
 	elif inputDirection.x < 0:
 		#Check if player is moving left
+		_animated_sprite.play("move_left")
 		direction = inputDirection
 	elif inputDirection.y > 0:
 		#Check if player is moving down
@@ -21,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		direction = inputDirection
 	elif inputDirection.y < 0:
 		#Check if player is moving up
-		get_node("Dwarf Model").frame = 0
+		_animated_sprite.play("move_up")
 		direction = inputDirection
 	else:
 		_animated_sprite.stop()
