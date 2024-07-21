@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmgklo6k1rswy"
-path="res://.godot/imported/Melee_Shadow.png-64c62fb3b97ec8c67b6579f3ce5531f8.ctex"
+path="res://.godot/imported/Melee_Shadow.png-1ead12f107f4a06c91f056724ce2a1bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Melee_Shadow.png"
-dest_files=["res://.godot/imported/Melee_Shadow.png-64c62fb3b97ec8c67b6579f3ce5531f8.ctex"]
+source_file="res://Assets/ai/Melee_Shadow.png"
+dest_files=["res://.godot/imported/Melee_Shadow.png-1ead12f107f4a06c91f056724ce2a1bd.ctex"]
 
 [params]
 
