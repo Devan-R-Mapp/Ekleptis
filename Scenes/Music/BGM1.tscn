@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://crwptb0uciiwa"]
+
+[ext_resource type="AudioStream" uid="uid://247hi1nd07dn" path="res://Assets/Music/LOVR theme sketch.wav" id="1_21fqq"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_21fqq")
+autoplay = true

@@ -15,6 +15,10 @@ config/description="A Tower Defense Concerning Cauldrons and Shadows"
 run/main_scene="res://Scenes/Menus/main_menu.tscn"
 config/features=PackedStringArray("4.2")
 
+[autoload]
+
+Bgm1="*res://Scenes/Music/BGM1.tscn"
+
 [display]
 
 window/size/viewport_width=576
