@@ -33,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 		_animated_sprite.play("move_up")
 		direction = inputDirection
 	else:
-		_animated_sprite.stop()
+		_animated_sprite.play("Idle")
 	velocity = inputDirection * speed
 	move_and_slide()
 	
