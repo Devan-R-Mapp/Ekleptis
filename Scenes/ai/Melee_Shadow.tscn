@@ -1,12 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://gkuf5wh6k03d"]
+
 [ext_resource type="Script" path="res://Scripts/ai/Melee_Shadow.gd" id="1_ro8b6"]
 [ext_resource type="Texture2D" uid="uid://cmgklo6k1rswy" path="res://Assets/ai/Melee_Shadow.png" id="2_kngvg"]
 [ext_resource type="Script" path="res://Scripts/ai/aiprojectilePool.gd" id="3_h324o"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrwx4"]
 size = Vector2(31, 30)
-
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rni2y"]
 bg_color = Color(0.6, 0, 0, 1)
@@ -56,4 +55,3 @@ autostart = true
 
 [connection signal="body_entered" from="Player Detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="timeout" from="Shoot Bullet" to="." method="_on_shoot_bullet_timeout"]
-
