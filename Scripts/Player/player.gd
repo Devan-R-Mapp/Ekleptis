@@ -16,6 +16,7 @@ func _physics_process(_delta: float) -> void:
 	elif inputDirection.x < 0:
 		#Check if player is moving left
 		_animated_sprite.play("move_left")
+
 		direction = inputDirection
 	elif inputDirection.y > 0:
 		#Check if player is moving down
