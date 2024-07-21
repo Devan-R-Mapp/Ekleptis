@@ -6,7 +6,7 @@ var direction: Vector2 = Vector2(0,1)
 @onready var _animated_sprite = $"Dwarf Model"
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var inputDirection: Vector2 = Vector2(Input.get_axis("Left", "Right"),Input.get_axis("Up", "Down")).normalized()
 	
 	if inputDirection.x > 0:

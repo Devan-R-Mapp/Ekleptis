@@ -6,7 +6,7 @@ var isMob = true
 @onready var cauldron: Node = get_node("../../Cauldron")
 @onready var sprite: Sprite2D = get_node("MeleeShadow")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	if isAlive:
 		var direction: Vector2 = (cauldron.global_position - self.global_position).normalized()

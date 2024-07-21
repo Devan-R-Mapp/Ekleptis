@@ -1,6 +1,6 @@
 extends Node2D
 
-var mobScene: PackedScene = preload("res://Scenes/Melee_Shadow.tscn")
+var mobScene: PackedScene = preload("res://Scenes/ai/Melee_Shadow.tscn")
 var poolSize: int = 15
 var mob_pool: Array = []
 @onready var timer: Timer = $Timer

@@ -157,8 +157,7 @@ shape = SubResource("RectangleShape2D_yok8o")
 texture_filter = 1
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_h1fh0")
-animation = &"move_left"
-frame_progress = 0.700822
+animation = &"move_down"
 
 [node name="Projectiles" type="Node" parent="."]
 script = ExtResource("3_ys5ct")
