@@ -23,11 +23,13 @@ func fire():
 		var projectileTemp = magazine.get_projectile()
 		var mouse_position = get_global_mouse_position()
 		var barrel_position = barrel.global_position
-		var lookDirection = (mouse_position - barrel_position).normalized()
-		projectileTemp.velocity = lookDirection * projectile_speed
+		var look_direction = (mouse_position - barrel_position).normalized()
+		var angle = look_direction.angle()
+		var radAngle = atan2(look_direction.y, look_direction.x)
+		projectileTemp.rotation_degrees = rad_to_deg(radAngle)+90
+		projectileTemp.velocity = look_direction * projectile_speed
 		projectileTemp.global_position = barrel_position
 		projectileTemp.show()
-		pass
 		
 func _on_Area2D_body_entered(body):
 	if body.name == "Player" and onGround:  # Ensure you are checking for the player

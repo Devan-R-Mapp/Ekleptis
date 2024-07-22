@@ -52,7 +52,7 @@ func update_spawn_point_position_and_rotation():
 		spawn_point.global_position = player_position + direction * spawn_distance
 	
 func handle_firing():
-	if Input.is_action_just_pressed("Fire"):
+	if Input.is_action_just_pressed("Fire") and weapon == null:
 		var projectileTemp = projectile_pool.get_projectile()
 		var mouse_position = get_global_mouse_position()
 		var spawn_position = spawn_point.global_position

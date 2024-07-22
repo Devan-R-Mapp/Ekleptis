@@ -3,13 +3,15 @@ extends CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$despawnTime.autostart = true
+	$despawnTime.wait_time = 1.0
+	
+	# Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	self.rotation += .20
-	move_and_slide()
+		move_and_slide()
 
 
 func _on_damage_box_body_entered(body):
@@ -18,3 +20,8 @@ func _on_damage_box_body_entered(body):
 			body.reset_mob(body)
 			get_parent().reset_projectile(self)
 		
+
+
+func _on_despawn_time_timeout():
+	get_parent().reset_projectile(self)
+

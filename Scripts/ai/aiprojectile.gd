@@ -16,5 +16,11 @@ func _on_damage_box_body_entered(body):
 	if "Player" in body.name:
 		if visible and body.visible:
 			Game.playerHP -= 1
-			get_parent().reset_bullet(self)
+			get_parent().reset_projectile(self)
 		
+
+
+func _on_despawn_timer_timeout():
+	##TODO WHY WONT THIS KILL THE PROJECTILE
+	get_parent().reset_projectile(self)
+
