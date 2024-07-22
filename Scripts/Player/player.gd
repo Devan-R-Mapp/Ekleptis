@@ -4,6 +4,7 @@ var speed: int = 225
 var direction: Vector2 = Vector2(0,1)
 var projectile_speed = 500
 var spawn_distance = 30
+@onready var weapon = $MainWeaponSlot
 @onready var projectile_pool = $Projectiles
 @onready var _animated_sprite = $"Dwarf Model"
 @onready var spawn_point = $SpawnPoint
@@ -37,6 +38,8 @@ func _physics_process(_delta: float) -> void:
 	velocity = inputDirection * speed
 	move_and_slide()
 	
+func pick_up_weapon():
+		pass
 
 func update_spawn_point_position_and_rotation():
 		var mouse_position = get_global_mouse_position()
@@ -49,7 +52,7 @@ func update_spawn_point_position_and_rotation():
 		spawn_point.global_position = player_position + direction * spawn_distance
 	
 func handle_firing():
-	if Input.is_action_just_pressed("Fire"):
+	if Input.is_action_just_pressed("Fire") and (weapon == null) :
 		var projectileTemp = projectile_pool.get_projectile()
 		var mouse_position = get_global_mouse_position()
 		var spawn_position = spawn_point.global_position
@@ -57,5 +60,7 @@ func handle_firing():
 		projectileTemp.velocity = lookDirection * projectile_speed
 		projectileTemp.global_position = spawn_position
 		projectileTemp.show()
-		
+	else: 
+		#weapon.fire()
+		pass
 
