@@ -1,15 +1,71 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhpugiw0bq6b4"]
+[gd_scene load_steps=11 format=3 uid="uid://bhpugiw0bq6b4"]
 
 [ext_resource type="Texture2D" uid="uid://dvtom1aytyjln" path="res://Assets/Map Assets/Cauldron.png" id="1_bpcrg"]
+[ext_resource type="Script" path="res://Scenes/Cauldron/Cauldron.gd" id="1_fbqtg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2if5"]
+atlas = ExtResource("1_bpcrg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scirv"]
+atlas = ExtResource("1_bpcrg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra1p7"]
+atlas = ExtResource("1_bpcrg")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahm0h"]
+atlas = ExtResource("1_bpcrg")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5evcf"]
+atlas = ExtResource("1_bpcrg")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trcpp"]
+atlas = ExtResource("1_bpcrg")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tjtof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2if5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scirv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra1p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahm0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5evcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trcpp")
+}],
+"loop": true,
+"name": &"bubling",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlwrt"]
 radius = 17.0
 
 [node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(21, 31)
+script = ExtResource("1_fbqtg")
 
-[node name="Cauldron" type="Sprite2D" parent="."]
+[node name="Cauldron" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(2, -9)
-texture = ExtResource("1_bpcrg")
+sprite_frames = SubResource("SpriteFrames_tjtof")
+animation = &"bubling"
+frame_progress = 0.223691
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -9)
