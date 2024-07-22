@@ -11,6 +11,7 @@ var onGround = true
 
 func _process(delta):
 	fire()
+	
 
 func _ready():
 	pick_up_label.visible = false

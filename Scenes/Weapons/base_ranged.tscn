@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdsclcavhtlru"]
+
+[ext_resource type="Texture2D" uid="uid://drjrupl35kfvu" path="res://Assets/Weapons/basic_ranged.png" id="1_gxony"]
+[ext_resource type="Script" path="res://Scripts/Weapons/base_ranged.gd" id="1_tfi8x"]
+
+[node name="base_ranged" type="Node2D"]
+script = ExtResource("1_tfi8x")
+
+[node name="basic_bow" type="Sprite2D" parent="."]
+texture = ExtResource("1_gxony")
+
+[node name="barrel" type="Marker2D" parent="."]
+position = Vector2(10, 0)
+
+[node name="handle" type="Marker2D" parent="."]
+position = Vector2(-4, 0)

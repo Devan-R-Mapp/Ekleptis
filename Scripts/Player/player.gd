@@ -10,6 +10,8 @@ var spawn_distance = 30
 @onready var spawn_point = $SpawnPoint
 @onready var player = $"."
 @onready var ring_sprite = $AimRing
+var mouse_position
+var player_position
 
 func _process(delta):
 	update_spawn_point_position_and_rotation()
@@ -37,13 +39,11 @@ func _physics_process(_delta: float) -> void:
 		_animated_sprite.play("Idle")
 	velocity = inputDirection * speed
 	move_and_slide()
-	
-func pick_up_weapon():
-		pass
+
 
 func update_spawn_point_position_and_rotation():
-		var mouse_position = get_global_mouse_position()
-		var player_position = player.global_position
+		mouse_position = get_global_mouse_position()
+		player_position = player.global_position
 		var direction = (mouse_position - player_position).normalized()
 		var angle = direction.angle()
 		var radAngle = atan2(direction.y, direction.x)
@@ -52,7 +52,7 @@ func update_spawn_point_position_and_rotation():
 		spawn_point.global_position = player_position + direction * spawn_distance
 	
 func handle_firing():
-	if Input.is_action_just_pressed("Fire") and (weapon == null) :
+	if Input.is_action_just_pressed("Fire"):
 		var projectileTemp = projectile_pool.get_projectile()
 		var mouse_position = get_global_mouse_position()
 		var spawn_position = spawn_point.global_position

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://x3vbgo5v0u05"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/basicWand.gd" id="1_dp055"]
+[ext_resource type="Script" path="res://Scripts/Weapons/basicWand/basicWand.gd" id="1_wggpw"]
 [ext_resource type="Texture2D" uid="uid://yc2mm0jqu7oa" path="res://Assets/Weapons/Basic_Wand.png" id="2_ycfcy"]
 [ext_resource type="Script" path="res://Scripts/Player/projectilePool.gd" id="3_27kca"]
 
@@ -8,7 +8,7 @@
 radius = 38.0132
 
 [node name="BasicWand" type="Node2D"]
-script = ExtResource("1_dp055")
+script = ExtResource("1_wggpw")
 
 [node name="pick" type="Area2D" parent="."]
 collision_layer = 0
