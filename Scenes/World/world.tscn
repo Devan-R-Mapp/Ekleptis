@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bedmwjr2wdjui"]
+[gd_scene load_steps=13 format=3 uid="uid://bedmwjr2wdjui"]
 
 [ext_resource type="Script" path="res://Scripts/world/world.gd" id="1_04y0u"]
 [ext_resource type="Texture2D" uid="uid://ctoevlayqyeju" path="res://Assets/Map Assets/Center.png" id="1_bo05i"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bb3mfckyrdi4c" path="res://Scenes/Menus/pause_menu.tscn" id="5_vawud"]
 [ext_resource type="Script" path="res://Scripts/ai/MobPooling.gd" id="6_wd7yn"]
 [ext_resource type="Texture2D" uid="uid://btrbnvuu0m6sv" path="res://Assets/Map Assets/Portal.png" id="7_lbbqj"]
+[ext_resource type="PackedScene" uid="uid://x3vbgo5v0u05" path="res://Scenes/Weapons/basicWand.tscn" id="9_vlr1r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o5n5"]
 texture = ExtResource("1_bo05i")
@@ -62,5 +63,8 @@ texture = ExtResource("7_lbbqj")
 
 [node name="Timer" type="Timer" parent="EkleptisSpawner"]
 autostart = true
+
+[node name="BasicWand" parent="." instance=ExtResource("9_vlr1r")]
+position = Vector2(222, 43)
 
 [connection signal="timeout" from="EkleptisSpawner/Timer" to="EkleptisSpawner" method="_on_timer_timeout"]
