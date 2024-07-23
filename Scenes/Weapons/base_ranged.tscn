@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdsclcavhtlru"]
 
-[ext_resource type="Texture2D" uid="uid://drjrupl35kfvu" path="res://Assets/Weapons/basic_ranged.png" id="1_gxony"]
+[ext_resource type="Texture2D" uid="uid://drjrupl35kfvu" path="res://Assets/weapons_assets/basic_ranged.png" id="1_gxony"]
 [ext_resource type="Script" path="res://Scripts/Weapons/base_ranged.gd" id="1_tfi8x"]
 
 [node name="base_ranged" type="Node2D"]

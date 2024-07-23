@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://x3vbgo5v0u05"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/basicWand/basicWand.gd" id="1_wggpw"]
-[ext_resource type="Texture2D" uid="uid://yc2mm0jqu7oa" path="res://Assets/Weapons/Basic_Wand.png" id="2_ycfcy"]
-[ext_resource type="Script" path="res://Scripts/Player/projectilePool.gd" id="3_27kca"]
+[ext_resource type="Texture2D" uid="uid://yc2mm0jqu7oa" path="res://Assets/weapons_assets/Basic_Wand.png" id="2_ycfcy"]
+[ext_resource type="Script" path="res://Scripts/Weapons/basicWand/basicWandProjectilePool.gd" id="3_j6wi4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8jv3"]
 radius = 38.0132
@@ -30,7 +30,7 @@ offset_bottom = -14.0
 text = "<Map_input>"
 
 [node name="Magazine" type="Node" parent="."]
-script = ExtResource("3_27kca")
+script = ExtResource("3_j6wi4")
 
 [node name="Barrel" type="Marker2D" parent="."]
 position = Vector2(15, -6)

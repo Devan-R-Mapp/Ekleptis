@@ -3,9 +3,7 @@ extends CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$despawnTime.autostart = true
-	$despawnTime.wait_time = 1.0
-	
+	pass
 	# Replace with function body.
 
 

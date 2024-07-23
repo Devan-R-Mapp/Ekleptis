@@ -7,9 +7,11 @@ var spawn_distance = 30
 @onready var magazine = $Magazine
 @onready var barrel = $Barrel
 @onready var player = $"."
+@onready var player_spawn_point = get_parent().get_node("../SpawnPoint")
 var onGround = true
 
 func _process(delta):
+	$Barrel.global_position = player_spawn_point.global_position
 	fire()
 	
 

@@ -2,16 +2,16 @@ extends CharacterBody2D
 
 var speed: int = 225
 var direction: Vector2 = Vector2(0,1)
-var projectile_speed = 500
+
 var spawn_distance = 30
-@onready var weapon = $MainWeaponSlot
-@onready var projectile_pool = $Projectiles
+
 @onready var _animated_sprite = $"Dwarf Model"
-@onready var spawn_point = $SpawnPoint
+
 @onready var player = $"."
 @onready var ring_sprite = $AimRing
 var mouse_position
 var player_position
+@onready var spawn_point = $SpawnPoint
 
 func _process(delta):
 	update_spawn_point_position_and_rotation()
@@ -52,15 +52,9 @@ func update_spawn_point_position_and_rotation():
 		spawn_point.global_position = player_position + direction * spawn_distance
 	
 func handle_firing():
-	if Input.is_action_just_pressed("Fire") and weapon == null:
-		var projectileTemp = projectile_pool.get_projectile()
-		var mouse_position = get_global_mouse_position()
-		var spawn_position = spawn_point.global_position
-		var lookDirection = (mouse_position - spawn_position).normalized()
-		projectileTemp.velocity = lookDirection * projectile_speed
-		projectileTemp.global_position = spawn_position
-		projectileTemp.show()
-	else: 
-		#weapon.fire()
+		if Input.is_action_just_pressed("Fire"):
+			$weapon_main_slot/BasicWand.fire()
+			print("parent")
+			print(str(spawn_point.global_position))
 		pass
 
