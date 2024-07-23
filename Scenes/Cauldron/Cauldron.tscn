@@ -65,7 +65,7 @@ texture_filter = 1
 position = Vector2(2, -9)
 sprite_frames = SubResource("SpriteFrames_tjtof")
 animation = &"bubling"
-frame_progress = 0.223691
+frame_progress = 0.706183
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -9)
