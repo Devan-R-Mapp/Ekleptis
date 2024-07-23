@@ -23,4 +23,3 @@ func _on_damage_box_body_entered(body):
 func _on_despawn_timer_timeout():
 	##TODO WHY WONT THIS KILL THE PROJECTILE
 	get_parent().reset_projectile(self)
-
