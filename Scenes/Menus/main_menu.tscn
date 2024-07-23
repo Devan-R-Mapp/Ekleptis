@@ -1,17 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfta4ekrjwqy1"]
+[gd_scene load_steps=3 format=3 uid="uid://cfta4ekrjwqy1"]
 
 [ext_resource type="Script" path="res://Scripts/menus/mainMenu.gd" id="1_y20c5"]
+[ext_resource type="Texture2D" uid="uid://ck1heogc4q2h1" path="res://Assets/UI/logo.png" id="2_2ucoi"]
 
 [node name="mainMenu" type="Node2D"]
 script = ExtResource("1_y20c5")
 
-[node name="LineEdit" type="LineEdit" parent="."]
-offset_left = 176.0
-offset_top = 1.0
-offset_right = 375.0
-offset_bottom = 77.0
-text = "EKLIPTIS"
-alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(286, 161)
+texture = ExtResource("2_2ucoi")
 
 [node name="buttonManager" type="Control" parent="."]
 layout_mode = 3
@@ -21,26 +18,26 @@ offset_bottom = 40.0
 
 [node name="start" type="Button" parent="buttonManager"]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 97.0
-offset_right = 375.0
-offset_bottom = 159.0
+offset_left = 150.0
+offset_top = 284.0
+offset_right = 220.0
+offset_bottom = 315.0
 text = "Start"
 
 [node name="options" type="Button" parent="buttonManager"]
 layout_mode = 0
-offset_left = 177.0
-offset_top = 175.0
-offset_right = 376.0
-offset_bottom = 237.0
+offset_left = 249.0
+offset_top = 284.0
+offset_right = 319.0
+offset_bottom = 315.0
 text = "Options"
 
 [node name="quit" type="Button" parent="buttonManager"]
 layout_mode = 0
-offset_left = 177.0
-offset_top = 254.0
-offset_right = 376.0
-offset_bottom = 316.0
+offset_left = 355.0
+offset_top = 284.0
+offset_right = 427.0
+offset_bottom = 315.0
 text = "Quit"
 
 [connection signal="pressed" from="buttonManager/start" to="." method="_on_start_pressed"]
