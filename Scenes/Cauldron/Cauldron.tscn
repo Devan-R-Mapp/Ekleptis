@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhpugiw0bq6b4"]
+[gd_scene load_steps=13 format=3 uid="uid://bhpugiw0bq6b4"]
 
 [ext_resource type="Texture2D" uid="uid://dvtom1aytyjln" path="res://Assets/Map Assets/Cauldron.png" id="1_bpcrg"]
 [ext_resource type="Script" path="res://Scenes/Cauldron/Cauldron.gd" id="1_fbqtg"]
@@ -54,13 +54,19 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mlwrt"]
-radius = 17.0
+radius = 20.0
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d4xi"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upkvl"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="Cauldron" type="StaticBody2D"]
 position = Vector2(21, 31)
 script = ExtResource("1_fbqtg")
 
-[node name="Cauldron" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2, -9)
 sprite_frames = SubResource("SpriteFrames_tjtof")
@@ -70,3 +76,13 @@ frame_progress = 0.706183
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -9)
 shape = SubResource("CircleShape2D_mlwrt")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -19.0
+offset_top = -40.0
+offset_right = 23.0
+offset_bottom = -30.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0d4xi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_upkvl")
+value = 50.0
+show_percentage = false
