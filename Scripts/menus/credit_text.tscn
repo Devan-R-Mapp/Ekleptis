@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfyk44uih1326"]
+
+[ext_resource type="Script" path="res://credit_scroll.gd" id="1_pv0xe"]
+
+[node name="credit_text" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 157.0
+offset_top = 78.0
+offset_right = 438.0
+offset_bottom = 218.0
+script = ExtResource("1_pv0xe")

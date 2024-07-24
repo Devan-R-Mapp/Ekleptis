@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmwrqtb83qija"]
 
-[ext_resource type="Script" path="res://Scenes/Menus/game_over.gd" id="1_8b0yo"]
+[ext_resource type="Script" path="res://Scripts/menus/game_over.gd" id="1_8b0yo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7f1jx"]
 font_size = 83
@@ -11,7 +11,7 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.984314)
 shadow_offset = Vector2(-5, -1)
 
-[node name="Control" type="Control"]
+[node name="game_over_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
