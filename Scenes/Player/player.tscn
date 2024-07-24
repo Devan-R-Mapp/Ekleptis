@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4g23qj8aj5v8" path="res://Assets/Character/dwarf_left_spritesheet.png" id="3_qr16r"]
 [ext_resource type="Texture2D" uid="uid://lt04vyupkfg3" path="res://Assets/Character/dwarf_right_spritesheet.png" id="4_1irpe"]
 [ext_resource type="Texture2D" uid="uid://bgmu3n2kv1x4p" path="res://Assets/Character/aimRing.png" id="7_idatf"]
-[ext_resource type="PackedScene" uid="uid://x3vbgo5v0u05" path="res://Scenes/Weapons/basicWand.tscn" id="8_tnw08"]
+[ext_resource type="PackedScene" uid="uid://x3vbgo5v0u05" path="res://Scenes/weapons_scenes/basicWand.tscn" id="8_tnw08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yok8o"]
 size = Vector2(22, 23)
