@@ -18,8 +18,6 @@ config/features=PackedStringArray("4.2")
 [autoload]
 
 Game="*res://Scripts/Player/game.gd"
-Bgm1="*res://Scenes/Music/BGM1.tscn"
-<<<<<<<HEADBgm1="*res://Scenes/Music/BGM1.tscn"
 
 [display]
 
