@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1cjyvo6yrxx2"]
+
+[ext_resource type="Script" path="res://Scripts/ai/boss1projectile.gd" id="1_282oi"]
+[ext_resource type="Texture2D" uid="uid://dnl00grs40iat" path="res://Assets/Projectiles/Boss_rock.png" id="2_pn24l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8npt"]
+radius = 18.0
+
+[node name="Projectile" type="CharacterBody2D"]
+position = Vector2(266, 124)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_282oi")
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(-0.372589, -1.37258)
+rotation = -0.785398
+texture = ExtResource("2_pn24l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.372589, -0.372581)
+shape = SubResource("CircleShape2D_l8npt")
+
+[node name="Damage Box" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Damage Box"]
+position = Vector2(10, 13)
+scale = Vector2(4.07639, 4.07639)
+polygon = PackedVector2Array(-0.490631, 0.245316, -3.43441, 0.735947, -5.39693, -0.490629, -6.62351, -2.20784, -6.62351, -4.41567, -5.64225, -6.37819, -3.43441, -7.60477, -1.47189, -7.60477, 0.245316, -6.62351, 1.71721, -4.41567, 1.47189, -1.71721)
+
+[node name="despawn_timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="body_entered" from="Damage Box" to="." method="_on_damage_box_body_entered"]
+[connection signal="timeout" from="despawn_timer" to="." method="_on_despawn_timer_timeout"]

@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 var isAlive = true
+var has_rock = 3
 var isMob = true
 var speed = 10
 var health = 5
 
 @onready var cauldron: Node = get_node("../../Cauldron")
+@onready var player: Node = get_node("../../Player")
 @onready var sprite: Sprite2D = get_node("Sprite")
 @onready var projectile_pool = $Projectiles
 @onready var bar = $ProgressBar
@@ -42,11 +44,10 @@ func _on_shoot_bullet_timeout():
 	pass # Replace with function body.
 
 func shoot_projectile()-> void:
-	if self.isAlive:
-
+	if self.isAlive and has_rock >= 0:
 		var projectileTemp = projectile_pool.get_projectile()
 		var direction: Vector2 = (cauldron.global_position - self.global_position).normalized()
-		projectileTemp.velocity = direction * 500
+		projectileTemp.velocity = direction * 250
 		projectileTemp.global_position = $SpawnPoint.global_position
 		projectileTemp.show()
-
+		has_rock =- 1

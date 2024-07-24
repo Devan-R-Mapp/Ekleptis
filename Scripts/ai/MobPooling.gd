@@ -2,14 +2,17 @@ extends Node2D
 
 var mobScene: PackedScene = preload("res://Scenes/ai/ai_mobs/Melee_Shadow.tscn")
 var bossScene: PackedScene = preload("res://Scenes/ai/ai_mobs/boss.tscn")
-var poolSize: int = 1
+var poolSize: int = 5
 var mob_pool: Array = []
 var total_spawned_mobs: int = 0
 var boss_spawned = false
+var boss: Node = bossScene.instantiate()
 
 @onready var timer: Timer = $Timer
 
-
+func _process(_delta):
+	self_destruct()
+	
 func _ready() -> void:
 	for i in range(poolSize):
 		var mobTemp: Node = mobScene.instantiate()
@@ -39,8 +42,8 @@ func reset_mob(mob: Node) -> void:
 func _on_timer_timeout() -> void:
 	if total_spawned_mobs <= poolSize:
 		var mobTemp: Node = get_mob()
-		var randX = randi_range(-50,50)
-		var randY = randi_range(-50,50)
+		var randX = randi_range(-5,5)
+		var randY = randi_range(-5,5)
 		mobTemp.global_position = self.global_position + Vector2(randX,randY)
 		mobTemp.show()
 		print("mobs called = " + str(total_spawned_mobs))
@@ -49,10 +52,15 @@ func _on_timer_timeout() -> void:
 		timer.stop()
 		spawn_boss()
 	
+
 func spawn_boss() -> void:
-	var boss: Node = bossScene.instantiate()
+
 	add_child(boss)
 	boss.global_position = self.global_position  # Set the boss position
 	boss_spawned = true  # Mark the boss as spawned
 	
+func self_destruct():
+	if !boss.isAlive and mob_pool.size() <= 0:
+		get_tree().change_scene_to_file("res://Scenes/Menus/game_over.tscn")
+		boss_spawned = false
 		
