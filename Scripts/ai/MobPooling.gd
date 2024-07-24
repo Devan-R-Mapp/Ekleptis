@@ -2,14 +2,16 @@ extends Node2D
 
 var mobScene: PackedScene = preload("res://Scenes/ai/ai_mobs/Melee_Shadow.tscn")
 var bossScene: PackedScene = preload("res://Scenes/ai/ai_mobs/boss.tscn")
-var poolSize: int = 1
+var poolSize: int = 5
 var mob_pool: Array = []
 var total_spawned_mobs: int = 0
 var boss_spawned = false
 
 @onready var timer: Timer = $Timer
 
-
+func _process(delta):
+	self_destruct()
+	
 func _ready() -> void:
 	for i in range(poolSize):
 		var mobTemp: Node = mobScene.instantiate()
@@ -55,4 +57,6 @@ func spawn_boss() -> void:
 	boss.global_position = self.global_position  # Set the boss position
 	boss_spawned = true  # Mark the boss as spawned
 	
-		
+func self_destruct():
+	if !bossScene.isAlive and boss_spawned == false:
+		pass
