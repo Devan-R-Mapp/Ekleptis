@@ -3,7 +3,9 @@ extends Node2D
 @onready var pause_menu = $Player/pauseMenu
 var paused = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
+
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
@@ -11,11 +13,11 @@ func _process(_delta):
 func pauseMenu():
 	if paused:
 		pause_menu.hide()
-		Engine.time_scale = 1
+		get_tree().paused = false
 	else:
 		pause_menu.show()
-		Engine.time_scale = 0
+		get_tree().paused = true
 	
 	paused = !paused
 	
-##:)
+
