@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://x3vbgo5v0u05"]
+
+[ext_resource type="Script" path="res://Scripts/weapons_scripts/basicWand/basicWand.gd" id="1_wggpw"]
+[ext_resource type="Texture2D" uid="uid://yc2mm0jqu7oa" path="res://Assets/weapons_assets/Basic_Wand.png" id="2_ycfcy"]
+[ext_resource type="Script" path="res://Scripts/Weapons/basicWand/basicWandProjectilePool.gd" id="3_p2xpa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8jv3"]
+radius = 38.0132
+
+[node name="BasicWand" type="Node2D"]
+position = Vector2(227, 148)
+script = ExtResource("1_wggpw")
+
+[node name="pick_up_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area"]
+shape = SubResource("CircleShape2D_o8jv3")
+
+[node name="BasicWand" type="Sprite2D" parent="."]
+position = Vector2(0, -1.19209e-07)
+scale = Vector2(1.375, 1.42969)
+texture = ExtResource("2_ycfcy")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -31.0
+offset_top = -37.0
+offset_right = 70.0
+offset_bottom = -14.0
+text = "<Map_input>"
+metadata/_edit_use_anchors_ = true
+
+[node name="Magazine" type="Node" parent="."]
+script = ExtResource("3_p2xpa")
+
+[node name="Barrel" type="Marker2D" parent="."]
+position = Vector2(15, -6)
+
+[node name="Handle" type="Marker2D" parent="."]
+position = Vector2(-18, 13)
+
+[connection signal="body_entered" from="pick_up_area" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="pick_up_area" to="." method="_on_Area2D_body_exited"]
