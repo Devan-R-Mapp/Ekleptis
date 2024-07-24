@@ -10,6 +10,10 @@ var health = 5
 @onready var projectile_pool = $Projectiles
 @onready var bar = $ProgressBar
 
+func _ready():
+	bar.max_value = health
+	print(get_parent())
+
 func _physics_process(delta: float) -> void:
 	if isAlive:
 		bar.value = health
@@ -26,4 +30,23 @@ func _physics_process(delta: float) -> void:
 		sprite.hide()
 		bar.hide()
 		
+func reset_mob(body: Node)-> void:
+	if health > 1:
+		health -= 1
+	else:
+		isAlive = false
+		get_parent().reset_mob(body)
+		
+func _on_shoot_bullet_timeout():
+	shoot_projectile()
+	pass # Replace with function body.
+
+func shoot_projectile()-> void:
+	if self.isAlive:
+
+		var projectileTemp = projectile_pool.get_projectile()
+		var direction: Vector2 = (cauldron.global_position - self.global_position).normalized()
+		projectileTemp.velocity = direction * 500
+		projectileTemp.global_position = $SpawnPoint.global_position
+		projectileTemp.show()
 

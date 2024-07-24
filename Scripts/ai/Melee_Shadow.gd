@@ -49,8 +49,6 @@ func _on_player_detection_body_entered(body: Node2D):
 			Game.cauldronHP -= 1
 			
 		
-
-
 func _on_shoot_bullet_timeout():
 	shoot_projectile()
 	pass # Replace with function body.

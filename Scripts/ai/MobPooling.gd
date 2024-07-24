@@ -5,6 +5,8 @@ var bossScene: PackedScene = preload("res://Scenes/ai/boss.tscn")
 var poolSize: int = 1
 var mob_pool: Array = []
 var total_spawned_mobs: int = 0
+var boss_spawned = false
+
 @onready var timer: Timer = $Timer
 
 
@@ -44,8 +46,13 @@ func _on_timer_timeout() -> void:
 		print("mobs called = " + str(total_spawned_mobs))
 		total_spawned_mobs += 1
 	else:
-		var boss_temp: Node = bossScene.instantiate()
-		boss_temp.show()
 		timer.stop()
+		spawn_boss()
 	
-
+func spawn_boss() -> void:
+	var boss: Node = bossScene.instantiate()
+	add_child(boss)
+	boss.global_position = self.global_position  # Set the boss position
+	boss_spawned = true  # Mark the boss as spawned
+	
+		
