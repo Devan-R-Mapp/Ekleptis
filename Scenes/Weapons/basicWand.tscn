@@ -1,11 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://x3vbgo5v0u05"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/basicWand/basicWand.gd" id="1_wggpw"]
-[ext_resource type="Texture2D" uid="uid://yc2mm0jqu7oa" path="res://Assets/weapons_assets/Basic_Wand.png" id="2_ycfcy"]
 [ext_resource type="Script" path="res://Scripts/Weapons/basicWand/basicWandProjectilePool.gd" id="3_j6wi4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8jv3"]
 radius = 38.0132
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_exb5r"]
+load_path = "res://.godot/imported/Basic_Wand.png-b934c00de40b315f5289c020987b929a.ctex"
 
 [node name="BasicWand" type="Node2D"]
 position = Vector2(99, 74)
@@ -20,7 +22,7 @@ shape = SubResource("CircleShape2D_o8jv3")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -1.19209e-07)
-texture = ExtResource("2_ycfcy")
+texture = SubResource("CompressedTexture2D_exb5r")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -31.0
