@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends Label
 
 var credit_text = [
 	"Developed by:\n\"Just Us Department\"",
@@ -27,7 +27,7 @@ func text_scroll(input_text: String) -> void:
 	visible_characters = 0
 	text = input_text
 	
-	for i in get_parsed_text():
+	for i in text.length():
 		visible_characters += 1
 		await get_tree().create_timer(0.1).timeout
 

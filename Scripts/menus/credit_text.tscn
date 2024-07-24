@@ -1,12 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfyk44uih1326"]
+[gd_scene load_steps=3 format=3 uid="uid://cfyk44uih1326"]
 
+[ext_resource type="Script" path="res://Scripts/menus/credit_text.gd" id="1_7gjhp"]
 [ext_resource type="Script" path="res://credit_scroll.gd" id="1_pv0xe"]
 
 [node name="credit_text" type="Node2D"]
+script = ExtResource("1_7gjhp")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 157.0
-offset_top = 78.0
-offset_right = 438.0
-offset_bottom = 218.0
+[node name="Label" type="Label" parent="."]
+offset_left = 146.0
+offset_top = 43.0
+offset_right = 427.0
+offset_bottom = 183.0
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("1_pv0xe")
+
+[node name="main_menu" type="Button" parent="."]
+offset_left = 237.0
+offset_top = 254.0
+offset_right = 334.0
+offset_bottom = 285.0
+text = "Main Menu"
+
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]
