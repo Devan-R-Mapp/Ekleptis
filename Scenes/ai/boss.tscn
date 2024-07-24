@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxi45ul316odk"]
+
+[ext_resource type="Script" path="res://Scenes/ai/boss.gd" id="1_be22o"]
+[ext_resource type="Texture2D" uid="uid://bgwonn2fau1s0" path="res://Assets/ai/alpha-boss.png" id="2_ruspv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75rpo"]
+size = Vector2(46, 56.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b77l"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6coy"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_be22o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4.25)
+shape = SubResource("RectangleShape2D_75rpo")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ruspv")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -17.0
+offset_top = -30.0
+offset_right = 14.0
+offset_bottom = -26.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1b77l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n6coy")
+value = 50.0
+show_percentage = false

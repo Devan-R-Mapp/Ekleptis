@@ -1,8 +1,10 @@
 extends Node2D
 
 var mobScene: PackedScene = preload("res://Scenes/ai/Melee_Shadow.tscn")
-var poolSize: int = 15
+var bossScene: PackedScene = preload("res://Scenes/ai/boss.tscn")
+var poolSize: int = 1
 var mob_pool: Array = []
+var total_spawned_mobs: int = 0
 @onready var timer: Timer = $Timer
 
 
@@ -15,7 +17,7 @@ func _ready() -> void:
 
 func get_mob()-> Node:
 	for mob in mob_pool:
-		if not mob.visible :
+		if not mob.visible:
 			return mob
 	var new_mob:Node = mobScene.instantiate()
 	new_mob.hide()
@@ -27,13 +29,23 @@ func reset_mob(mob: Node) -> void:
 	mob.position = Vector2(-1000, -1000)
 	mob.get_node("CollisionShape2D").set_deferred("disabled", true)
 	mob.isAlive = false
+	print(mob_pool.size())
+	mob_pool.pop_front()
 	mob.hide()
 
 
 func _on_timer_timeout() -> void:
-	var mobTemp: Node = get_mob()
-	var randX = randi_range(-50,50)
-	var randY = randi_range(-50,50)
-	mobTemp.global_position = self.global_position + Vector2(randX,randY)
-	mobTemp.show()
+	if total_spawned_mobs <= poolSize:
+		var mobTemp: Node = get_mob()
+		var randX = randi_range(-50,50)
+		var randY = randi_range(-50,50)
+		mobTemp.global_position = self.global_position + Vector2(randX,randY)
+		mobTemp.show()
+		print("mobs called = " + str(total_spawned_mobs))
+		total_spawned_mobs += 1
+	else:
+		var boss_temp: Node = bossScene.instantiate()
+		boss_temp.show()
+		timer.stop()
+	
 
