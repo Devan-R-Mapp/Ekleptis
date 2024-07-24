@@ -1,7 +1,7 @@
 extends Label
 
 var credit_text = [
-	"Developed by:\n\"Just Us Department\"",
+	"Credits\nDeveloped by:\n\"Just Us Department\"",
 	"Art by:\nDevan Mapp\nDavid Swanstrom",
 	"Development by:\nDevan Mapp\nDavid Swanstrom",
 	"Music by:\nJames Ferro"

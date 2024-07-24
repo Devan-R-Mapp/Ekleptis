@@ -61,6 +61,6 @@ func spawn_boss() -> void:
 	
 func self_destruct():
 	if !boss.isAlive and mob_pool.size() <= 0:
-		get_tree().change_scene_to_file("res://Scenes/Menus/game_over.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Menus/credit_text.tscn")
 		boss_spawned = false
 		
