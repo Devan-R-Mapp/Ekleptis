@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://cl1b0p8mycxk8" path="res://Assets/Projectiles/Axe.png" id="3_d5xt4"]
 
 [node name="ThrowingAxe" type="Node2D"]
+position = Vector2(92, 42)
 script = ExtResource("1_52fp8")
 
 [node name="Projectiles" type="Node" parent="."]
 script = ExtResource("1_c0eot")
 
 [node name="Barrel" type="Marker2D" parent="."]
-position = Vector2(196, 64)
 
-[node name="Axe" type="Sprite2D" parent="."]
-position = Vector2(193.75, 68.25)
-scale = Vector2(0.484375, 0.484375)
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-2.24998, 4.25001)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_d5xt4")

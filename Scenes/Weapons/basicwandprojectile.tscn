@@ -29,6 +29,7 @@ position = Vector2(-1, 6)
 polygon = PackedVector2Array(-2, -5, -6, 2, -4, -12, 0, -16, 6, -12, 6, -6, 7, 3, 3, -5, 1, 4)
 
 [node name="despawnTime" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 autostart = true
 

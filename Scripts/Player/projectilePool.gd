@@ -1,6 +1,6 @@
 extends Node
 
-var projectileScene: PackedScene = preload("res://Scenes/Player/projectile.tscn")
+var projectileScene: PackedScene = preload("res://Scenes/Player/throwing_axe_projectile.tscn")
 var poolSize: int = 15
 var projectile_pool: Array = []
 
