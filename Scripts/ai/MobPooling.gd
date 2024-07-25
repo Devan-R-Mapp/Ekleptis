@@ -34,7 +34,6 @@ func reset_mob(mob: Node) -> void:
 	mob.position = Vector2(-1000, -1000)
 	mob.get_node("CollisionShape2D").set_deferred("disabled", true)
 	mob.isAlive = false
-	print(mob_pool.size())
 	mob_pool.pop_front()
 	mob.hide()
 
@@ -46,7 +45,6 @@ func _on_timer_timeout() -> void:
 		var randY = randi_range(-5,5)
 		mobTemp.global_position = self.global_position + Vector2(randX,randY)
 		mobTemp.show()
-		print("mobs called = " + str(total_spawned_mobs))
 		total_spawned_mobs += 1
 	else:
 		timer.stop()

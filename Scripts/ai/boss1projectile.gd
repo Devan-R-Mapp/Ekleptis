@@ -14,12 +14,10 @@ func _process(_delta):
 
 func _on_damage_box_body_entered(body):
 	if "Player" in body.name:
-		print("hit player")
 		if visible and body.visible:
 			Game.playerHP -= 5
 			get_parent().reset_projectile(self)
 	if "Cauldron" in body.name:
-		print("hit")
 		if visible and body.visible:
 			Game.cauldronHP -= 10
 			get_parent().reset_projectile(self)
