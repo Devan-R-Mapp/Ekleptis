@@ -9,6 +9,11 @@ var spawn_distance = 30
 @onready var weapon_main_slot = $weapon_main_slot
 var current_weapon: Node2D
 
+#Light Varibles
+@onready var light_slot = $light_slot
+var current_light: Node2D
+var light_offset = Vector2(0, -25)
+
 @onready var _animated_sprite = $"Dwarf Model"
 
 @onready var player = $"."
@@ -24,6 +29,7 @@ func get_radAngle () -> float:
 	
 func _ready () -> void:
 	current_weapon = weapon_main_slot.get_child(0) 
+	current_light = light_slot.get_child(0)
 
 func _physics_process(_delta: float) -> void:
 	player_movement_input_handler()
@@ -32,20 +38,31 @@ func _physics_process(_delta: float) -> void:
 
 func player_movement_input_handler():
 	var inputDirection: Vector2 = Vector2(Input.get_axis("Left", "Right"),Input.get_axis("Up", "Down")).normalized()
+	current_light.global_position = player.global_position + light_offset
+	light_offset = Vector2(0, -25)
 	if inputDirection.x > 0:
 		#Check if player is moving right
+		current_light.z_index = 0
+		light_offset = Vector2(10, -25)
 		_animated_sprite.play("move_right")
 		direction = inputDirection
+		
 	elif inputDirection.x < 0:
 		#Check if player is moving left
+		current_light.z_index = 0
+		light_offset = Vector2(-10, -25)
 		_animated_sprite.play("move_left")
 		direction = inputDirection
 	elif inputDirection.y > 0:
 		#Check if player is moving down
+		current_light.z_index = 0
+		light_offset = Vector2(0, -25)
 		_animated_sprite.play("move_down")
 		direction = inputDirection
 	elif inputDirection.y < 0:
 		#Check if player is moving up
+		current_light.z_index = -1
+		light_offset = Vector2(0, -25)
 		_animated_sprite.play("move_up")
 		direction = inputDirection
 	else:
