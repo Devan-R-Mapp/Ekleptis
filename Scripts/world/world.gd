@@ -1,10 +1,18 @@
 extends Node2D
 
+@onready var player = $Player
+@onready var hud = $HUD
+
+
 @onready var pause_menu = $Player/pauseMenu
 var paused = false
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
+	
+	if !player.collected.is_connected(hud._on_collected):
+		player.collected.connect(hud._on_collected)
+	
 
 func _process(_delta):
 	game_end_conditions()

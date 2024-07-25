@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfyk44uih1326"]
 
 [ext_resource type="Script" path="res://Scripts/menus/credit_text.gd" id="1_7gjhp"]
-[ext_resource type="Script" path="res://credit_scroll.gd" id="1_pv0xe"]
+[ext_resource type="Script" path="res://Scripts/menus/credit_scroll.gd" id="1_pv0xe"]
 
 [node name="credit_text" type="Node2D"]
 script = ExtResource("1_7gjhp")

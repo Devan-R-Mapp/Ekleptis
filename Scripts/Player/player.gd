@@ -1,4 +1,7 @@
 extends CharacterBody2D
+class_name Player
+
+signal collected(ore)
 
 var player_speed: int = 225
 var direction: Vector2
@@ -84,3 +87,6 @@ func update_spawn_point_position_and_rotation():
 func handle_firing():
 		if Input.is_action_just_pressed("Fire"):
 			current_weapon.fire()
+
+func collect(ore):
+	collected.emit(ore)
