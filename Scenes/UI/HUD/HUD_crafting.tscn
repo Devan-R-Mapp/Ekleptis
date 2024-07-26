@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgf3625bvaojg"]
+
+[ext_resource type="Texture2D" uid="uid://bv82sshcqqtk2" path="res://Assets/UI/HUD/inventory.png" id="1_5ov25"]
+[ext_resource type="PackedScene" uid="uid://cekq2o4an2al" path="res://Scenes/UI/HUD/inv_ui_slot.tscn" id="2_ainnm"]
+
+[node name="HUD_crafting" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 418.0
+offset_top = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_5ov25")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="InvUISlot" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="InvUISlot2" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="InvUISlot3" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="InvUISlot4" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="InvUISlot5" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="InvUISlot6" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="InvUISlot7" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="InvUISlot8" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="InvUISlot9" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+layout_mode = 2
+
+[node name="Towers" type="Button" parent="Control/MarginContainer/NinePatchRect"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 3.0
+offset_right = 38.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 7
+text = "Prev
+"
+
+[node name="Weapons" type="Button" parent="Control/MarginContainer/NinePatchRect"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 3.0
+offset_right = 113.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 7
+text = "Next
+"
