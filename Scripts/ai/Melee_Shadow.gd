@@ -44,6 +44,7 @@ func _on_player_detection_body_entered(body: Node2D):
 	if "Player" in body.name:
 		if visible and body.visible:
 			Game.playerHP -= 1
+			
 	if "cauldron" in body.name:
 		if visible and body.visible:
 			Game.cauldronHP -= 1
