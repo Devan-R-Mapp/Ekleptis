@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxi45ul316odk"]
+[gd_scene load_steps=9 format=3 uid="uid://cxi45ul316odk"]
 
 [ext_resource type="Script" path="res://Scripts/ai/boss1.gd" id="1_vbb55"]
 [ext_resource type="Texture2D" uid="uid://bgwonn2fau1s0" path="res://Assets/ai/alpha-boss.png" id="2_k1s8b"]
 [ext_resource type="Script" path="res://Scripts/ai/boss1projectilePool.gd" id="3_iwl0t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_75rpo"]
-size = Vector2(46, 56.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhtlg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b77l"]
 bg_color = Color(0.6, 0, 0, 1)
@@ -13,17 +12,27 @@ bg_color = Color(0.6, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6coy"]
 bg_color = Color(0, 1, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_2i1q8"]
+offsets = PackedFloat32Array(0, 0.995012, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.032419, 0.032419, 0.032419, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_prn8g"]
+gradient = SubResource("Gradient_2i1q8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Boss" type="CharacterBody2D"]
-position = Vector2(239, 119)
+position = Vector2(241, 121)
 collision_layer = 3
 collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_vbb55")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-2, 4.25)
-shape = SubResource("RectangleShape2D_75rpo")
+position = Vector2(-3, 0)
+scale = Vector2(3.03734, 3.03734)
+shape = SubResource("CircleShape2D_hhtlg")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_k1s8b")
@@ -55,4 +64,38 @@ position = Vector2(-3, 0.25)
 wait_time = 10.0
 autostart = true
 
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+z_index = -2
+position = Vector2(-7, -17)
+scale = Vector2(4.23523, 4.37226)
+color = Color(0.733333, 0, 0.0196078, 1)
+energy = 2.0
+range_z_max = 3
+texture = SubResource("GradientTexture2D_prn8g")
+texture_scale = 0.02
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+z_index = -2
+position = Vector2(3, -17)
+scale = Vector2(4.23523, 4.37226)
+color = Color(0.733333, 0, 0.0196078, 1)
+energy = 2.0
+range_z_max = 3
+texture = SubResource("GradientTexture2D_prn8g")
+texture_scale = 0.02
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="navigation_timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(300, 0)
+
 [connection signal="timeout" from="Shoot Bullet" to="." method="_on_shoot_bullet_timeout"]
+[connection signal="timeout" from="navigation_timer" to="." method="_on_navigation_timer_timeout"]
