@@ -22,10 +22,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer"]
 layout_mode = 2
@@ -42,8 +42,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 11
-theme_override_constants/margin_top = 26
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
@@ -78,22 +78,22 @@ layout_mode = 2
 [node name="InvUISlot9" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
 layout_mode = 2
 
-[node name="Towers" type="Button" parent="Control/MarginContainer/NinePatchRect"]
+[node name="Prev" type="Button" parent="Control/MarginContainer/NinePatchRect"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 3.0
-offset_right = 38.0
-offset_bottom = 22.0
+offset_left = 21.0
+offset_top = 11.0
+offset_right = 45.0
+offset_bottom = 30.0
 theme_override_font_sizes/font_size = 7
 text = "Prev
 "
 
-[node name="Weapons" type="Button" parent="Control/MarginContainer/NinePatchRect"]
+[node name="Next" type="Button" parent="Control/MarginContainer/NinePatchRect"]
 layout_mode = 0
-offset_left = 88.0
-offset_top = 3.0
-offset_right = 113.0
-offset_bottom = 22.0
+offset_left = 94.0
+offset_top = 11.0
+offset_right = 119.0
+offset_bottom = 30.0
 theme_override_font_sizes/font_size = 7
 text = "Next
 "
