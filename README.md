@@ -219,20 +219,20 @@ Path to minimum game- what elements are absolutely necessary for a playable game
 
 
 1. Cauldron with health bar
-    1. cauldron destroyed -> game over
+	1. cauldron destroyed -> game over
 2. One working wave with boss
-    2. Portal
-        1. set number of spawns
-        2. self destruct
+	2. Portal
+		1. set number of spawns
+		2. self destruct
 3. Boss
-    3. boss spawns same time portal destructs
-    4. kill boss -> game over
+	3. boss spawns same time portal destructs
+	4. kill boss -> game over
 4. Player with one working weapon
 5. game over screen
-    5. Restart
-    6. main menu
+	5. Restart
+	6. main menu
 6. Map
-    7. Bullets Don't persist
+	7. Bullets Don't persist
 
 alpha 1
 
