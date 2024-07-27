@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $Player
-@onready var hud = $HUD
+@onready var hud = $HUD/HUD_resources
 
 @onready var boss_spawner: PackedScene = preload("res://Scenes/ai/ai_mobs/ekleptis_boss_spawner.tscn")
 
