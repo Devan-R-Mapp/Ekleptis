@@ -3,9 +3,11 @@ extends Node2D
 @onready var player = $Player
 @onready var hud = $HUD/HUD_resources
 
+@onready var boss_spawner: PackedScene = preload("res://Scenes/ai/ai_mobs/ekleptis_boss_spawner.tscn")
 
 @onready var pause_menu = $Player/pauseMenu
 var paused = false
+@export var portal_spawn_point: Array[Marker2D] 
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE

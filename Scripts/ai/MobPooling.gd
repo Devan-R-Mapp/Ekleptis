@@ -1,6 +1,6 @@
 extends Node2D
 
-var mobScene: PackedScene = preload("res://Scenes/ai/ai_mobs/Melee_Shadow.tscn")
+var mobScene: PackedScene = preload("res://Scenes/ai/ai_mobs/ranged_shadow.tscn")
 var bossScene: PackedScene = preload("res://Scenes/ai/ai_mobs/boss.tscn")
 var poolSize: int = 5
 var mob_pool: Array = []

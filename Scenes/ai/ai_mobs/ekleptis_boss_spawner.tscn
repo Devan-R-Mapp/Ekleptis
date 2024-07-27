@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5hl32q2xyrkp"]
+
+[ext_resource type="Script" path="res://Scripts/ai/MobPooling.gd" id="1_tr45j"]
+[ext_resource type="Texture2D" uid="uid://btrbnvuu0m6sv" path="res://Assets/Map Assets/Portal.png" id="2_ljipp"]
+
+[node name="EkleptisSpawner" type="Node2D"]
+position = Vector2(-398, 155)
+script = ExtResource("1_tr45j")
+
+[node name="Portal" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_ljipp")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

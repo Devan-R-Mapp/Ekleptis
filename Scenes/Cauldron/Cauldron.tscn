@@ -86,6 +86,7 @@ scale = Vector2(6.27344, 5.66406)
 color = Color(0.901961, 0.929412, 0.0784314, 1)
 energy = 0.28
 range_z_max = 1
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_32gj6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

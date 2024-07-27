@@ -21,10 +21,10 @@ func _on_buy_pressed():
 	if page == 1:
 		orePrice = 1
 		mercuryPrice = 0
-		if Global.orePrice >= orePrice && Global.mercuryPrice >= mercuryPrice:
-			if towerOwned == false:
-				buy()
-	
+		#if Global.orePrice >= orePrice && Global.mercuryPrice >= mercuryPrice:
+		if towerOwned == false:
+			buy()
+		pass
 	
 func swap_page_prev():
 	if page == 1:
