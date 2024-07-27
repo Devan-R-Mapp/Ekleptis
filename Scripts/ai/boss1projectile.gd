@@ -21,9 +21,6 @@ func _on_damage_box_body_entered(body):
 		if visible and body.visible:
 			Game.cauldronHP -= 10
 			get_parent().reset_projectile(self)
+	elif body is TileMap:
+		get_parent().reset_projectile(self)
 		
-
-
-func _on_despawn_timer_timeout():
-	##TODO WHY WONT THIS KILL THE PROJECTILE
-	get_parent().reset_projectile(self)

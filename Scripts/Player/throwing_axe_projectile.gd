@@ -18,9 +18,6 @@ func _on_damage_box_body_entered(body):
 		if body.isAlive and body.visible and self.visible:
 			body.reset_mob(body)
 			get_parent().reset_projectile(self)
-		
-
-
-func _on_despawn_time_timeout():
-	get_parent().reset_projectile(self)
+	elif body is TileMap:
+		get_parent().reset_projectile(self)
 
