@@ -92,3 +92,6 @@ func handle_firing():
 
 func collect(resource):
 	collected.emit(resource)
+	
+func player_craft():
+	pass

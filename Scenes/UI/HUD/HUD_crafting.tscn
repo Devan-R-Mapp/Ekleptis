@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgf3625bvaojg"]
+[gd_scene load_steps=5 format=3 uid="uid://dgf3625bvaojg"]
 
 [ext_resource type="Texture2D" uid="uid://bv82sshcqqtk2" path="res://Assets/UI/HUD/inventory.png" id="1_5ov25"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD_crafting.gd" id="1_xnv72"]
 [ext_resource type="PackedScene" uid="uid://cekq2o4an2al" path="res://Scenes/UI/HUD/inv_ui_slot.tscn" id="2_ainnm"]
+[ext_resource type="Texture2D" uid="uid://2qj677jccsuj" path="res://Assets/Weapons/Towers/eye_tower.png" id="4_k1lmd"]
 
 [node name="HUD_crafting" type="CanvasLayer"]
+script = ExtResource("1_xnv72")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -11,7 +14,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 418.0
-offset_top = 154.0
+offset_top = 144.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -40,6 +43,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -51,8 +56,14 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 columns = 3
 
-[node name="InvUISlot" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="InvUISlot1" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
 layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer/InvUISlot1"]
+self_modulate = Color(1, 1, 1, 0.109804)
+position = Vector2(16, 16)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_k1lmd")
 
 [node name="InvUISlot2" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
 layout_mode = 2
@@ -81,19 +92,35 @@ layout_mode = 2
 [node name="Prev" type="Button" parent="Control/MarginContainer/NinePatchRect"]
 layout_mode = 0
 offset_left = 21.0
-offset_top = 11.0
+offset_top = 16.0
 offset_right = 45.0
-offset_bottom = 30.0
+offset_bottom = 35.0
 theme_override_font_sizes/font_size = 7
 text = "Prev
 "
 
 [node name="Next" type="Button" parent="Control/MarginContainer/NinePatchRect"]
 layout_mode = 0
-offset_left = 94.0
-offset_top = 11.0
-offset_right = 119.0
-offset_bottom = 30.0
+offset_left = 99.0
+offset_top = 16.0
+offset_right = 124.0
+offset_bottom = 35.0
 theme_override_font_sizes/font_size = 7
 text = "Next
 "
+
+[node name="Buy" type="Button" parent="Control/MarginContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 61.0
+offset_top = 16.0
+offset_right = 82.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 7
+text = "Buy
+"
+
+[connection signal="pressed" from="Control/MarginContainer/NinePatchRect/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/NinePatchRect/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/NinePatchRect/Buy" to="." method="_on_buy_pressed"]
