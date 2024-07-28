@@ -70,3 +70,10 @@ layout_mode = 2
 
 [node name="InvUISlot6" parent="InvUI/MarginContainer/NinePatchRect/GridContainer" instance=ExtResource("2_u32ql")]
 layout_mode = 2
+
+[connection signal="pressed" from="InvUI/MarginContainer/NinePatchRect/GridContainer/InvUISlot" to="." method="_on_inv_ui_slot_pressed"]
+[connection signal="pressed" from="InvUI/MarginContainer/NinePatchRect/GridContainer/InvUISlot2" to="." method="_on_inv_ui_slot_2_pressed"]
+[connection signal="pressed" from="InvUI/MarginContainer/NinePatchRect/GridContainer/InvUISlot3" to="." method="_on_inv_ui_slot_3_pressed"]
+[connection signal="pressed" from="InvUI/MarginContainer/NinePatchRect/GridContainer/InvUISlot4" to="." method="_on_inv_ui_slot_4_pressed"]
+[connection signal="pressed" from="InvUI/MarginContainer/NinePatchRect/GridContainer/InvUISlot5" to="." method="_on_inv_ui_slot_5_pressed"]
+[connection signal="pressed" from="InvUI/MarginContainer/NinePatchRect/GridContainer/InvUISlot6" to="." method="_on_inv_ui_slot_6_pressed"]

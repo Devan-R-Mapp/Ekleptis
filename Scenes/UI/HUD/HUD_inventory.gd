@@ -5,9 +5,37 @@ class_name HUD_inventory
 @onready var slots: Array = $InvUI/MarginContainer/NinePatchRect/GridContainer.get_children()
 
 func _ready():
-	update()
+	update_inv()
 	
-func update():
-	print("update called")
+func update_inv():
+	print("update inv called")
 	for i in range(min(inventory.items.size(), slots.size())):
-		slots[i].update(inventory.items[i])
+		slots[i].update_plr_inv(inventory.items[i])
+
+func place_item():
+	print("place called")
+	
+	
+
+func _on_inv_ui_slot_pressed():
+	if slots[0].plr_has_item():
+		slots[0].update_plr_inv(null)
+
+func _on_inv_ui_slot_2_pressed():
+	place_item()
+
+
+func _on_inv_ui_slot_3_pressed():
+	place_item()
+
+
+func _on_inv_ui_slot_4_pressed():
+	place_item()
+
+
+func _on_inv_ui_slot_5_pressed():
+	place_item()
+
+
+func _on_inv_ui_slot_6_pressed():
+	place_item()
