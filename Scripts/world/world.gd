@@ -7,6 +7,10 @@ var paused = false
 
 
 func _ready():
+	Game.basic_kills = 0
+	Game.boss_kills = 0
+	Game.portal_kills = 0
+	Wave.lightlevel = Wave.timeType.day
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	
 	if !player.collected.is_connected(hud._on_collected):
@@ -24,6 +28,7 @@ func game_end_conditions():
 		Game.playerHP = Game.base_playerHP
 		Game.cauldronHP = Game.base_cauldronHP
 		get_tree().change_scene_to_file("res://Scenes/Menus/game_over.tscn")
+
 		##TODO reset Game here
 
 func light_level():

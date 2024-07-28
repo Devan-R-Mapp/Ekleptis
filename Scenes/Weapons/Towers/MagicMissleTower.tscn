@@ -40,11 +40,12 @@ position = Vector2(-1, -13)
 autostart = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(-0.687042, -12.7961)
 rotation = -3.14181
-scale = Vector2(-16.0819, 2.25888)
-energy = 5.0
+scale = Vector2(-15.9624, 9.17401)
+color = Color(1, 0.768588, 0.706958, 1)
+energy = 2.0
 texture = ExtResource("5_52ymu")
-offset = Vector2(16.045, -0.577961)
+offset = Vector2(16.0881, -0.119736)
 
 [connection signal="timeout" from="ShootBullet" to="." method="_on_shoot_bullet_timeout"]

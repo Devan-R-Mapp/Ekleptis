@@ -4,3 +4,15 @@
 
 [node name="wave_controller" type="Node2D"]
 script = ExtResource("1_df8u3")
+
+[node name="DayTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="EclipseTimer" type="Timer" parent="."]
+wait_time = 180.0
+one_shot = true
+
+[connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
+[connection signal="timeout" from="EclipseTimer" to="." method="_on_eclipse_timer_timeout"]
