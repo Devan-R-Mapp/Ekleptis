@@ -71,5 +71,4 @@ func self_destruct():
 		tween.tween_property($Portal, "scale", Vector2(0,0) , 2)
 		await tween.finished
 		queue_free()
-
 		

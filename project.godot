@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.2")
 [autoload]
 
 Game="*res://Scripts/Player/game.gd"
+Wave="*res://wave_info.gd"
 
 [display]
 
