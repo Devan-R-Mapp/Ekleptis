@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk5080wx1aopp"]
+[gd_scene load_steps=4 format=3 uid="uid://dk5080wx1aopp"]
 
 [ext_resource type="Script" path="res://Scenes/UI/HUD/craft_ui_slot.gd" id="1_kbawh"]
 [ext_resource type="Texture2D" uid="uid://jc3ol2kol2yw" path="res://Assets/UI/HUD/inventory_box.png" id="2_5ft65"]
+[ext_resource type="Texture2D" uid="uid://bpjkxdf8n2wlc" path="res://Assets/UI/HUD/inventory_highlight.png" id="3_hkr3r"]
 
 [node name="CraftUISlot" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
@@ -14,6 +15,11 @@ script = ExtResource("1_kbawh")
 texture = ExtResource("2_5ft65")
 centered = false
 
+[node name="Highlight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(16, 16)
+texture = ExtResource("3_hkr3r")
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
 offset_right = 32.0
@@ -23,3 +29,7 @@ offset_bottom = 32.0
 layout_mode = 2
 
 [node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
