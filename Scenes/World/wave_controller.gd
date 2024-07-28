@@ -20,8 +20,6 @@ func _process(_delta):
 func spawn_portals():
 	for i in total_portals:
 		var random_spawn_number = randi_range(0, 7)
-		print(random_spawn_number)
 		var new_portal = bossSpawnerScene.instantiate()
-		print(new_portal)
 		new_portal.global_position = portal_spawn_point[random_spawn_number].global_position
 		get_parent().add_child.call_deferred(new_portal)

@@ -1,10 +1,7 @@
 extends Node2D
 
 @onready var player = $Player
-@onready var hud = $HUD/HUD_resources
-
-@onready var boss_spawner: PackedScene = preload("res://Scenes/ai/ai_mobs/ekleptis_boss_spawner.tscn")
-
+@onready var hud = $Player/HUD/HUD_resources
 @onready var pause_menu = $Player/pauseMenu
 var paused = false
 
@@ -20,19 +17,6 @@ func _process(_delta):
 	game_end_conditions()
 	light_level()
 	
-	
-	if Input.is_action_just_pressed("pause"):
-		pauseMenu()
-		
-func pauseMenu():
-	if paused:
-		pause_menu.hide()
-		get_tree().paused = false
-	else:
-		pause_menu.show()
-		get_tree().paused = true
-	
-	paused = !paused
 	
 func game_end_conditions():
 	
