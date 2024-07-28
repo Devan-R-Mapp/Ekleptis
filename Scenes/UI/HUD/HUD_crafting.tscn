@@ -1,21 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgf3625bvaojg"]
+[gd_scene load_steps=4 format=3 uid="uid://dgf3625bvaojg"]
 
 [ext_resource type="Texture2D" uid="uid://bv82sshcqqtk2" path="res://Assets/UI/HUD/inventory.png" id="1_5ov25"]
-[ext_resource type="PackedScene" uid="uid://cekq2o4an2al" path="res://Scenes/UI/HUD/inv_ui_slot.tscn" id="2_ainnm"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD_crafting.gd" id="1_xnv72"]
+[ext_resource type="PackedScene" uid="uid://dk5080wx1aopp" path="res://Scenes/UI/HUD/craft_ui_slot.tscn" id="3_t1m0a"]
 
 [node name="HUD_crafting" type="CanvasLayer"]
+script = ExtResource("1_xnv72")
 
-[node name="Control" type="Control" parent="."]
+[node name="OpenPanel" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 418.0
-offset_top = 154.0
+offset_top = 144.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="OpenPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +29,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="OpenPanel/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("1_5ov25")
 patch_margin_left = 6
@@ -35,11 +37,13 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="OpenPanel/MarginContainer/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -47,53 +51,108 @@ theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer"]
 layout_mode = 2
 columns = 3
 
-[node name="InvUISlot" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="InvUISlot2" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot2" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="InvUISlot3" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot3" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="InvUISlot4" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot4" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="InvUISlot5" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot5" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="InvUISlot6" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot6" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="InvUISlot7" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot7" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="InvUISlot8" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot8" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="InvUISlot9" parent="Control/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("2_ainnm")]
+[node name="CraftUISlot9" parent="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer" instance=ExtResource("3_t1m0a")]
 layout_mode = 2
 
-[node name="Prev" type="Button" parent="Control/MarginContainer/NinePatchRect"]
+[node name="Prev" type="Button" parent="OpenPanel/MarginContainer/NinePatchRect"]
 layout_mode = 0
 offset_left = 21.0
-offset_top = 11.0
+offset_top = 16.0
 offset_right = 45.0
-offset_bottom = 30.0
+offset_bottom = 35.0
 theme_override_font_sizes/font_size = 7
 text = "Prev
 "
 
-[node name="Next" type="Button" parent="Control/MarginContainer/NinePatchRect"]
+[node name="Next" type="Button" parent="OpenPanel/MarginContainer/NinePatchRect"]
 layout_mode = 0
-offset_left = 94.0
-offset_top = 11.0
-offset_right = 119.0
-offset_bottom = 30.0
+offset_left = 99.0
+offset_top = 16.0
+offset_right = 124.0
+offset_bottom = 35.0
 theme_override_font_sizes/font_size = 7
 text = "Next
 "
+
+[node name="Craft" type="Button" parent="OpenPanel/MarginContainer/NinePatchRect"]
+layout_mode = 2
+offset_left = 58.0
+offset_top = 16.0
+offset_right = 87.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 7
+text = "Craft
+"
+
+[node name="ClosedPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 418.0
+offset_top = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ClosedPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ClosedPanel/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_5ov25")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Label" type="Label" parent="ClosedPanel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Craft at the Cauldron
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/Craft" to="." method="_on_buy_pressed"]

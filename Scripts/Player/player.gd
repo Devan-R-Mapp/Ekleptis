@@ -27,6 +27,8 @@ var radAngle = 0
 @onready var spawn_point = $SpawnPoint
 @onready var handle_point = $HandlePoint
 
+@export var inventory: Inventory
+
 var isAlive = true
 
 func get_radAngle () -> float:
@@ -92,3 +94,6 @@ func handle_firing():
 
 func collect(resource):
 	collected.emit(resource)
+	
+func player_craft():
+	pass

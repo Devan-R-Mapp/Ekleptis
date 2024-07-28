@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CraftingInventory" load_steps=3 format=3 uid="uid://jtovki6b8u73"]
+
+[ext_resource type="Resource" uid="uid://dquy23344dntp" path="res://Scripts/UI/Inventory/Towers/EyeTower.tres" id="1_2cmb4"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/crafting_inventory.gd" id="2_oqq8b"]
+
+[resource]
+script = ExtResource("2_oqq8b")
+items = Array[Resource("res://Scripts/UI/Inventory/inventoryItem.gd")]([ExtResource("1_2cmb4"), null, null, null, null, null, null, null, null])
