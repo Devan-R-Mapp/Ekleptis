@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dx72nbs4iyhjy"]
+
+[ext_resource type="Script" path="res://Scripts/Player/projectile.gd" id="1_q71rf"]
+[ext_resource type="Texture2D" uid="uid://bmqy6avk5ngal" path="res://Assets/Projectiles/BasicWandBolt.png" id="2_otvhy"]
+[ext_resource type="Script" path="res://Scenes/objects/fire_light.gd" id="3_v3w3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1fg8"]
+size = Vector2(9, 13)
+
+[sub_resource type="Gradient" id="Gradient_fknle"]
+offsets = PackedFloat32Array(0, 0.628099)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_miyqy"]
+gradient = SubResource("Gradient_fknle")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fsba6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ncu3m"]
+noise = SubResource("FastNoiseLite_fsba6")
+
+[node name="Projectile" type="CharacterBody2D"]
+position = Vector2(21, 21)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_q71rf")
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("2_otvhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_h1fg8")
+
+[node name="Damage Box" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Damage Box"]
+position = Vector2(-1, 6)
+polygon = PackedVector2Array(-2, -5, -6, 2, -4, -12, 0, -16, 6, -12, 6, -6, 7, 3, 3, -5, 1, 4)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = 1
+position = Vector2(-1, -3)
+scale = Vector2(20.0659, 20.7151)
+color = Color(0.0512736, 0.846211, 1, 1)
+energy = 0.5
+range_z_max = 1
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_miyqy")
+texture_scale = 0.01
+script = ExtResource("3_v3w3h")
+noise = SubResource("NoiseTexture2D_ncu3m")
+
+[connection signal="body_entered" from="Damage Box" to="." method="_on_damage_box_body_entered"]

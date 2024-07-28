@@ -1,7 +1,7 @@
 extends Node
 
 var projectileScene: PackedScene = preload("res://Scenes/Weapons/Towers/EyeTowerProjectile.tscn")
-var poolSize: int = 5
+var poolSize: int = 3
 var projectile_pool: Array = []
 
 func _ready() -> void:
