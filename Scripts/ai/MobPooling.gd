@@ -2,9 +2,10 @@ extends Node2D
 
 var mobScene: PackedScene = preload("res://Scenes/ai/ai_mobs/ranged_shadow.tscn")
 var bossScene: PackedScene = preload("res://Scenes/ai/ai_mobs/boss.tscn")
-var poolSize: int = 5
+var poolSize: int = 4
 var mob_pool: Array = []
 var total_spawned_mobs: int = 0
+var total_killed_mobs: int = 0
 var boss_spawned = false
 var boss: Node = bossScene.instantiate()
 
@@ -12,6 +13,7 @@ var boss: Node = bossScene.instantiate()
 
 func _process(_delta):
 	self_destruct()
+	$Portal.rotation += .0075
 	
 func _ready() -> void:
 	for i in range(poolSize):
@@ -31,18 +33,23 @@ func get_mob()-> Node:
 	return new_mob
 	
 func reset_mob(mob: Node) -> void:
-	mob.position = Vector2(-1000, -1000)
-	mob.get_node("CollisionShape2D").set_deferred("disabled", true)
 	mob.isAlive = false
+	var tween = create_tween()
+	tween.tween_property(mob, "modulate", Color8(0,0,0,0) , .25)
+	mob.get_node("CollisionShape2D").set_deferred("disabled", true)
+	await tween.finished
+	mob.position = Vector2(-1000, -1000)
 	mob_pool.pop_front()
 	mob.hide()
+	total_killed_mobs += 1
+
 
 
 func _on_timer_timeout() -> void:
 	if total_spawned_mobs <= poolSize:
 		var mobTemp: Node = get_mob()
-		var randX = randi_range(-5,5)
-		var randY = randi_range(-5,5)
+		var randX = randi_range(-10,10)
+		var randY = randi_range(-10,10)
 		mobTemp.global_position = self.global_position + Vector2(randX,randY)
 		mobTemp.show()
 		total_spawned_mobs += 1
@@ -52,13 +59,17 @@ func _on_timer_timeout() -> void:
 	
 
 func spawn_boss() -> void:
-
 	add_child(boss)
 	boss.global_position = self.global_position  # Set the boss position
 	boss_spawned = true  # Mark the boss as spawned
+	total_spawned_mobs += 1
 	
 func self_destruct():
-	if !boss.isAlive and mob_pool.size() <= 0:
-		get_tree().change_scene_to_file("res://Scenes/Menus/credit_text.tscn")
-		boss_spawned = false
+	if !boss.isAlive and (total_spawned_mobs == total_killed_mobs):
+		var tween = create_tween().set_parallel()
+		tween.tween_property($Portal, "modulate", Color8(0,0,0,0) , 2)
+		tween.tween_property($Portal, "scale", Vector2(0,0) , 2)
+		await tween.finished
+		queue_free()
+
 		
