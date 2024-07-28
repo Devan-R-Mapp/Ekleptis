@@ -2,11 +2,11 @@ extends Node2D
 
 @onready var player = $Player
 @onready var hud = $Player/HUD/HUD_resources
-@onready var pause_menu = $Player/pauseMenu
 var paused = false
 
 
 func _ready():
+	
 	Game.basic_kills = 0
 	Game.boss_kills = 0
 	Game.portal_kills = 0
