@@ -12,6 +12,10 @@ var crafting_zone = false
 var ore = 0
 var mercury = 0
 
+var basic_kills = 0
+var boss_kills = 0
+var portal_kills = 0
+
 enum WeaponType {
 	GUNS,     	# Weakness: Melee, Strength: Summons
 	MELEE,    	# Weakness: Summons, Strength: Guns

@@ -48,6 +48,7 @@ func reset_mob(body: Node)-> void:
 	else:
 		isAlive = false
 		get_parent().reset_mob(body)
+		Game.boss_kills += 1
 		
 func _on_shoot_bullet_timeout():
 	if has_rock <= 0:

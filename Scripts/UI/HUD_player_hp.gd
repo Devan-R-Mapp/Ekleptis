@@ -1,10 +1,10 @@
 extends CanvasLayer
 class_name player_hp
 
-@onready var player: Player = get_node("../../Player")
+@onready var player: Player = get_node("../../../Player")
 @onready var player_bar = $PlayerHP/PlayerHP
 
-@onready var cauldron: Node = get_node("../../Cauldron") 
+@onready var cauldron: Node = get_node("../../../Cauldron") 
 @onready var cauldron_bar = $CauldronHP/CauldronHP
 
 

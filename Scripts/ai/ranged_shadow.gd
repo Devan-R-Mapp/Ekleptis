@@ -42,7 +42,8 @@ func _physics_process(_delta: float) -> void:
 		bar.hide()
 			
 func make_path_to_player() -> void:
-	navigation_agent.target_position = player.global_position
+	if(player):
+		navigation_agent.target_position = player.global_position
 
 func reset_mob(body: Node)-> void:
 	if health > 1:
