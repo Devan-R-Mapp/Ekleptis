@@ -60,7 +60,9 @@ func _on_timer_timeout() -> void:
 
 func spawn_boss() -> void:
 	add_child(boss)
-	boss.global_position = self.global_position  # Set the boss position
+	var randX = randi_range(-10,10)
+	var randY = randi_range(-10,10)
+	boss.global_position = self.global_position + Vector2(randX,randY)  # Set the boss position
 	boss_spawned = true  # Mark the boss as spawned
 	total_spawned_mobs += 1
 	

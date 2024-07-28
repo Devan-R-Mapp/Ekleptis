@@ -6,4 +6,4 @@ eclipse,
 night
 }
 
-var lightlevel = timeType.eclipse
+var lightlevel = timeType.day

@@ -8,6 +8,7 @@ var total_portals = 5
 
 
 func _ready() -> void:
+	Wave.lightlevel = Wave.timeType.eclipse
 	spawn_portals()
 	pass
 
