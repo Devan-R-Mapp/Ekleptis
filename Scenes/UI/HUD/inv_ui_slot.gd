@@ -20,3 +20,6 @@ func plr_has_item() -> bool:
 		return false
 	else:
 		return true
+		
+func get_item() -> InventoryItem:
+	return slot_item
