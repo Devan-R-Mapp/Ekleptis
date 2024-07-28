@@ -8,6 +8,7 @@ class_name HUD_crafting
 @onready var slots: Array = $OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer.get_children()
 
 @onready var hud_inv: CanvasLayer = get_parent().get_child(1)
+@onready var hud_res: CanvasLayer = get_parent().get_child(0)
 
 @onready var eye_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/EyeTower.tres")
 
@@ -62,6 +63,9 @@ func _on_buy_pressed():
 		if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 			if towerOwned == false:
 				buy(eye_tower)
+				Game.ore -= orePrice
+				Game.mercury -= mercuryPrice
+				hud_res.buy_pressed()
 				
 	
 	

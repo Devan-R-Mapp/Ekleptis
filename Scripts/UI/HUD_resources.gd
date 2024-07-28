@@ -8,19 +8,17 @@ var ore_quantity = 0:
 	set(new_quantity):
 		ore_quantity = new_quantity
 		_update_ore_label()
-	get:
-		return ore_quantity
 
-func _get_ore_quantity(ore_quantity):
-	return ore_quantity
+
+func buy_pressed():
+	ore_quantity = Game.ore
+	mercury_quantity = Game.mercury
 
 		
 var mercury_quantity = 0:
 	set(new_quantity):
 		mercury_quantity = new_quantity
 		_update_mercury_label()
-	get:
-		return mercury_quantity
 		
 
 func _ready():
