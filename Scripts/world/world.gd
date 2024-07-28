@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var player = $Player
 @onready var hud = $Player/HUD/HUD_resources
-@onready var pause_menu = $Player/pauseMenu
 var paused = false
 
 

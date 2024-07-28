@@ -89,7 +89,6 @@ texture = SubResource("GradientTexture2D_prn8g")
 texture_scale = 0.02
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="navigation_timer" type="Timer" parent="."]
 wait_time = 0.2

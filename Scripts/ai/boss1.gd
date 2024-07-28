@@ -4,7 +4,7 @@ var isAlive = true
 var has_rock = 0
 var isMob = true
 var speed = 10
-var health = 5
+var health = 20
 
 @onready var cauldron: Node = get_node("../../Cauldron")
 @onready var player: Node = get_node("../../Player")
@@ -51,7 +51,7 @@ func reset_mob(body: Node)-> void:
 		Game.boss_kills += 1
 		
 func _on_shoot_bullet_timeout():
-	if has_rock <= 0:
+	if has_rock == 0:
 		has_rock += 1
 	 # Replace with function body.
 
