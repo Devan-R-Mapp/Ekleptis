@@ -82,8 +82,6 @@ func buy(item: InventoryItem):
 	print("buy called")
 	inventory.add_item(item)
 	towerOwned = true
-	print("this value")
-	print(hud_inv)
 	hud_inv.update()
 	
 
