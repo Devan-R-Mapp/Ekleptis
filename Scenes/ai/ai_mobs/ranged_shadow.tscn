@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://gkuf5wh6k03d"]
 
 [ext_resource type="Script" path="res://Scripts/ai/ranged_shadow.gd" id="1_1u1s7"]
-[ext_resource type="Texture2D" uid="uid://cmgklo6k1rswy" path="res://Assets/ai/Melee_Shadow.png" id="2_ui04t"]
+[ext_resource type="Texture2D" uid="uid://ce6t5wv5l5awy" path="res://Assets/ai/Ranged_Shadow.png" id="2_rk61i"]
 [ext_resource type="Script" path="res://Scripts/ai/aiprojectilePool.gd" id="3_2cyaq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1lhkb"]
@@ -44,7 +44,7 @@ light_mask = 3
 visibility_layer = 3
 z_index = -1
 position = Vector2(-1, 0)
-texture = ExtResource("2_ui04t")
+texture = ExtResource("2_rk61i")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 3
@@ -81,7 +81,7 @@ autostart = true
 light_mask = 3
 visibility_layer = 3
 z_index = -2
-position = Vector2(0, -7)
+position = Vector2(1, -7)
 scale = Vector2(4.23523, 4.37226)
 color = Color(0.733333, 0, 0.0196078, 1)
 energy = 2.0
@@ -93,7 +93,7 @@ texture_scale = 0.01
 light_mask = 3
 visibility_layer = 3
 z_index = -2
-position = Vector2(-4, -7)
+position = Vector2(-3, -7)
 scale = Vector2(4.23523, 4.37226)
 color = Color(0.733333, 0, 0.0196078, 1)
 energy = 2.0

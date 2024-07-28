@@ -7,7 +7,7 @@ extends Node2D
 
 @onready var pause_menu = $Player/pauseMenu
 var paused = false
-@export var portal_spawn_point: Array[Marker2D] 
+
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -18,6 +18,7 @@ func _ready():
 
 func _process(_delta):
 	game_end_conditions()
+	light_level()
 	
 	
 	if Input.is_action_just_pressed("pause"):
@@ -40,4 +41,21 @@ func game_end_conditions():
 		Game.cauldronHP = Game.base_cauldronHP
 		get_tree().change_scene_to_file("res://Scenes/Menus/game_over.tscn")
 		##TODO reset Game here
+
+func light_level():
+	if is_inside_tree():
+		if Wave.lightlevel == Wave.timeType.day:
+			var tween = create_tween()
+		#tween.tween_property($SUN, "color" , Color8(0,0,0,0) , 5)
+			tween.tween_property($SUN, "energy" , 0 , 5)
+		
+		if Wave.lightlevel == Wave.timeType.eclipse:
+			var tween = create_tween()
+			tween.tween_property($SUN, "energy" , 1.25 , 5)
+		#tween.tween_property($SUN, "color" , Color8(204,251,234,255) , 5)
+		if Wave.lightlevel == Wave.timeType.night:
+			var tween = create_tween()
+			tween.tween_property($SUN, "energy" , 5 , 5)
+		#tween.tween_property($SUN, "color", Color8(204,251,234,255) , 5)
+
 

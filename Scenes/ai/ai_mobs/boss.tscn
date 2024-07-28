@@ -68,7 +68,7 @@ autostart = true
 light_mask = 3
 visibility_layer = 3
 z_index = -2
-position = Vector2(-7, -17)
+position = Vector2(-6, -16)
 scale = Vector2(4.23523, 4.37226)
 color = Color(0.733333, 0, 0.0196078, 1)
 energy = 2.0
@@ -80,7 +80,7 @@ texture_scale = 0.02
 light_mask = 3
 visibility_layer = 3
 z_index = -2
-position = Vector2(3, -17)
+position = Vector2(5, -16)
 scale = Vector2(4.23523, 4.37226)
 color = Color(0.733333, 0, 0.0196078, 1)
 energy = 2.0
@@ -89,6 +89,7 @@ texture = SubResource("GradientTexture2D_prn8g")
 texture_scale = 0.02
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="navigation_timer" type="Timer" parent="."]
 wait_time = 0.2

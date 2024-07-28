@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/ai/MobPooling.gd" id="1_tr45j"]
 [ext_resource type="Texture2D" uid="uid://btrbnvuu0m6sv" path="res://Assets/Map Assets/Portal.png" id="2_ljipp"]
 
-[node name="EkleptisSpawner" type="Node2D"]
+[node name="ekleptis_boss_spawner" type="Node2D"]
 position = Vector2(-398, 155)
 script = ExtResource("1_tr45j")
 
