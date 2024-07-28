@@ -41,6 +41,7 @@ func reset_mob(mob: Node) -> void:
 	mob.position = Vector2(-1000, -1000)
 	mob_pool.pop_front()
 	mob.hide()
+	Game.basic_kills += 1
 	total_killed_mobs += 1
 
 
@@ -72,5 +73,6 @@ func self_destruct():
 		tween.tween_property($Portal, "modulate", Color8(0,0,0,0) , 2)
 		tween.tween_property($Portal, "scale", Vector2(0,0) , 2)
 		await tween.finished
+		Game.portal_kills += 1
 		queue_free()
 		

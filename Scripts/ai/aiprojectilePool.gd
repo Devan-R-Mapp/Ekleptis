@@ -1,7 +1,7 @@
 extends Node
 
 var projectileScene: PackedScene = preload("res://Scenes/ai/ai_projectiles/aiprojectile.tscn")
-var poolSize: int = 3
+var poolSize: int = 5
 var projectile_pool: Array = []
 
 func _ready() -> void:

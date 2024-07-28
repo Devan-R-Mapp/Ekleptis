@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdbo0lv0y61na"]
+
+[ext_resource type="Texture2D" uid="uid://2qj677jccsuj" path="res://Assets/Weapons/Towers/eye_tower.png" id="1_ldkfu"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Towers/MagicMissle.gd" id="1_xbaq6"]
+[ext_resource type="Resource" uid="uid://dquy23344dntp" path="res://Scripts/UI/Inventory/Towers/EyeTower.tres" id="2_gl13r"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Towers/EyeTowerprojectilePool.gd" id="4_awbqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_seo2y"]
+radius = 12.0416
+
+[node name="EyeTower" type="StaticBody2D"]
+position = Vector2(245, 161)
+script = ExtResource("1_xbaq6")
+itemResource = ExtResource("2_gl13r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ldkfu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_seo2y")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)
+
+[node name="Line2D" type="Line2D" parent="RayCast2D"]
+points = PackedVector2Array(101, 1, -1, -1)
+
+[node name="Projectiles" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+script = ExtResource("4_awbqy")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+
+[node name="ShootBullet" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootBullet" to="." method="_on_shoot_bullet_timeout"]

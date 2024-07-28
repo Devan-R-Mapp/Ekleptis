@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdbo0lv0y61na"]
+[gd_scene load_steps=7 format=3 uid="uid://bdbo0lv0y61na"]
 
 [ext_resource type="Texture2D" uid="uid://2qj677jccsuj" path="res://Assets/Weapons/Towers/eye_tower.png" id="1_ldkfu"]
 [ext_resource type="Script" path="res://Scripts/Weapons/Towers/MagicMissle.gd" id="1_xbaq6"]
 [ext_resource type="Resource" uid="uid://dquy23344dntp" path="res://Scripts/UI/Inventory/Towers/EyeTower.tres" id="2_gl13r"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Towers/EyeTowerprojectilePool.gd" id="4_awbqy"]
+[ext_resource type="Texture2D" uid="uid://byc3c2jfr3l0c" path="res://Assets/Lightmap beam.png" id="5_52ymu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_seo2y"]
-radius = 12.0416
+radius = 20.025
 
-[node name="MagicMissleTower" type="StaticBody2D"]
+[node name="EyeTower" type="StaticBody2D"]
+position = Vector2(245, 161)
 script = ExtResource("1_xbaq6")
 itemResource = ExtResource("2_gl13r")
 
@@ -16,4 +19,33 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_ldkfu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -13)
 shape = SubResource("CircleShape2D_seo2y")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+z_index = -1
+position = Vector2(-1, -13)
+exclude_parent = false
+target_position = Vector2(500, 0)
+collision_mask = 0
+
+[node name="Projectiles" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+script = ExtResource("4_awbqy")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-1, -13)
+
+[node name="ShootBullet" type="Timer" parent="."]
+autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-0.687042, -12.7961)
+rotation = -3.14181
+scale = Vector2(-15.9624, 9.17401)
+color = Color(1, 0.768588, 0.706958, 1)
+energy = 2.0
+texture = ExtResource("5_52ymu")
+offset = Vector2(16.0881, -0.119736)
+
+[connection signal="timeout" from="ShootBullet" to="." method="_on_shoot_bullet_timeout"]

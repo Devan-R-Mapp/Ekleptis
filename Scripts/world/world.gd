@@ -1,15 +1,16 @@
 extends Node2D
 
 @onready var player = $Player
-@onready var hud = $HUD/HUD_resources
-
-@onready var boss_spawner: PackedScene = preload("res://Scenes/ai/ai_mobs/ekleptis_boss_spawner.tscn")
-
+@onready var hud = $Player/HUD/HUD_resources
 @onready var pause_menu = $Player/pauseMenu
 var paused = false
 
 
 func _ready():
+	Game.basic_kills = 0
+	Game.boss_kills = 0
+	Game.portal_kills = 0
+	Wave.lightlevel = Wave.timeType.day
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	
 	if !player.collected.is_connected(hud._on_collected):
@@ -21,25 +22,13 @@ func _process(_delta):
 	light_level()
 	
 	
-	if Input.is_action_just_pressed("pause"):
-		pauseMenu()
-		
-func pauseMenu():
-	if paused:
-		pause_menu.hide()
-		get_tree().paused = false
-	else:
-		pause_menu.show()
-		get_tree().paused = true
-	
-	paused = !paused
-	
 func game_end_conditions():
 	
 	if Game.playerHP <= 0 or Game.cauldronHP <= 0 :
 		Game.playerHP = Game.base_playerHP
 		Game.cauldronHP = Game.base_cauldronHP
 		get_tree().change_scene_to_file("res://Scenes/Menus/game_over.tscn")
+
 		##TODO reset Game here
 
 func light_level():
