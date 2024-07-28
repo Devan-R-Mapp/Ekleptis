@@ -90,7 +90,6 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_32gj6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(2, -9)
 shape = SubResource("CircleShape2D_mlwrt")
 
