@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmaj6bl3m57y6"]
+[gd_scene load_steps=7 format=3 uid="uid://cmaj6bl3m57y6"]
 
 [ext_resource type="PackedScene" uid="uid://cf5aqm1l6rovp" path="res://Scenes/UI/HUD/HUD_resources.tscn" id="1_p2haq"]
 [ext_resource type="PackedScene" uid="uid://c2ipuimmmuwm8" path="res://Scenes/UI/HUD/HUD_inventory.tscn" id="2_yf0ks"]
 [ext_resource type="PackedScene" uid="uid://c6r1yqdo7jtln" path="res://Scenes/UI/HUD/HUD_text_display.tscn" id="3_84bi2"]
 [ext_resource type="PackedScene" uid="uid://dgf3625bvaojg" path="res://Scenes/UI/HUD/HUD_crafting.tscn" id="4_j21pp"]
 [ext_resource type="PackedScene" uid="uid://bl0gtr5v3sbsd" path="res://Scenes/UI/HUD/HUD_HP.tscn" id="5_75nqx"]
+[ext_resource type="PackedScene" uid="uid://bggon0psqqu30" path="res://Scenes/UI/HUD/pause_menu.tscn" id="6_pa83x"]
 
 [node name="HUD" type="CanvasLayer"]
+metadata/_edit_horizontal_guides_ = [292.0]
 
 [node name="HUD_resources" parent="." instance=ExtResource("1_p2haq")]
 
@@ -17,3 +19,5 @@
 [node name="HUD_crafting" parent="." instance=ExtResource("4_j21pp")]
 
 [node name="HUD_hp" parent="." instance=ExtResource("5_75nqx")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_pa83x")]

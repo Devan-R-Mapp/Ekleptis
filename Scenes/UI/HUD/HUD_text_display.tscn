@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6r1yqdo7jtln"]
+[gd_scene load_steps=3 format=3 uid="uid://c6r1yqdo7jtln"]
 
+[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD_text_display.gd" id="1_7bhpy"]
 [ext_resource type="Texture2D" uid="uid://bv82sshcqqtk2" path="res://Assets/UI/HUD/inventory.png" id="1_qys5u"]
 
 [node name="HUD_text_display" type="CanvasLayer"]
+script = ExtResource("1_7bhpy")
 
-[node name="Control" type="Control" parent="."]
+[node name="TextUp" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +17,7 @@ offset_right = -390.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="TextUp"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +29,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="TextUp/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 9
 texture = ExtResource("1_qys5u")
@@ -35,7 +38,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer/NinePatchRect"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TextUp/MarginContainer/NinePatchRect"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -44,13 +47,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -81.0
-offset_top = -44.0
+offset_top = -20.0
 offset_right = 81.0
 offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -59,74 +62,135 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "This is a WIP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label5" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label5" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label6" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label6" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label7" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label7" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label8" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label8" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label9" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label9" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label10" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label10" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Label11" type="Label" parent="TextUp/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label11" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Close" type="Button" parent="TextUp"]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 10.0
+offset_right = 174.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 7
+text = "X"
+
+[node name="TextDown" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 284.0
+offset_right = -390.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TextDown"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TextDown/MarginContainer"]
 layout_mode = 2
-text = "Text"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("1_qys5u")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Open" type="Button" parent="TextDown"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 11.0
+offset_right = 174.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 7
+text = "ロ"
+
+[node name="Label" type="Label" parent="TextDown"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 12.0
+offset_right = 116.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Info Display"
+
+[connection signal="pressed" from="TextUp/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="TextDown/Open" to="." method="_on_open_pressed"]
