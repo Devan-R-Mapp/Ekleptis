@@ -9,7 +9,6 @@ class_name HUD_crafting
 
 @onready var hud_inv: CanvasLayer = get_parent().get_child(1)
 
-	
 @onready var eye_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/EyeTower.tres")
 
 @onready var open_panel = $OpenPanel
@@ -31,7 +30,7 @@ func _ready():
 
 func update_craft_inv():
 	for i in range(min(crafting_inv.items.size(), slots.size())):
-		slots[i].update(crafting_inv.items[i])
+		slots[i].update_cft_inv(crafting_inv.items[i])
 
 func _physics_process(delta):
 	if Game.crafting_zone == true:
@@ -79,10 +78,9 @@ func swap_page_next():
 		page = 1
 		
 func buy(item: InventoryItem):
-	print("buy called")
 	inventory.add_item(item)
 	towerOwned = true
-	hud_inv.update()
+	hud_inv.update_inv()
 	
 
 
