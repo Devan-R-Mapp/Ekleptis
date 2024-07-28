@@ -16,4 +16,4 @@
 
 [node name="HUD_crafting" parent="." instance=ExtResource("4_j21pp")]
 
-[node name="CanvasLayer" parent="." instance=ExtResource("5_75nqx")]
+[node name="HUD_hp" parent="." instance=ExtResource("5_75nqx")]

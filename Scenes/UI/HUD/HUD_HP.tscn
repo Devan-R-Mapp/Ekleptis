@@ -10,7 +10,7 @@ bg_color = Color(0.6, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufa40"]
 bg_color = Color(0, 1, 0, 1)
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="HUD_HP" type="CanvasLayer"]
 script = ExtResource("1_6pju3")
 
 [node name="PlayerHP" type="Control" parent="."]

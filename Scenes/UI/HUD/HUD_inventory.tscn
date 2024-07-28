@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2ipuimmmuwm8"]
+[gd_scene load_steps=4 format=3 uid="uid://c2ipuimmmuwm8"]
 
+[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD_inventory.gd" id="1_0p170"]
 [ext_resource type="Texture2D" uid="uid://bv82sshcqqtk2" path="res://Assets/UI/HUD/inventory.png" id="1_3wefq"]
 [ext_resource type="PackedScene" uid="uid://cekq2o4an2al" path="res://Scenes/UI/HUD/inv_ui_slot.tscn" id="2_u32ql"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_0p170")
 
 [node name="InvUI" type="Control" parent="."]
 layout_mode = 3

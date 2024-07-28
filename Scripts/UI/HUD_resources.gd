@@ -8,11 +8,20 @@ var ore_quantity = 0:
 	set(new_quantity):
 		ore_quantity = new_quantity
 		_update_ore_label()
+	get:
+		return ore_quantity
+
+func _get_ore_quantity(ore_quantity):
+	return ore_quantity
+
 		
 var mercury_quantity = 0:
 	set(new_quantity):
 		mercury_quantity = new_quantity
 		_update_mercury_label()
+	get:
+		return mercury_quantity
+		
 
 func _ready():
 	_update_ore_label()
@@ -28,5 +37,7 @@ func _update_mercury_label():
 func _on_collected(collectable) -> void:
 	if collectable is Ore:
 		ore_quantity += 1
+		Game.ore = ore_quantity
 	if collectable is Mercury:
 		mercury_quantity += 1
+		Game.mercury = mercury_quantity

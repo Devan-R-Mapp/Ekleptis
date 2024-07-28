@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.2")
 [autoload]
 
 Game="*res://Scripts/Player/game.gd"
+Audio="*res://Assets/Music/audio.tscn"
 
 [display]
 
