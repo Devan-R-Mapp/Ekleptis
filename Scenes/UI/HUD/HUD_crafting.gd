@@ -7,7 +7,8 @@ class_name HUD_crafting
 @onready var crafting_inv: CraftingInventory = preload("res://Scripts/UI/Crafting/crafting_inv.tres")
 @onready var slots: Array = $OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer.get_children()
 
-@onready var hud_inv: Node = get_parent().get_child(2)
+@onready var hud_inv: CanvasLayer = get_parent().get_child(1)
+
 	
 @onready var eye_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/EyeTower.tres")
 
@@ -26,9 +27,9 @@ var towerOwned = false
 
 func _ready():
 	closed()
-	update()
+	update_craft_inv()
 
-func update():
+func update_craft_inv():
 	for i in range(min(crafting_inv.items.size(), slots.size())):
 		slots[i].update(crafting_inv.items[i])
 
@@ -81,6 +82,8 @@ func buy(item: InventoryItem):
 	print("buy called")
 	inventory.add_item(item)
 	towerOwned = true
+	print("this value")
+	print(hud_inv)
 	hud_inv.update()
 	
 
