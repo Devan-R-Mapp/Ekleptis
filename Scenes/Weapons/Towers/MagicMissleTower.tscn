@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdbo0lv0y61na"]
+[gd_scene load_steps=5 format=3 uid="uid://bdbo0lv0y61na"]
 
 [ext_resource type="Texture2D" uid="uid://2qj677jccsuj" path="res://Assets/Weapons/Towers/eye_tower.png" id="1_ldkfu"]
 [ext_resource type="Script" path="res://Scripts/Weapons/Towers/MagicMissle.gd" id="1_xbaq6"]
+[ext_resource type="Resource" uid="uid://dquy23344dntp" path="res://Scripts/UI/Inventory/Towers/EyeTower.tres" id="2_gl13r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_seo2y"]
 radius = 12.0416
 
 [node name="MagicMissleTower" type="StaticBody2D"]
 script = ExtResource("1_xbaq6")
+itemResource = ExtResource("2_gl13r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_ldkfu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

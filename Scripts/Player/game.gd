@@ -7,6 +7,8 @@ var cauldronHP = 100
 var base_cauldronHP = 100
 var wave_1_complete = false
 
+var crafting_zone = false
+
 var ore = 0
 var mercury = 0
 

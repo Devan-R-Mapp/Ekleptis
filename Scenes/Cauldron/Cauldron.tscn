@@ -113,3 +113,4 @@ position = Vector2(1, -13)
 shape = SubResource("CircleShape2D_6pojk")
 
 [connection signal="body_entered" from="CraftingZone" to="." method="_on_crafting_zone_body_entered"]
+[connection signal="body_exited" from="CraftingZone" to="." method="_on_crafting_zone_body_exited"]

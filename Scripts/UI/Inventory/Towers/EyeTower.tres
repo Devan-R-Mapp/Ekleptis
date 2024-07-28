@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dquy23344dntp"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/inventoryItem.gd" id="1_sq5p8"]
+[ext_resource type="Texture2D" uid="uid://2qj677jccsuj" path="res://Assets/Weapons/Towers/eye_tower.png" id="2_t3mki"]
+
+[resource]
+script = ExtResource("1_sq5p8")
+name = "EyeTower"
+texture = ExtResource("2_t3mki")

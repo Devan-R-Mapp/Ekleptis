@@ -10,4 +10,11 @@ func _ready():
 
 func _on_crafting_zone_body_entered(body):
 	if body.has_method("player_craft"):
-		print("craft zone")
+		Game.crafting_zone = true
+		print("craft zone entered")
+
+
+func _on_crafting_zone_body_exited(body):
+	if body.has_method("player_craft"):
+		Game.crafting_zone = false
+		print("craft zone exited")
