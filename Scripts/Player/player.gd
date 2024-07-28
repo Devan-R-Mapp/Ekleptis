@@ -27,6 +27,8 @@ var radAngle = 0
 @onready var spawn_point = $SpawnPoint
 @onready var handle_point = $HandlePoint
 
+var isAlive = true
+
 func get_radAngle () -> float:
 		return radAngle
 	
@@ -88,5 +90,5 @@ func handle_firing():
 		if Input.is_action_just_pressed("Fire"):
 			current_weapon.fire()
 
-func collect(ore):
-	collected.emit(ore)
+func collect(resource):
+	collected.emit(resource)

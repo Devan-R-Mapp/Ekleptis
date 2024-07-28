@@ -1,0 +1,132 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6r1yqdo7jtln"]
+
+[ext_resource type="Texture2D" uid="uid://bv82sshcqqtk2" path="res://Assets/UI/HUD/inventory.png" id="1_qys5u"]
+
+[node name="HUD_text_display" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 212.0
+offset_right = -390.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 9
+texture = ExtResource("1_qys5u")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer/NinePatchRect"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -44.0
+offset_right = 81.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label9" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label10" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label11" type="Label" parent="Control/MarginContainer/NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
