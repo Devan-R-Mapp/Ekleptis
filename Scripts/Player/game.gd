@@ -1,6 +1,9 @@
 extends Node
 
 
+var weaponInternalCD = .3
+var automatic_upgrade = false
+
 var playerHP = 10
 var base_playerHP = 10
 var cauldronHP = 100

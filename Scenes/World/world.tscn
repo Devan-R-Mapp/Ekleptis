@@ -272,3 +272,31 @@ position = Vector2(1542, 1171)
 
 [node name="MagicMissleTower" parent="." instance=ExtResource("14_kgil5")]
 position = Vector2(-369, -259)
+
+[node name="Instructions" type="Label" parent="."]
+offset_left = -282.0
+offset_top = 287.0
+offset_right = 328.0
+offset_bottom = 596.0
+pivot_offset = Vector2(296, 157)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "W A S D to move,  Left CLick to Shoot
+
+Stand near the Cauldron to craft
+
+Left click on the Item you wish to craft and then click craft.
+
+Once an item is your inventory, left click on it and drag it to to where you want.
+
+Then left click to place the item on the world.
+
+Survive waves, and make sure to keep your flame strong.
+
+"
+horizontal_alignment = 1
+
+[node name="InstructionsTimer" type="Timer" parent="Instructions"]
+wait_time = 40.0
+autostart = true
+
+[connection signal="timeout" from="Instructions/InstructionsTimer" to="." method="_on_instructions_timer_timeout"]
