@@ -4,3 +4,4 @@
 
 [node name="Audio" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_4diw4")
+autoplay = true
