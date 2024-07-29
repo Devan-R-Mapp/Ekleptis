@@ -11,6 +11,7 @@ var spawn_distance = 30
 #Weapon Varibles
 @onready var weapon_main_slot = $weapon_main_slot
 var current_weapon: Node2D
+var firing: bool = false
 
 #Light Varibles
 @onready var light_slot = $light_slot
@@ -38,10 +39,12 @@ func _ready () -> void:
 	current_weapon = weapon_main_slot.get_child(0) 
 	current_light = light_slot.get_child(0)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	player_movement_input_handler()
 	update_spawn_point_position_and_rotation()
+	handle_auto_firing()
 	handle_firing()
+	
 
 func player_movement_input_handler():
 	var inputDirection: Vector2 = Vector2(Input.get_axis("Left", "Right"),Input.get_axis("Up", "Down")).normalized()
@@ -89,8 +92,17 @@ func update_spawn_point_position_and_rotation():
 		handle_point.global_position = player_position + direction * (spawn_distance - 20)
 
 func handle_firing():
-		if Input.is_action_just_pressed("Fire"):
-			current_weapon.fire()
+	if Input.is_action_just_pressed("Fire") and !Game.automatic_upgrade:
+		current_weapon.fire()
+		
+func handle_auto_firing():
+	if Input.is_action_pressed("Fire") and Game.automatic_upgrade:
+		current_weapon.fire()
+		
+
+
+func fire_weapon():
+	current_weapon.fire()
 
 func collect(resource):
 	collected.emit(resource)
