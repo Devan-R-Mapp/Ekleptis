@@ -3,6 +3,7 @@ extends Node2D
 @export var portal_spawn_point: Array[Marker2D] 
 @onready var eclipse_timer: = $EclipseTimer
 @onready var day_timer: = $DayTimer
+@onready var spawn_timer: = $SpawnTimer
 var bossSpawnerScene: PackedScene = preload("res://Scenes/ai/ai_mobs/ekleptis_boss_spawner.tscn")
 var basicSpawnerScene: PackedScene = preload("res://Scenes/ai/ai_mobs/ekleptis_basic_spawner.tscn")
 var currentWave = 1
@@ -27,11 +28,16 @@ func spawn_boss_portals(howMany: int) -> void:
 		get_parent().call_deferred("add_child", new_portal)
 		
 func spawn_basic_portals(howMany: int) -> void:
+	spawn_timer.start()
 	for i in range(howMany):
 		var random_spawn_number = randi_range(0, 7)
 		var new_portal = basicSpawnerScene.instantiate()
 		new_portal.global_position = portal_spawn_point[random_spawn_number].global_position
+		var tween = create_tween()
+		tween.tween_property(new_portal, "scale", Vector2(0,0), .01)
+		tween.tween_property(new_portal, "scale", Vector2(1,1), .5)
 		get_parent().call_deferred("add_child", new_portal)
+	spawn_timer.stop()
 
 
 func _on_day_timer_timeout():
@@ -56,3 +62,7 @@ func _on_eclipse_timer_timeout():
 		day_timer.start(15)
 	else:
 		Wave.lightlevel = Wave.timeType.night
+
+
+func _on_spawn_timer_timeout():
+	pass

@@ -112,7 +112,7 @@ texture_scale = 0.01
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="pathfinding_timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 8.0
 autostart = true
 
 [connection signal="body_entered" from="Player Detection" to="." method="_on_player_detection_body_entered"]
