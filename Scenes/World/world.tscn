@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bnnvdq3eoaenl" path="res://Scenes/UI/Crafting/ore.tscn" id="12_0pxf7"]
 [ext_resource type="Texture2D" uid="uid://cttwnxer0s4bd" path="res://Assets/Map Assets/border tile.png" id="12_hhlqe"]
 [ext_resource type="PackedScene" uid="uid://dbnrhn4nprnax" path="res://Scenes/UI/Crafting/Mercury.tscn" id="13_g804g"]
-[ext_resource type="PackedScene" uid="uid://bdbo0lv0y61na" path="res://Scenes/Weapons/Towers/EyeTower.tscn" id="14_kgil5"]
+[ext_resource type="PackedScene" path="res://Scenes/Weapons/Towers/MagicMissleTower.tscn" id="14_kgil5"]
 [ext_resource type="PackedScene" uid="uid://0aofg18cpew5" path="res://Scenes/TowerController.tscn" id="16_vt2d1"]
 [ext_resource type="Resource" uid="uid://bmyw3aipqr86e" path="res://Scripts/UI/Inventory/playerInventory.tres" id="18_gl8cc"]
 
