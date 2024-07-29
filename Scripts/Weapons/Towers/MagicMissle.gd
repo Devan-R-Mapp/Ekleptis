@@ -27,14 +27,7 @@ func _physics_process(delta):
 	$PointLight2D.rotation += rotation_speed
 	#fire_at_shadow() Reanable shooting
 	pass
-#needs to fire a projectile
 
-#func _process(delta):
-	#var mouse_pos = Game.eyetower.map_to_local(get_global_mouse_position())
-	#
-	#var local_pos = Game.eyetower.map_to_local(mouse_pos)
-	#var world_pos = Game.eyetower.to_global(local_pos)
-	#global_position = world_pos
 
 
 
