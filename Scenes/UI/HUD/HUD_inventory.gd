@@ -7,15 +7,19 @@ class_name HUD_inventory
 @onready var tower_controller = get_node("../../../TowerController")
 
 func _ready():
+	clear_inv()
 	update_inv()
 	
 func update_inv():
 	print("update inv called")
 	for i in range(min(inventory.items.size(), slots.size())):
 		slots[i].update_plr_inv(inventory.items[i])
+		
+func clear_inv():
+	for i in range(inventory.items.size()):
+		inventory.items.remove_at(i)
 
 func place_item():
-	print("place called")
 	tower_controller.start_placing_tower(tower_scene)
 	
 
@@ -25,20 +29,30 @@ func _on_inv_ui_slot_pressed():
 		place_item()
 
 func _on_inv_ui_slot_2_pressed():
-	place_item()
+	if slots[1].plr_has_item():
+		slots[1].update_plr_inv(null)
+		place_item()
 
 
 func _on_inv_ui_slot_3_pressed():
-	place_item()
+	if slots[2].plr_has_item():
+		slots[2].update_plr_inv(null)
+		place_item()
 
 
 func _on_inv_ui_slot_4_pressed():
-	place_item()
+	if slots[3].plr_has_item():
+		slots[3].update_plr_inv(null)
+		place_item()
 
 
 func _on_inv_ui_slot_5_pressed():
-	place_item()
+	if slots[4].plr_has_item():
+		slots[4].update_plr_inv(null)
+		place_item()
 
 
 func _on_inv_ui_slot_6_pressed():
-	place_item()
+	if slots[5].plr_has_item():
+		slots[5].update_plr_inv(null)
+		place_item()

@@ -5,6 +5,9 @@ extends Button
 
 var slot_item = null
 
+func _ready():
+	slot_item = null
+
 func update_plr_inv(item: InventoryItem):
 	if !item:
 		slot_item = null
