@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://gkuf5wh6k03d"]
+[gd_scene load_steps=9 format=3 uid="uid://cyiriuph0yr6a"]
 
-[ext_resource type="Script" path="res://Scripts/ai/ranged_shadow.gd" id="1_1u1s7"]
-[ext_resource type="Texture2D" uid="uid://ce6t5wv5l5awy" path="res://Assets/ai/Ranged_Shadow.png" id="2_rk61i"]
-[ext_resource type="Script" path="res://Scripts/ai/aiprojectilePool.gd" id="3_2cyaq"]
+[ext_resource type="Script" path="res://Scripts/ai/Melee_Shadow_Hunter.gd" id="1_v2ryk"]
+[ext_resource type="Texture2D" uid="uid://d0c3a70ob5v54" path="res://Assets/ai/melee_player_shadow.png" id="2_byxc3"]
+[ext_resource type="Script" path="res://Scripts/ai/aiprojectilePool.gd" id="3_l8uts"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1lhkb"]
-radius = 8.06226
+radius = 13.6015
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rni2y"]
 bg_color = Color(0.6, 0, 0, 1)
@@ -25,18 +25,18 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Shadow" type="CharacterBody2D"]
 light_mask = 3
 z_index = -5
-position = Vector2(352, 185)
+position = Vector2(313, 175)
 collision_layer = 7
 collision_mask = 2
 motion_mode = 1
 wall_min_slide_angle = 0.0
 safe_margin = 0.15
-script = ExtResource("1_1u1s7")
+script = ExtResource("1_v2ryk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(-2, 1)
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_1lhkb")
 
 [node name="MeleeShadow" type="Sprite2D" parent="."]
@@ -44,7 +44,7 @@ light_mask = 3
 visibility_layer = 3
 z_index = -1
 position = Vector2(-1, 0)
-texture = ExtResource("2_rk61i")
+texture = ExtResource("2_byxc3")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 3
@@ -62,26 +62,21 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player Detection" type="Area2D" parent="."]
 position = Vector2(-1, 0)
+collision_layer = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player Detection"]
-polygon = PackedVector2Array(-3, 15, -4, 4, -16, 10, -17, 3, -6, -1, -9, -4, -9, -10, -3, -14, 5, -12, 7, -8, 7, -5, 3, 0, 3, 1, 11, 2, 16, 7, 12, 9, 9, 4, 2, 4, 5, 15)
+position = Vector2(3, 5)
+polygon = PackedVector2Array(-9, 5, -6, 2, -12, 0, -17, -4, -17, -8, -12, -13, -3, -15, 6, -13, 11, -8, 11, -4, 6, 0, 0, 2, 3, 5, 3, 12, -9, 12)
 
 [node name="Projectiles" type="Node2D" parent="."]
 position = Vector2(-1, 0)
-script = ExtResource("3_2cyaq")
-
-[node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(-2, -4)
-
-[node name="Shoot Bullet" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
+script = ExtResource("3_l8uts")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 light_mask = 3
 visibility_layer = 3
 z_index = -2
-position = Vector2(1, -7)
+position = Vector2(2, -4)
 scale = Vector2(4.23523, 4.37226)
 color = Color(0.733333, 0, 0.0196078, 1)
 energy = 2.0
@@ -93,7 +88,19 @@ texture_scale = 0.01
 light_mask = 3
 visibility_layer = 3
 z_index = -2
-position = Vector2(-3, -7)
+position = Vector2(-1, -6)
+scale = Vector2(4.23523, 4.37226)
+color = Color(0.733333, 0, 0.0196078, 1)
+energy = 2.0
+range_z_max = 3
+texture = SubResource("GradientTexture2D_6h8lq")
+texture_scale = 0.01
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+z_index = -2
+position = Vector2(-4, -4)
 scale = Vector2(4.23523, 4.37226)
 color = Color(0.733333, 0, 0.0196078, 1)
 energy = 2.0
@@ -104,14 +111,8 @@ texture_scale = 0.01
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="pathfinding_timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.4
 autostart = true
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-1.99995, -3)
-scale = Vector2(1.40242, 0.938393)
-target_position = Vector2(250, 0)
-
 [connection signal="body_entered" from="Player Detection" to="." method="_on_player_detection_body_entered"]
-[connection signal="timeout" from="Shoot Bullet" to="." method="_on_shoot_bullet_timeout"]
 [connection signal="timeout" from="pathfinding_timer" to="." method="_on_pathfinding_timer_timeout"]

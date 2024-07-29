@@ -14,5 +14,8 @@ autostart = true
 wait_time = 180.0
 one_shot = true
 
+[node name="SpawnTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
 [connection signal="timeout" from="EclipseTimer" to="." method="_on_eclipse_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

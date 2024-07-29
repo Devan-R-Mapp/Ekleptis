@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ck1heogc4q2h1" path="res://Assets/UI/logo.png" id="2_2ucoi"]
 
 [node name="mainMenu" type="Node2D"]
+position = Vector2(0, 1)
 script = ExtResource("1_y20c5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -40,6 +41,16 @@ offset_right = 427.0
 offset_bottom = 315.0
 text = "Quit"
 
+[node name="LinkButton" type="LinkButton" parent="buttonManager"]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 296.0
+offset_right = 572.0
+offset_bottom = 336.0
+text = "Feedback!"
+underline = 1
+
 [connection signal="pressed" from="buttonManager/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="buttonManager/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="buttonManager/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="buttonManager/LinkButton" to="." method="_on_link_button_pressed"]
