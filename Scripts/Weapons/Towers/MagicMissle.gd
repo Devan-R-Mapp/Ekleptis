@@ -20,13 +20,16 @@ func bought(inventory: Inventory):
 	
 func _ready():
 	$RayCast2D.target_position = range
+	#Game.eyetower = $"."
 
 func _physics_process(delta):
 	$RayCast2D.rotation += rotation_speed
 	$PointLight2D.rotation += rotation_speed
 	#fire_at_shadow() Reanable shooting
 	pass
-#needs to fire a projectile
+
+
+
 
 func fire_at_shadow():
 	if self.isAlive and has_projectile:

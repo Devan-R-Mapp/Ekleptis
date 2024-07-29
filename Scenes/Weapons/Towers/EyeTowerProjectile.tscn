@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx72nbs4iyhjy"]
+[gd_scene load_steps=9 format=3 uid="uid://bdeh5rt54e0hl"]
 
 [ext_resource type="Script" path="res://Scripts/Player/projectile.gd" id="1_q71rf"]
 [ext_resource type="Texture2D" uid="uid://bmqy6avk5ngal" path="res://Assets/Projectiles/BasicWandBolt.png" id="2_otvhy"]

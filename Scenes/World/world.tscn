@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bedmwjr2wdjui"]
+[gd_scene load_steps=26 format=3 uid="uid://bedmwjr2wdjui"]
 
 [ext_resource type="Script" path="res://Scripts/world/world.gd" id="1_04y0u"]
 [ext_resource type="Texture2D" uid="uid://ctoevlayqyeju" path="res://Assets/Map Assets/Center.png" id="1_bo05i"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cttwnxer0s4bd" path="res://Assets/Map Assets/border tile.png" id="12_hhlqe"]
 [ext_resource type="PackedScene" uid="uid://dbnrhn4nprnax" path="res://Scenes/UI/Crafting/Mercury.tscn" id="13_g804g"]
 [ext_resource type="PackedScene" uid="uid://bdbo0lv0y61na" path="res://Scenes/Weapons/Towers/MagicMissleTower.tscn" id="14_kgil5"]
+[ext_resource type="PackedScene" uid="uid://0aofg18cpew5" path="res://Scenes/TowerController.tscn" id="16_vt2d1"]
 [ext_resource type="Resource" uid="uid://bmyw3aipqr86e" path="res://Scripts/UI/Inventory/playerInventory.tres" id="18_gl8cc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s6b0v"]
@@ -264,6 +265,9 @@ position = Vector2(-1393, -1211)
 position = Vector2(1599, -1302)
 
 [node name="portal_spawn_7" type="Marker2D" parent="."]
+position = Vector2(1124, 864)
+
+[node name="TowerController" parent="." instance=ExtResource("16_vt2d1")]
 position = Vector2(1542, 1171)
 
 [node name="MagicMissleTower" parent="." instance=ExtResource("14_kgil5")]

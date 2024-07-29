@@ -6,6 +6,7 @@ var paused = false
 
 
 func _ready():
+	
 	Game.basic_kills = 0
 	Game.boss_kills = 0
 	Game.portal_kills = 0
