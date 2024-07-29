@@ -13,8 +13,8 @@ var base_portals = 3
 var total_portals = snappedi(base_portals + (currentWave/2), 1)
 var finalWave = false
 var resources = 100
-@onready var spawnArea = Vector2
-@onready var origin = %ResourceSpawnArea.get_child(0).global_position - spawnArea
+@onready var spawnArea = Vector2(0,0)
+@onready var origin = Vector2(100,100) - spawnArea
 
 
 func gen_random_pos():
@@ -36,6 +36,7 @@ func spawn_mercury(howMany: int) -> void:
 		var new_mercury = mercury.instantiate()
 		new_mercury.global_position = position
 		get_parent().call_deferred("add_child", new_mercury)
+		print("merc created")
 
 func spawn_boss_portals(howMany: int) -> void:
 	for i in range(howMany):
