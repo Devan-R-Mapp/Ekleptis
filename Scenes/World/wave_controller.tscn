@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/World/wave_controller.gd" id="1_df8u3"]
 
-[node name="wave_controller" type="Node2D"]
+[node name="wave_controller" type="Node2D" node_paths=PackedStringArray("portal_spawn_point")]
 script = ExtResource("1_df8u3")
+portal_spawn_point = [null, null, null, null, null, null, null, null]
 
 [node name="DayTimer" type="Timer" parent="."]
 wait_time = 20.0

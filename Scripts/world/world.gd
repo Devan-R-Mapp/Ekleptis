@@ -7,6 +7,8 @@ var paused = false
 
 func _ready():
 	
+	Game.ore = 0
+	Game.mercury = 0
 	Game.basic_kills = 0
 	Game.boss_kills = 0
 	Game.portal_kills = 0

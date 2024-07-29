@@ -3,7 +3,7 @@ class_name HUD_inventory
 
 @onready var inventory: Inventory = preload("res://Scripts/UI/Inventory/playerInventory.tres")
 @onready var slots: Array = $InvUI/MarginContainer/NinePatchRect/GridContainer.get_children()
-@onready var tower_scene = preload("res://Scenes/Weapons/Towers/MagicMissleTower.tscn")
+@onready var tower_scene = preload("res://Scenes/Weapons/Towers/EyeTower.tscn")
 @onready var tower_controller = get_node("../../../TowerController")
 
 func _ready():
