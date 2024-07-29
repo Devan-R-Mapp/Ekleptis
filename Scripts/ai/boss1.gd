@@ -15,7 +15,6 @@ var health = 20
 
 func _ready():
 	bar.max_value = health
-	print(get_parent())
 
 func _physics_process(_delta: float) -> void:
 	if isAlive:

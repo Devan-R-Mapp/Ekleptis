@@ -12,53 +12,50 @@ var health: int = 1
 @onready var bar = $ProgressBar
 var has_projectile = 0
 
-@onready var navigation_agent:= $NavigationAgent2D as NavigationAgent2D
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
-
-func _ready():
+func _ready() -> void:
 	bar.max_value = health
-	
 
 func _physics_process(_delta: float) -> void:
 	if isAlive:
-		bar.value = health
-
-		var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
-		velocity = speed * direction
-		move_and_slide()
-
-		
-		if direction.x < 0:
-			sprite.flip_h = true
-		else:
-			sprite.flip_h = false
+		update_health_bar()
+		move_towards_target()
+		handle_sprite_orientation()
 	else:
-		sprite.hide()
-		bar.hide()
-			
+		hide_mob()
+
+func update_health_bar() -> void:
+	bar.value = health
+
+func move_towards_target() -> void:
+	var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
+	velocity = speed * direction
+	move_and_slide()
+
+func handle_sprite_orientation() -> void:
+	sprite.flip_h = velocity.x < 0
+
+func hide_mob() -> void:
+	sprite.hide()
+	bar.hide()
+
 func make_path_to_player() -> void:
-	if(player):
+	if player:
 		navigation_agent.target_position = player.global_position
 
-func reset_mob(body: Node)-> void:
+func reset_mob(body: Node) -> void:
 	if health > 1:
 		health -= 1
 	else:
-		get_parent().reset_mob($".", true)
-		
+		get_parent().reset_mob(self, true)
 
-
-func _on_player_detection_body_entered(body: Node2D):
+func _on_player_detection_body_entered(body: Node2D) -> void:
 	if "Player" in body.name:
 		if visible and body.visible:
 			Game.playerHP -= 1
-			get_parent().reset_mob($".", false)
+			self.get_node("CollisionShape2D").set("disabled", true)
+			get_parent().reset_mob(self, false)
 
-		
-	
-	pass # Replace with function body.
-
-
-func _on_pathfinding_timer_timeout():
+func _on_pathfinding_timer_timeout() -> void:
 	make_path_to_player()
-	pass # Replace with function body.

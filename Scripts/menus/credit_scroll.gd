@@ -14,7 +14,6 @@ func _ready():
 	var current_text = 0
 	
 	while current_text < arr_length:
-		print(credit_text[current_text])
 		text_scroll(credit_text[current_text])
 		current_text += 1
 		await get_tree().create_timer(7.5).timeout
