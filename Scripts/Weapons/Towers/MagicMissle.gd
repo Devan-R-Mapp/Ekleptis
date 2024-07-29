@@ -5,7 +5,6 @@ class_name MagicMissleTower
 
 
 var health = 10
-var range: Vector2 = Vector2(100, 0) #50 range
 var isAlive = true
 var rotation_speed = .005
 @onready var projectile_pool = $Projectiles
@@ -19,10 +18,9 @@ func bought(inventory: Inventory):
 	
 	
 func _ready():
-	$RayCast2D.target_position = range
-	#Game.eyetower = $"."
+	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$RayCast2D.rotation += rotation_speed
 	$PointLight2D.rotation += rotation_speed
 	#fire_at_shadow() Reanable shooting

@@ -29,9 +29,10 @@ func update_health_bar() -> void:
 	bar.value = health
 
 func move_towards_target() -> void:
-	var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
-	velocity = speed * direction
-	move_and_slide()
+	if isAlive and self.visible:
+		var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
+		velocity = speed * direction
+		move_and_slide()
 
 func handle_sprite_orientation() -> void:
 	sprite.flip_h = velocity.x < 0
@@ -44,7 +45,7 @@ func make_path_to_player() -> void:
 	if player:
 		navigation_agent.target_position = player.global_position
 
-func reset_mob(body: Node) -> void:
+func reset_mob(_body: Node) -> void:
 	if health > 1:
 		health -= 1
 	else:
@@ -54,7 +55,7 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 	if "Player" in body.name:
 		if visible and body.visible:
 			Game.playerHP -= 1
-			self.get_node("CollisionShape2D").set("disabled", true)
+			self.get_node("CollisionShape2D").set_deferred("disabled", true)
 			get_parent().reset_mob(self, false)
 
 func _on_pathfinding_timer_timeout() -> void:

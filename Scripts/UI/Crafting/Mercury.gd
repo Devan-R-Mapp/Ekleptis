@@ -1,7 +1,7 @@
 extends Area2D
 class_name Mercury
 
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+func _on_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
 	if body is Player:
 		if visible and body.visible:
 			body.collect(self)

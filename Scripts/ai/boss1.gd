@@ -20,7 +20,6 @@ func _physics_process(_delta: float) -> void:
 	if isAlive:
 		bar.value = health
 		var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
-		var angle = direction.angle()
 		var radAngle = atan2(direction.y, direction.x)
 		$RayCast2D.rotation_degrees = rad_to_deg(radAngle)
 

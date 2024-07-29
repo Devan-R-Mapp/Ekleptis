@@ -33,7 +33,7 @@ func update_craft_inv():
 	for i in range(min(crafting_inv.items.size(), slots.size())):
 		slots[i].update_cft_inv(crafting_inv.items[i])
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Game.crafting_zone == true:
 		open()
 	else:

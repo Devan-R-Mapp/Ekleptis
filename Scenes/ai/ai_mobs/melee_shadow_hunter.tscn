@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyiriuph0yr6a"]
+[gd_scene load_steps=10 format=3 uid="uid://cyiriuph0yr6a"]
 
 [ext_resource type="Script" path="res://Scripts/ai/Melee_Shadow_Hunter.gd" id="1_v2ryk"]
 [ext_resource type="Texture2D" uid="uid://d0c3a70ob5v54" path="res://Assets/ai/melee_player_shadow.png" id="2_byxc3"]
@@ -12,6 +12,9 @@ bg_color = Color(0.6, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il3e2"]
 bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gryk"]
+radius = 15.0333
 
 [sub_resource type="Gradient" id="Gradient_rvj8n"]
 offsets = PackedFloat32Array(0, 0.995012, 1)
@@ -64,9 +67,9 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-1, 0)
 collision_layer = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player Detection"]
-position = Vector2(3, 5)
-polygon = PackedVector2Array(-9, 5, -6, 2, -12, 0, -17, -4, -17, -8, -12, -13, -3, -15, 6, -13, 11, -8, 11, -4, 6, 0, 0, 2, 3, 5, 3, 12, -9, 12)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Detection"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_4gryk")
 
 [node name="Projectiles" type="Node2D" parent="."]
 position = Vector2(-1, 0)
