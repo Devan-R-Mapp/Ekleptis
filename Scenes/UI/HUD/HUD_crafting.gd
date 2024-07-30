@@ -24,9 +24,7 @@ var orePrice
 var mercuryPrice
 var towerOwned = false
 
-var slot_1_selected = false
-var slot_2_selected = false
-var slot_3_selected = false
+var slots_selected = [false, false, false, false, false, false, false, false, false]
 
 
 
@@ -80,8 +78,30 @@ func _on_buy_pressed():
 				Game.mercury -= mercuryPrice
 				hud_res.buy_pressed()
 	elif page == 2:
-		
-		pass
+		if slots_selected[0] and !slots[0] == null:
+			orePrice = 0
+			mercuryPrice = 2
+			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
+				Game.ore -= orePrice
+				Game.mercury -= mercuryPrice
+				Game.weaponInternalCD = Game.weaponInternalCD/2
+				print("atk spd bought")
+		elif slots_selected[1] and !slots[1] == null:
+			orePrice = 0
+			mercuryPrice = 2
+			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
+				Game.ore -= orePrice
+				Game.mercury -= mercuryPrice
+				Game.automatic_upgrade = true
+				print("auto fire bought")
+		elif slots_selected[2] and !slots[2] == null:
+			orePrice = 0
+			mercuryPrice = 2
+			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
+				Game.ore -= orePrice
+				Game.mercury -= mercuryPrice
+				Game.light_energy += .5
+				print("light up bought")
 			
 	
 	
@@ -111,15 +131,79 @@ func craft(item: InventoryItem):
 	hud_inv.update_inv()
 	
 
+func hl_check(num):
+	for i in range(upgrade_inv.items.size()):
+		if i == num:
+			pass
+		else:	
+			slots[i].un_highlight()
+			slots_selected[i] = false
 
 func _on_craft_ui_slot_pressed():
 	print("slot 1 pressed")
-	slot_1_selected = !slot_1_selected
+	var num = 0
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
 
 func _on_craft_ui_slot_2_pressed():
 	print("slot 2 pressed")
-	slot_2_selected = !slot_2_selected
+	var num = 1
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
 
 func _on_craft_ui_slot_3_pressed():
 	print("slot 3 pressed")
-	slot_3_selected = !slot_3_selected
+	var num = 2
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
+
+
+func _on_craft_ui_slot_4_pressed():
+	print("slot 4 pressed")
+	var num = 3
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
+
+
+func _on_craft_ui_slot_5_pressed():
+	print("slot 5 pressed")
+	var num = 4
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
+
+
+func _on_craft_ui_slot_6_pressed():
+	print("slot 6 pressed")
+	var num = 5
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
+
+
+func _on_craft_ui_slot_7_pressed():
+	print("slot 7 pressed")
+	var num = 6
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
+
+
+func _on_craft_ui_slot_8_pressed():
+	print("slot 8 pressed")
+	var num = 7
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
+
+
+func _on_craft_ui_slot_9_pressed():
+	print("slot 9 pressed")
+	var num = 8
+	if !slots[num] == null:
+		hl_check(num)
+		slots_selected[num] = true
