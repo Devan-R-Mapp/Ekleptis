@@ -27,6 +27,7 @@ var player_position
 var radAngle = 0
 @onready var spawn_point = $SpawnPoint
 @onready var handle_point = $HandlePoint
+@onready var cauldron = %Cauldron
 
 @export var inventory: Inventory
 
@@ -83,10 +84,14 @@ func player_movement_input_handler():
 func update_spawn_point_position_and_rotation():
 		mouse_position = get_global_mouse_position()
 		player_position = player.global_position
+		var cauldron_position = cauldron.global_position
 		direction = (mouse_position - player_position).normalized()
+		var caul_direction = (cauldron_position - player_position).normalized()
 		var angle = direction.angle()
 		radAngle = atan2(direction.y, direction.x)
-		ring_sprite.rotation_degrees = rad_to_deg(radAngle) - 45
+		var caulangle = caul_direction.angle()
+		var radAngle2 = atan2(caul_direction.y, caul_direction.x)
+		ring_sprite.rotation_degrees = rad_to_deg(radAngle2) - 45
 		spawn_point.rotation = angle
 		spawn_point.global_position = player_position + direction * spawn_distance
 		handle_point.global_position = player_position + direction * (spawn_distance - 20)

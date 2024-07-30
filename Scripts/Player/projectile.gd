@@ -15,7 +15,7 @@ func _process(_delta):
 func _on_damage_box_body_entered(body):
 	if body.get("isMob"):
 		if body.isAlive and body.visible and self.visible:
-			body.reset_mob(body)
+			body.reset_mob()
 			get_parent().reset_projectile(self)
 	elif body is TileMap:
 		get_parent().reset_projectile(self)

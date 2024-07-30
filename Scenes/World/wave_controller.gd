@@ -12,7 +12,7 @@ var currentWave = 1
 var base_portals = 3
 var total_portals = snappedi(base_portals + (currentWave/2), 1)
 var finalWave = false
-var resources = 100
+var resources = 1
 @onready var spawnArea = Vector2(0,0)
 @onready var origin = Vector2(100,100) - spawnArea
 
@@ -36,7 +36,15 @@ func spawn_mercury(howMany: int) -> void:
 		var new_mercury = mercury.instantiate()
 		new_mercury.global_position = position
 		get_parent().call_deferred("add_child", new_mercury)
-		print("merc created")
+
+
+func spawn_ore(howMany: int) -> void:
+	for i in range(howMany):
+		var position = gen_random_pos()
+		var new_ore = ore.instantiate()
+		new_ore.global_position = position
+		get_parent().call_deferred("add_child", new_ore)
+
 
 func spawn_boss_portals(howMany: int) -> void:
 	for i in range(howMany):
@@ -60,7 +68,7 @@ func spawn_basic_portals(howMany: int) -> void:
 
 func _on_day_timer_timeout():
 	if currentWave < 5:
-		spawn_mercury(10)
+		
 		Wave.lightlevel = Wave.timeType.eclipse
 		spawn_basic_portals(total_portals)
 		eclipse_timer.start(45)
@@ -76,9 +84,12 @@ func _on_day_timer_timeout():
 func _on_eclipse_timer_timeout():
 	if !finalWave:
 		currentWave += 1
+		spawn_mercury(resources)
+		spawn_ore(resources)
 		total_portals = snappedi(base_portals + (currentWave/2), 1)
 		Wave.lightlevel = Wave.timeType.day
 		day_timer.start(15)
+		resources += 1
 	else:
 		Wave.lightlevel = Wave.timeType.night
 

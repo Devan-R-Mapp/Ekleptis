@@ -45,7 +45,7 @@ func make_path_to_cauldron() -> void:
 	if cauldron:
 		navigation_agent.target_position = cauldron.global_position
 
-func reset_mob(_body: Node) -> void:
+func reset_mob() -> void:
 	if health > 1:
 		health -= 1
 	else:

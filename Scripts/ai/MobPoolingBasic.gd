@@ -37,13 +37,15 @@ func get_mob(pool: Array, scene: PackedScene) -> Node:
 	add_child(new_mob)
 	return new_mob
 
-func reset_mob(mob: Node, _scoreUP: bool) -> void:
+func reset_mob(mob: Node, scoreUP: bool) -> void:
 	mob.isAlive = false
-	mob.position = Vector2(-1000, -1000)
-	mob.hide()
-	Game.basic_kills += 1
-	total_killed_mobs += 1
 	mob.get_node("CollisionShape2D").set_deferred("disabled", true)
+	mob.hide()
+	mob.call_deferred("set_position", Vector2(-1000, -1000))
+	if scoreUP:
+		Game.basic_kills += 1
+	total_killed_mobs += 1
+
 
 func _on_timer_timeout() -> void:
 	if total_spawned_mobs < poolSize:
