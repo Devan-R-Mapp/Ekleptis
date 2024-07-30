@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name melee_shadow_crusher
 
 var isAlive = true
 var speed = 50
@@ -13,6 +14,12 @@ var health: int = 1
 var has_projectile = 0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+
+func get_hp():
+	return health
+
+func set_hp(num: int):
+	health -= num
 
 func _ready() -> void:
 	bar.max_value = health
@@ -65,3 +72,11 @@ func _on_pathfinding_timer_timeout() -> void:
 func _on_speak_timeout():
 	$RandomShadowSounds.play_random_sound()
 	$speak.start(randf_range(3,15))
+
+func _on_tower_detection_body_entered(body: Node2D) -> void:
+	if body is EyeTower:
+		if visible and body.visible:
+			if health > 0:
+				health -= 1
+				if health <= 0:
+					get_parent().reset_mob(self, false)

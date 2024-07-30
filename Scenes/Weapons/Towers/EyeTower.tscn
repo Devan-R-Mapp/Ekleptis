@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdbo0lv0y61na"]
+[gd_scene load_steps=12 format=3 uid="uid://be5ddwgj1jdnc"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/Towers/MagicMissle.gd" id="1_i6dt6"]
 [ext_resource type="Resource" uid="uid://dquy23344dntp" path="res://Scripts/UI/Inventory/Towers/EyeTower.tres" id="2_aqcnv"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/objects/fire_light.gd" id="6_fqmol"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_seo2y"]
-radius = 20.025
+radius = 96.1873
 
 [sub_resource type="Gradient" id="Gradient_r1gml"]
 offsets = PackedFloat32Array(0, 0.628099)
@@ -24,7 +24,7 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hnr6w"]
 noise = SubResource("FastNoiseLite_r47hu")
 
-[node name="EyeTower" type="StaticBody2D"]
+[node name="EyeTower" type="CharacterBody2D"]
 position = Vector2(245, 161)
 collision_layer = 4
 collision_mask = 2
@@ -37,7 +37,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_qtyod")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -13)
+position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_seo2y")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

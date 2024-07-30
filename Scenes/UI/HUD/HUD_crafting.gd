@@ -69,14 +69,33 @@ func _on_next_pressed():
 
 func _on_buy_pressed():
 	if page == 1:
-		orePrice = 1
-		mercuryPrice = 0
-		if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
-			if towerOwned == false:
-				craft(eye_tower)
-				Game.ore -= orePrice
-				Game.mercury -= mercuryPrice
-				hud_res.buy_pressed()
+		if slots_selected[0] and !slots[0] == null:
+			orePrice = 1
+			mercuryPrice = 1
+			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
+				if towerOwned == false:
+					craft(eye_tower)
+					Game.ore -= orePrice
+					Game.mercury -= mercuryPrice
+					hud_res.buy_pressed()
+		if slots_selected[1] and !slots[1] == null:
+			orePrice = 1
+			mercuryPrice = 1
+			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
+				if towerOwned == false:
+					craft(eye_tower)
+					Game.ore -= orePrice
+					Game.mercury -= mercuryPrice
+					hud_res.buy_pressed()
+		if slots_selected[2] and !slots[2] == null:
+			orePrice = 1
+			mercuryPrice = 1
+			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
+				if towerOwned == false:
+					craft(eye_tower)
+					Game.ore -= orePrice
+					Game.mercury -= mercuryPrice
+					hud_res.buy_pressed()
 	elif page == 2:
 		if slots_selected[0] and !slots[0] == null:
 			orePrice = 0

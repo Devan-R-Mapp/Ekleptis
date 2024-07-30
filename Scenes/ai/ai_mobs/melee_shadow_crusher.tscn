@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4u11xef2jpur"]
+[gd_scene load_steps=13 format=3 uid="uid://b4u11xef2jpur"]
 
 [ext_resource type="Script" path="res://Scripts/ai/Melee_Shadow_Crusher.gd" id="1_ccpti"]
 [ext_resource type="Texture2D" uid="uid://bcyv6ca2lbliu" path="res://Assets/ai/melee_env_shadow.png" id="2_ijdf4"]
@@ -26,6 +26,9 @@ colors = PackedColorArray(1, 1, 1, 1, 0.032419, 0.032419, 0.032419, 1, 0, 0, 0, 
 gradient = SubResource("Gradient_rvj8n")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5idg"]
+radius = 17.0294
 
 [node name="Shadow" type="CharacterBody2D"]
 light_mask = 3
@@ -132,5 +135,13 @@ pitch_scale = 2.25
 max_distance = 4000.0
 bus = &"SFX"
 
+[node name="TowerDetection" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerDetection"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_g5idg")
+
 [connection signal="body_entered" from="Player Detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="timeout" from="pathfinding_timer" to="." method="_on_pathfinding_timer_timeout"]
+[connection signal="body_entered" from="TowerDetection" to="." method="_on_tower_detection_body_entered"]
