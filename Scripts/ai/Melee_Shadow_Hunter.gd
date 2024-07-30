@@ -21,7 +21,7 @@ var has_projectile = 0
 
 func _ready() -> void:
 	bar.max_value = health
-	print(eye_tower.name)
+	
 
 func _physics_process(_delta: float) -> void:
 	if isAlive:

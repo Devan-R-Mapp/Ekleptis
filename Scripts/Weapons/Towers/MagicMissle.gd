@@ -18,15 +18,7 @@ var target
 func bought(inventory: Inventory):
 	inventory.add_item(itemResource)
 	
-#func _on_area_2d_body_entered(body):
-	#if "Shadow" in body.name: 
-		#var ranged = body as melee_shadow_hunter
-		##var melee = body as melee_shadow_crusher
-		##melee.set_hp(1)
-		#ranged.set_hp(1)
-		
-	
-	
+
 func _ready():
 
 	pass
