@@ -180,7 +180,7 @@ offset_top = 11.0
 offset_right = 174.0
 offset_bottom = 30.0
 theme_override_font_sizes/font_size = 7
-text = "ロ"
+text = "o"
 
 [node name="Label" type="Label" parent="TextDown"]
 layout_mode = 0
