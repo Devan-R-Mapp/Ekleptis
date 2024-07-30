@@ -464,351 +464,73 @@ Naming Convention = snake_case
 ### **MINIMUM VIABLE PRODUCT**
 
 
-<table>
-  <tr>
-   <td>#
-   </td>
-   <td>Assignment
-   </td>
-   <td>Type
-   </td>
-   <td>Status
-   </td>
-   <td>Finish By
-   </td>
-   <td>Notes
-   </td>
-  </tr>
-  <tr>
-   <td>1
-   </td>
-   <td>Design Document
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>2
-   </td>
-   <td>Create player 
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>2.1
-   </td>
-   <td>Player Shoot
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>2.1.1
-   </td>
-   <td>Player Aim with Mouse 
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>3
-   </td>
-   <td>Primary Battle Field
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>4
-   </td>
-   <td>UI / Main menu
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>Main menu and in game menu bare bones are done. Need assets to make them look better
-   </td>
-  </tr>
-  <tr>
-   <td>5
-   </td>
-   <td>Main menu theme
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>James BGM implemented
-   </td>
-  </tr>
-  <tr>
-   <td>6
-   </td>
-   <td>Dwarf Sprite
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>Dwarf has cardinal directions spritesheets implemented
-   </td>
-  </tr>
-  <tr>
-   <td>7
-   </td>
-   <td>Resource Sprites
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>Crafting
-<ul>
+| Number   | Description                                            | Category   | Status      | Empty Column   |
+|:---------|:-------------------------------------------------------|:-----------|:------------|:---------------|
+| 1        | Design Document                                        | Other      | In progress |                |
+| 2        | Create player                                          | Coding     | Finished    |                |
+| 2.1      | Player Shoot                                           | Coding     | Finished    |                |
+| 2.1.1    | Player Aim with Mouse                                  | Coding     | Finished    |                |
+| 3        | Primary Battle Field                                   | Coding     | Finished    |                |
+| 4        | UI / Main menu                                         | Coding     | Finished    |                |
+| 5        | Main menu theme                                        | Audio      | Finished    |                |
+| 6        | Dwarf Sprite                                           | Art        | Finished    |                |
+| 7        | Resource Sprites                                       | Art        | Finished    |                |
+| 8        | Battlefield tiles                                      | Art        | Finished    |                |
+| 9        | Crucible and Shield Spritesheets                       | Art        | Finished    |                |
+| 10.1     | Base Weapon                                            | Coding     | Finished    |                |
+| 10.2     | Weapon Shoots                                          | Coding     | Finished    |                |
+| 10.3     | Weapon Automatic                                       | Coding     | Finished    |                |
+| 10.4     | Player can pick up weapon                              | Coding     | Cancelled   |                |
+| 11       | Player can die                                         | Coding     | Finished    |                |
+| 12       | Restart after player die                               | Coding     | Finished    |                |
+| 13       | Player Hud                                             | Art        | Finished    |                |
+| 14       | Eclipse Tracker                                        | Coding     | Cancelled   |                |
+| 15       | Lighting                                               | Coding     | Finished    |                |
+| 15.1     | Shadows                                                | Coding     | Finished    |                |
+| 15       | Boss 1 Sprite Sheet                                    | Art        | Finished    |                |
+| 16       | Logo for game                                          | Art        | Finished    |                |
+| 17       | Banner for game                                        | Art        | Not started |                |
+| 18       | TowerBase                                              | Coding     | Finished    |                |
+| 18.1     | CrossBow Tower                                         | Coding     | Cancelled   |                |
+| 18.1.1   | CrossBow Tower Sprite                                  | Art        | Cancelled   |                |
+| 19       | Barricade                                              | Coding     | Finished    |                |
+| 19.1     | Barricade Sprite                                       | Art        | Finished    |                |
+| 20       | Feedback Form                                          | Other      | Finished    |                |
+| 21       | Cauldron with health bar                               | Coding     | Finished    |                |
+| 21.1     | cauldron destroyed -> game over                        | Coding     | Finished    |                |
+| 22       | One working wave with boss                             | Coding     | Finished    |                |
+| 22.1     | set number of spawns                                   | Coding     | Finished    |                |
+| 22.2     | self destruct                                          | Coding     | Finished    |                |
+| 23       | Boss kill boss -> game over                            | Coding     | Finished    |                |
+| 24       | Player with one working weapon                         | Coding     | Finished    |                |
+| 25       | game over screen                                       | Coding     | Finished    |                |
+| 26       | Restart                                                | Coding     | Finished    |                |
+| 27       | main menu                                              | Coding     | Finished    |                |
+| 28       | Map                                                    | Coding     | Finished    |                |
+| 29       | Bullets Don't persist                                  | Coding     | Finished    |                |
+| 30       | Barriers                                               | Coding     | Finished    |                |
+| 31       | Ai adjustments                                         | Coding     | Finished    |                |
+| 32       | Portals Non-boss portal                                | Coding     | Finished    |                |
+| 33       | Spawns randomly                                        | Coding     | Finished    |                |
+| 34       | Dies after Boss Dies                                   | Coding     | Finished    |                |
+| 35       | Game condition changes after portal counter goes to 10 | Coding     | Finished    |                |
+| 36       | resource gathering                                     | Coding     | Finished    |                |
+| 37       | multi wave eclipse mechanics                           | Coding     | Finished    |                |
+| 38       | crafting system                                        | Coding     | Finished    |                |
+| 39       | crafting ui                                            | Coding     | Finished    |                |
+| 40       | Resources                                              | Coding     | Finished    |                |
+| 41       | HUD (heads up display)                                 | Coding     | Finished    |                |
+| 42       | player life                                            | Coding     | Finished    |                |
+| 43       | cauldron life                                          | Coding     | Finished    |                |
+| 44       | Resources                                              | Coding     | Finished    |                |
+| 45       | Automatic Fire                                         | Coding     | Finished    |                |
+| 46       | Instructions                                           | Coding     | Finished    |                |
+| 47       | Small radius light for eyetower                        | Coding     | Finished    |                |
+| 48       | Map upgrades                                           | Coding     | Finished    |                |
+| 49       | Spawn resources                                        | Coding     | Finished    |                |
+| 50       | Add resources at start of wave                         | Coding     | Finished    |                |
+| 51       | Aim arrow points at cauldron                           | Coding     | Finished    |                |
 
-<li>Ore 
-
-<li>Flowers
-
-<li>Blood
-
-<li>Scrap
-
-<li>Mercury
-</li>
-</ul>
-   </td>
-  </tr>
-  <tr>
-   <td>8
-   </td>
-   <td>Battlefield tiles
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>Boundary
-<p>
-Crucible
-<p>
-Barrier
-<p>
-InShieldGrass
-<p>
-OutShieldGrass
-   </td>
-  </tr>
-  <tr>
-   <td>9
-   </td>
-   <td>Crucible and Shield Spritesheets
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>10.1
-   </td>
-   <td>Base Weapon
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>10.2
-   </td>
-   <td>Weapon Shoots
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>10.3
-   </td>
-   <td>Weapon Reloads
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>10.4
-   </td>
-   <td>Player can pick up weapon
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>11
-   </td>
-   <td>Player can die
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>12
-   </td>
-   <td>Restart after player die
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>13
-   </td>
-   <td>Player Hud
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>14
-   </td>
-   <td>Eclipse Tracker
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>15
-   </td>
-   <td>Boss 1 Sprite Sheet
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>Shadow Rabbit.
-   </td>
-  </tr>
-  <tr>
-   <td>16
-   </td>
-   <td>Logo for game
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-  </tr>
-  <tr>
-   <td>17
-   </td>
-   <td>Banner for game
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>
-   </td>
-   <td>Desktop icon
-   </td>
-  </tr>
-</table>
 
 
 
