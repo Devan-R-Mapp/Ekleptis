@@ -45,7 +45,7 @@ func make_path_to_player() -> void:
 	if player:
 		navigation_agent.target_position = player.global_position
 
-func reset_mob(_body: Node) -> void:
+func reset_mob() -> void:
 	if health > 1:
 		health -= 1
 	else:
@@ -55,7 +55,6 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 	if "Player" in body.name:
 		if visible and body.visible:
 			Game.playerHP -= 1
-			self.get_node("CollisionShape2D").set_deferred("disabled", true)
 			get_parent().reset_mob(self, false)
 
 func _on_pathfinding_timer_timeout() -> void:

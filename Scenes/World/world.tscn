@@ -237,6 +237,7 @@ inventory = ExtResource("18_gl8cc")
 [node name="HUD" parent="Player" instance=ExtResource("2_ijsi4")]
 
 [node name="Cauldron" parent="." instance=ExtResource("4_os2b8")]
+unique_name_in_owner = true
 position = Vector2(-2, 9)
 scale = Vector2(0.826552, 0.805965)
 
