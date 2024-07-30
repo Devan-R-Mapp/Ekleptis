@@ -153,6 +153,9 @@ text = "Craft at the Cauldron
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer/CraftUISlot" to="." method="_on_craft_ui_slot_pressed"]
+[connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer/CraftUISlot2" to="." method="_on_craft_ui_slot_2_pressed"]
+[connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/MarginContainer/GridContainer/CraftUISlot3" to="." method="_on_craft_ui_slot_3_pressed"]
 [connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/Prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="OpenPanel/MarginContainer/NinePatchRect/Craft" to="." method="_on_buy_pressed"]

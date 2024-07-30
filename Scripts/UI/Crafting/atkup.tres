@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cfs6qhec17v8i"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/inventoryItem.gd" id="1_0w8yb"]
+[ext_resource type="Texture2D" uid="uid://jc4c15xghwsq" path="res://Assets/UI/HUD/atkspd.png" id="2_flsiu"]
+
+[resource]
+script = ExtResource("1_0w8yb")
+name = "atkup"
+texture = ExtResource("2_flsiu")
