@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://d3d7m1o75cl5u"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/inventoryItem.gd" id="1_2wmib"]
+[ext_resource type="Texture2D" uid="uid://cls2bqghpds05" path="res://Assets/UI/HUD/autoshoot.png" id="2_wkwit"]
+
+[resource]
+script = ExtResource("1_2wmib")
+name = "autoshoot"
+texture = ExtResource("2_wkwit")

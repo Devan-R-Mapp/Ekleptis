@@ -37,5 +37,10 @@ func _on_pressed():
 		BG.visible = true
 		Highlight.visible = false
 		toggle = !toggle
-		
+	
+
+func un_highlight():
+	BG.visible = true
+	Highlight.visible = false
+	toggle = false
 	

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeInventory" load_steps=5 format=3 uid="uid://b1205uhn5fcbl"]
+
+[ext_resource type="Resource" uid="uid://cfs6qhec17v8i" path="res://Scripts/UI/Crafting/atkup.tres" id="1_0w0kd"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/upgrade_inventory.gd" id="1_yj8mr"]
+[ext_resource type="Resource" uid="uid://d3d7m1o75cl5u" path="res://Scripts/UI/Crafting/autoshoot.tres" id="2_yekep"]
+[ext_resource type="Resource" uid="uid://brcrcnkuh157r" path="res://Scripts/UI/Crafting/lightup.tres" id="3_ecxuq"]
+
+[resource]
+script = ExtResource("1_yj8mr")
+items = Array[Resource("res://Scripts/UI/Inventory/inventoryItem.gd")]([ExtResource("1_0w0kd"), ExtResource("2_yekep"), ExtResource("3_ecxuq"), null, null, null, null, null, null])
