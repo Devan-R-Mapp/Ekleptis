@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name melee_shadow_hunter
 
 var isAlive = true
 var speed = 50
@@ -9,14 +10,18 @@ var health: int = 1
 @onready var cauldron: Node = get_node("../../Cauldron")
 @onready var player: Node = get_node("../../Player")
 @onready var sprite: Sprite2D = get_node("MeleeShadow")
+@onready var eye_tower: Node = get_node("../../EyeTower")
+
 @onready var projectile_pool = $Projectiles
 @onready var bar = $ProgressBar
 var has_projectile = 0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
+
 func _ready() -> void:
 	bar.max_value = health
+	print(eye_tower.name)
 
 func _physics_process(_delta: float) -> void:
 	if isAlive:
@@ -58,6 +63,7 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 			Game.playerHP -= 1
 			$AudioStreamPlayer2D.play()
 			get_parent().reset_mob(self, false)
+	
 
 func _on_pathfinding_timer_timeout() -> void:
 	make_path_to_player()
@@ -66,3 +72,12 @@ func _on_pathfinding_timer_timeout() -> void:
 func _on_speak_timeout():
 	$RandomShadowSounds.play_random_sound()
 	$speak.start(randf_range(3,15))
+
+
+func _on_tower_detection_body_entered(body: Node2D) -> void:
+	if body is EyeTower:
+		if visible and body.visible:
+			if health > 0:
+				health -= 1
+				if health <= 0:
+					get_parent().reset_mob(self, false)
