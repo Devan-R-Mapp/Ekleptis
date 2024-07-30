@@ -85,14 +85,16 @@ func _on_buy_pressed():
 				Game.ore -= orePrice
 				Game.mercury -= mercuryPrice
 				Game.weaponInternalCD = Game.weaponInternalCD/2
+				hud_res.buy_pressed()
 				print("atk spd bought")
-		elif slots_selected[1] and !slots[1] == null:
+		elif slots_selected[1] and !slots[1] == null and !Game.automatic_upgrade:
 			orePrice = 0
 			mercuryPrice = 2
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				Game.ore -= orePrice
 				Game.mercury -= mercuryPrice
 				Game.automatic_upgrade = true
+				hud_res.buy_pressed()
 				print("auto fire bought")
 		elif slots_selected[2] and !slots[2] == null:
 			orePrice = 0
@@ -101,6 +103,7 @@ func _on_buy_pressed():
 				Game.ore -= orePrice
 				Game.mercury -= mercuryPrice
 				Game.light_energy += .5
+				hud_res.buy_pressed()
 				print("light up bought")
 			
 	
