@@ -84,7 +84,9 @@ func _on_buy_pressed():
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				Game.ore -= orePrice
 				Game.mercury -= mercuryPrice
-				Game.weaponInternalCD = Game.weaponInternalCD/2
+				Game.weaponInternalCD = Game.weaponInternalCD - .05 #this sets the attack speed upgrade
+				if Game.weaponInternalCD <= 0:
+					Game.weaponInternalCD = .001
 				hud_res.buy_pressed()
 				print("atk spd bought")
 		elif slots_selected[1] and !slots[1] == null and !Game.automatic_upgrade:
@@ -102,7 +104,7 @@ func _on_buy_pressed():
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				Game.ore -= orePrice
 				Game.mercury -= mercuryPrice
-				Game.light_energy += .5
+				Game.light_energy += .5 #this sets the light level for upgrade
 				hud_res.buy_pressed()
 				print("light up bought")
 			
