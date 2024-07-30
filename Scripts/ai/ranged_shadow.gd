@@ -45,12 +45,12 @@ func make_path_to_player() -> void:
 	if(player):
 		navigation_agent.target_position = player.global_position
 
-func reset_mob(body: Node)-> void:
+func reset_mob()-> void:
 	if health > 1:
 		health -= 1
 	else:
 		isAlive = false
-		get_parent().reset_mob(body)
+		get_parent().reset_mob(self, true)
 
 
 func _on_player_detection_body_entered(body: Node2D):
