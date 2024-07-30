@@ -22,6 +22,7 @@ func _ready() -> void:
 		mob_pool.append(mobTemp)
 		add_child(mobTemp)
 
+
 func get_mob()-> Node:
 	for mob in mob_pool:
 		if not mob.visible:

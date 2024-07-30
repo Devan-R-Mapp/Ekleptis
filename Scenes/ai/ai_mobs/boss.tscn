@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxi45ul316odk"]
+[gd_scene load_steps=10 format=3 uid="uid://cxi45ul316odk"]
 
 [ext_resource type="Script" path="res://Scripts/ai/boss1.gd" id="1_vbb55"]
 [ext_resource type="Texture2D" uid="uid://bgwonn2fau1s0" path="res://Assets/ai/alpha-boss.png" id="2_k1s8b"]
 [ext_resource type="Script" path="res://Scripts/ai/boss1projectilePool.gd" id="3_iwl0t"]
+[ext_resource type="AudioStream" uid="uid://ciwpvu8vmp53f" path="res://sounds/Big_thump.wav" id="4_2o7v7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hhtlg"]
 
@@ -97,5 +98,14 @@ autostart = true
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(300, 0)
 
+[node name="footsteps" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2o7v7")
+bus = &"SFX"
+
 [connection signal="timeout" from="Shoot Bullet" to="." method="_on_shoot_bullet_timeout"]
 [connection signal="timeout" from="navigation_timer" to="." method="_on_navigation_timer_timeout"]
+[connection signal="timeout" from="footsteps" to="." method="_on_footsteps_timeout"]

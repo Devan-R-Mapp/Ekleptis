@@ -17,32 +17,40 @@ var resources = 1
 @onready var origin = Vector2(100,100) - spawnArea
 
 
-func gen_random_pos():
-	var x = randi_range(origin.x, spawnArea.x)
-	var y = randi_range(origin.y, spawnArea.y)
+func gen_random_pos(origin_X, spawnArea_X):
+	var x = randi_range(origin_X.x, spawnArea_X.x)
+	var y = randi_range(origin_X.y, spawnArea_X.y)
 	
 	return Vector2(x, y)
 	
 func _ready() -> void:
-	pass
+	
+	for portal in portal_spawn_point:
+		if portal is Marker2D:
+			var global_pos = portal.global_position
+			spawn_mercury(5, global_pos)
+			spawn_ore(5, global_pos)
+			#todo Install DefenderNodes here as well
 
 
 func _process(_delta):
 	pass
 
-func spawn_mercury(howMany: int) -> void:
+func spawn_mercury(howMany: int, location: Vector2) -> void:
 	for i in range(howMany):
-		var position = gen_random_pos()
 		var new_mercury = mercury.instantiate()
-		new_mercury.global_position = position
+		var randX = randi_range(-150,150)
+		var randY = randi_range(-150,150)
+		new_mercury.global_position = location + Vector2(randX,randY)
 		get_parent().call_deferred("add_child", new_mercury)
 
 
-func spawn_ore(howMany: int) -> void:
+func spawn_ore(howMany: int,  location: Vector2) -> void:
 	for i in range(howMany):
-		var position = gen_random_pos()
 		var new_ore = ore.instantiate()
-		new_ore.global_position = position
+		var randX = randi_range(-150,150)
+		var randY = randi_range(-150,150)
+		new_ore.global_position = location + Vector2(randX,randY)
 		get_parent().call_deferred("add_child", new_ore)
 
 
@@ -68,13 +76,14 @@ func spawn_basic_portals(howMany: int) -> void:
 
 func _on_day_timer_timeout():
 	if currentWave < 5:
-		
+		$AudioStreamPlayer2D.play()
 		Wave.lightlevel = Wave.timeType.eclipse
 		spawn_basic_portals(total_portals)
 		eclipse_timer.start(45)
 		base_portals += 1
 	else: 
 		Wave.lightlevel = Wave.timeType.eclipse
+		$AudioStreamPlayer2D.play()
 		spawn_basic_portals(total_portals)
 		spawn_boss_portals(3)
 		eclipse_timer.start(90)
@@ -84,8 +93,8 @@ func _on_day_timer_timeout():
 func _on_eclipse_timer_timeout():
 	if !finalWave:
 		currentWave += 1
-		spawn_mercury(resources)
-		spawn_ore(resources)
+		spawn_mercury(resources, gen_random_pos(origin, spawnArea))
+		spawn_ore(resources, gen_random_pos(origin, spawnArea))
 		total_portals = snappedi(base_portals + (currentWave/2), 1)
 		Wave.lightlevel = Wave.timeType.day
 		day_timer.start(15)

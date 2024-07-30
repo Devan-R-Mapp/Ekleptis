@@ -48,6 +48,7 @@ func fire():
 		projectileTemp.velocity = look_direction * projectile_speed
 		projectileTemp.global_position = barrel_position
 		projectileTemp.show()
+		$AudioStreamPlayer2D.play()
 		ready_to_fire = false
 		$InternalCD.start()
 		

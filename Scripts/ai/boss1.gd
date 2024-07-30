@@ -40,12 +40,12 @@ func _physics_process(_delta: float) -> void:
 func make_path_to_cauldron() -> void:
 	navigation_agent.target_position = cauldron.global_position
 	
-func reset_mob(body: Node)-> void:
+func reset_mob()-> void:
 	if health > 1:
 		health -= 1
 	else:
 		isAlive = false
-		get_parent().reset_mob(body)
+		get_parent().reset_mob(self, true)
 		Game.boss_kills += 1
 		
 func _on_shoot_bullet_timeout():
@@ -71,3 +71,8 @@ func spawn_projectile(target_position: Vector2):
 
 func _on_navigation_timer_timeout():
 	make_path_to_cauldron()
+
+
+func _on_footsteps_timeout():
+	$AudioStreamPlayer2D.play()
+

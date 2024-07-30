@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4u11xef2jpur"]
+[gd_scene load_steps=12 format=3 uid="uid://b4u11xef2jpur"]
 
 [ext_resource type="Script" path="res://Scripts/ai/Melee_Shadow_Crusher.gd" id="1_ccpti"]
 [ext_resource type="Texture2D" uid="uid://bcyv6ca2lbliu" path="res://Assets/ai/melee_env_shadow.png" id="2_ijdf4"]
 [ext_resource type="Script" path="res://Scripts/ai/aiprojectilePool.gd" id="3_fsbio"]
+[ext_resource type="PackedScene" uid="uid://bs4knw2lov8p6" path="res://Scenes/ai/ai_mobs/random_shadow_sounds.tscn" id="4_rbkfb"]
+[ext_resource type="AudioStream" uid="uid://cynd2242wj6yd" path="res://sounds/cauldron_hit_2.wav" id="5_ouq32"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1lhkb"]
 radius = 13.6015
@@ -117,6 +119,18 @@ texture_scale = 0.01
 [node name="pathfinding_timer" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
+
+[node name="RandomShadowSounds" parent="." instance=ExtResource("4_rbkfb")]
+
+[node name="speak" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ouq32")
+pitch_scale = 2.25
+max_distance = 4000.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Player Detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="timeout" from="pathfinding_timer" to="." method="_on_pathfinding_timer_timeout"]

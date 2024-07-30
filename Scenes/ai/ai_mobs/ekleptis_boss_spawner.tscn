@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5hl32q2xyrkp"]
+[gd_scene load_steps=4 format=3 uid="uid://c5hl32q2xyrkp"]
 
 [ext_resource type="Script" path="res://Scripts/ai/MobPooling.gd" id="1_tr45j"]
 [ext_resource type="Texture2D" uid="uid://btrbnvuu0m6sv" path="res://Assets/Map Assets/Portal.png" id="2_ljipp"]
+[ext_resource type="AudioStream" uid="uid://bi2grv8r0yiol" path="res://sounds/Portal_spawn_new.wav" id="3_io2ob"]
 
 [node name="ekleptis_boss_spawner" type="Node2D"]
 position = Vector2(-398, 155)
@@ -13,5 +14,12 @@ texture = ExtResource("2_ljipp")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="portalspawn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_io2ob")
+pitch_scale = 3.04
+autoplay = true
+max_polyphony = 2
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

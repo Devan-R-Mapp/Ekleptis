@@ -55,8 +55,13 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 	if "Cauldron" in body.name:
 		if visible and body.visible:
 			Game.cauldronHP -= 2
+			$AudioStreamPlayer2D.play()
 			self.get_node("CollisionShape2D").set_deferred("disabled", true)
 			get_parent().reset_mob(self, false)
 
 func _on_pathfinding_timer_timeout() -> void:
 	make_path_to_cauldron()
+
+func _on_speak_timeout():
+	$RandomShadowSounds.play_random_sound()
+	$speak.start(randf_range(3,15))

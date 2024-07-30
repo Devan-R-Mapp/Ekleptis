@@ -5,6 +5,7 @@ var speed = 50
 var isMob = true
 var health: int = 1
 
+
 @onready var cauldron: Node = get_node("../../Cauldron")
 @onready var player: Node = get_node("../../Player")
 @onready var sprite: Sprite2D = get_node("MeleeShadow")
@@ -55,7 +56,13 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 	if "Player" in body.name:
 		if visible and body.visible:
 			Game.playerHP -= 1
+			$AudioStreamPlayer2D.play()
 			get_parent().reset_mob(self, false)
 
 func _on_pathfinding_timer_timeout() -> void:
 	make_path_to_player()
+
+
+func _on_speak_timeout():
+	$RandomShadowSounds.play_random_sound()
+	$speak.start(randf_range(3,15))
