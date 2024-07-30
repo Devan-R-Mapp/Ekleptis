@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://baq5ipx2qwj6s"]
+
+[ext_resource type="Texture2D" uid="uid://cqgieqwk0b7ro" path="res://Assets/Weapons/Towers/orange_portal.png" id="1_uupfe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6v8j"]
+atlas = ExtResource("1_uupfe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akvt7"]
+atlas = ExtResource("1_uupfe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg1dx"]
+atlas = ExtResource("1_uupfe")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7b1ml"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6v8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akvt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg1dx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsfc0"]
+radius = 15.0
+
+[node name="OrangePortal" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7b1ml")
+animation = &"idle"
+frame_progress = 0.474954
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_wsfc0")

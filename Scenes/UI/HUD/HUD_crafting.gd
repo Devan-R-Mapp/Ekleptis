@@ -11,6 +11,8 @@ class_name HUD_crafting
 @onready var hud_res: CanvasLayer = get_parent().get_child(0)
 
 @onready var eye_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/EyeTower.tres")
+@onready var blue_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/BluePortal.tres")
+@onready var orange_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/OrangePortal.tres")
 
 @onready var open_panel = $OpenPanel
 @onready var closed_panel = $ClosedPanel
@@ -46,7 +48,6 @@ func update_craft_inv():
 func _physics_process(_delta):
 	if Game.crafting_zone == true:
 		open()
-		
 	else:
 		closed()
 
@@ -83,7 +84,8 @@ func _on_buy_pressed():
 			mercuryPrice = 1
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				if towerOwned == false:
-					craft(eye_tower)
+					craft(blue_tower)
+					craft(orange_tower)
 					Game.ore -= orePrice
 					Game.mercury -= mercuryPrice
 					hud_res.buy_pressed()
@@ -92,7 +94,7 @@ func _on_buy_pressed():
 			mercuryPrice = 1
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				if towerOwned == false:
-					craft(eye_tower)
+					
 					Game.ore -= orePrice
 					Game.mercury -= mercuryPrice
 					hud_res.buy_pressed()
@@ -126,9 +128,7 @@ func _on_buy_pressed():
 				Game.light_energy += .5 #this sets the light level for upgrade
 				hud_res.buy_pressed()
 				print("light up bought")
-			
-	
-	
+
 func swap_page_prev():
 	if page == 1:
 		page = 2
