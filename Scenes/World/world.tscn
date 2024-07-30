@@ -286,15 +286,17 @@ offset_right = 328.0
 offset_bottom = 596.0
 pivot_offset = Vector2(296, 157)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "W A S D to move,  Left CLick to Shoot
+text = "W A S D to move,  Left Click to Shoot
 
-Stand near the Cauldron to craft
+Stand near the Cauldron to craft, the arrows at the top let you choose different pages
 
 Left click on the Item you wish to craft and then click craft.
 
 Once an item is your inventory, left click on it and drag it to to where you want.
 
 Then left click to place the item on the world.
+
+Upgrades are automatic.
 
 Survive waves, and make sure to keep your flame strong.
 
