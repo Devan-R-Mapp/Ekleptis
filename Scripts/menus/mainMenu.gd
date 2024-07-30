@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var link_to_feedback = "https://docs.google.com/forms/d/e/1FAIpQLSel_PlFJ0NL6QNbuJuzyTtn77RDW6jWXQCwRxz8NCVkKuibIw/viewform"
 
@@ -20,3 +20,7 @@ func _on_quit_pressed():
 func _on_link_button_pressed():
 	pass
 
+
+
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Menus/credit_text.tscn")
