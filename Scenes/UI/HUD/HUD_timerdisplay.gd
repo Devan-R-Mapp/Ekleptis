@@ -6,7 +6,7 @@ extends CanvasLayer
 
 
 
-func _process(delta):
+func _process(_delta):
 	update_timer()
 
 func update_timer():

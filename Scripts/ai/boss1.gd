@@ -71,3 +71,8 @@ func spawn_projectile(target_position: Vector2):
 
 func _on_navigation_timer_timeout():
 	make_path_to_cauldron()
+
+
+func _on_footsteps_timeout():
+	$AudioStreamPlayer2D.play()
+

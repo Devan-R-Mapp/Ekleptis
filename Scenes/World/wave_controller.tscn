@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2ykmjja8idok"]
+[gd_scene load_steps=3 format=3 uid="uid://b2ykmjja8idok"]
 
 [ext_resource type="Script" path="res://Scenes/World/wave_controller.gd" id="1_df8u3"]
+[ext_resource type="AudioStream" uid="uid://b33jadmi170nu" path="res://sounds/slide_2.wav" id="2_kft0p"]
 
 [node name="wave_controller" type="Node2D" node_paths=PackedStringArray("portal_spawn_point")]
 script = ExtResource("1_df8u3")
@@ -16,6 +17,12 @@ wait_time = 180.0
 one_shot = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kft0p")
+pitch_scale = 0.81
+max_distance = 40000.0
+panning_strength = 2.31
 
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
 [connection signal="timeout" from="EclipseTimer" to="." method="_on_eclipse_timer_timeout"]

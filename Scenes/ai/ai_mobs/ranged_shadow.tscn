@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://gkuf5wh6k03d"]
+[gd_scene load_steps=10 format=3 uid="uid://gkuf5wh6k03d"]
 
 [ext_resource type="Script" path="res://Scripts/ai/ranged_shadow.gd" id="1_1u1s7"]
 [ext_resource type="Texture2D" uid="uid://ce6t5wv5l5awy" path="res://Assets/ai/Ranged_Shadow.png" id="2_rk61i"]
 [ext_resource type="Script" path="res://Scripts/ai/aiprojectilePool.gd" id="3_2cyaq"]
+[ext_resource type="PackedScene" uid="uid://bs4knw2lov8p6" path="res://Scenes/ai/ai_mobs/random_shadow_sounds.tscn" id="4_fih1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1lhkb"]
 radius = 8.06226
@@ -111,6 +112,12 @@ autostart = true
 position = Vector2(-1.99995, -3)
 scale = Vector2(1.40242, 0.938393)
 target_position = Vector2(250, 0)
+
+[node name="RandomShadowSounds" parent="." instance=ExtResource("4_fih1s")]
+
+[node name="speak" type="Timer" parent="."]
+one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="Player Detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="timeout" from="Shoot Bullet" to="." method="_on_shoot_bullet_timeout"]

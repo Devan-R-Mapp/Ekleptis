@@ -88,3 +88,7 @@ func spawn_projectile(target_position: Vector2):
 func _on_pathfinding_timer_timeout():
 	make_path_to_player()
 	pass # Replace with function body.
+
+func _on_speak_timeout():
+	$RandomShadowSounds.play_random_sound()
+	$speak.start(randf_range(3,15))
