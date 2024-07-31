@@ -7,3 +7,5 @@
 script = ExtResource("1_eis6v")
 name = "lightup"
 texture = ExtResource("2_e3wvj")
+oreCost = 0
+mercuryCost = 4

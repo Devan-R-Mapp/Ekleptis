@@ -7,3 +7,5 @@
 script = ExtResource("1_sq5p8")
 name = "EyeTower"
 texture = ExtResource("2_woinj")
+oreCost = 2
+mercuryCost = 2

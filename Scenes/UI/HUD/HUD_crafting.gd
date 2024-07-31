@@ -13,10 +13,20 @@ class_name HUD_crafting
 @onready var eye_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/EyeTower.tres")
 @onready var blue_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/BluePortal.tres")
 @onready var orange_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/OrangePortal.tres")
+@onready var portal: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/Portal.tres")
+
+@onready var atk_spd: InventoryItem = preload("res://Scripts/UI/Crafting/atkup.tres")
+@onready var auto_shoot: InventoryItem = preload("res://Scripts/UI/Crafting/autoshoot.tres")
+@onready var light_up: InventoryItem = preload("res://Scripts/UI/Crafting/lightup.tres")
 
 @onready var open_panel = $OpenPanel
 @onready var closed_panel = $ClosedPanel
 @onready var craft_buy_button = $OpenPanel/MarginContainer/NinePatchRect/Craft
+
+@onready var ore_cost = $OpenPanel/Control2/Ore
+@onready var mercury_cost = $OpenPanel/Control2/Mercury
+
+
 
 
 var isOpen: bool = false
@@ -37,6 +47,8 @@ func _ready():
 	
 	
 
+	
+	
 func update_craft_inv():
 	print("update called")
 	if page == 1:
@@ -69,6 +81,10 @@ func _on_prev_pressed():
 func _on_next_pressed():
 	swap_page_next()
 
+func updateCost(item: InventoryItem):
+	ore_cost.text = str(item.oreCost)
+	mercury_cost.text = str(item.mercuryCost)
+	
 func _on_buy_pressed():
 	if page == 1:
 		if slots_selected[0] and !slots[0] == null:
@@ -81,6 +97,8 @@ func _on_buy_pressed():
 					Game.mercury -= mercuryPrice
 					eyeTowerOwned = true
 					hud_res.buy_pressed()
+					
+					
 		if slots_selected[1] and !slots[1] == null:
 			orePrice = 4
 			mercuryPrice = 4
@@ -168,6 +186,10 @@ func _on_craft_ui_slot_pressed():
 	print("slot 1 pressed")
 	var num = 0
 	if !slots[num] == null:
+		if page == 1:
+			updateCost(eye_tower)
+		elif page == 2:
+			updateCost(atk_spd)
 		hl_check(num)
 		slots_selected[num] = true
 
@@ -175,6 +197,10 @@ func _on_craft_ui_slot_2_pressed():
 	print("slot 2 pressed")
 	var num = 1
 	if !slots[num] == null:
+		if page == 1:
+			updateCost(portal)
+		elif page == 2:
+			updateCost(auto_shoot)
 		hl_check(num)
 		slots_selected[num] = true
 
@@ -182,6 +208,10 @@ func _on_craft_ui_slot_3_pressed():
 	print("slot 3 pressed")
 	var num = 2
 	if !slots[num] == null:
+		if page == 1:
+			pass
+		elif page == 2:
+			updateCost(light_up)
 		hl_check(num)
 		slots_selected[num] = true
 
