@@ -41,15 +41,29 @@ func _on_inv_ui_slot_pressed():
 func _on_inv_ui_slot_2_pressed():
 	if slots[1].plr_has_item():
 		var item = slots[1].get_item()
+		var scene
+		if item.name == "EyeTower":
+			scene == tower_scene
+		elif item.name == "BluePortal":
+			scene = blue_portal
+		elif item.name == "OrangePortal":
+			scene = orange_portal
 		slots[1].update_plr_inv(null)
-		place_item(item)
+		place_item(scene)
 
 
 func _on_inv_ui_slot_3_pressed():
 	if slots[2].plr_has_item():
-		var item = slots[3].get_item()
-		slots[3].update_plr_inv(null)
-		place_item(item)
+		var item = slots[2].get_item()
+		var scene
+		if item.name == "EyeTower":
+			scene == tower_scene
+		elif item.name == "BluePortal":
+			scene = blue_portal
+		elif item.name == "OrangePortal":
+			scene = orange_portal
+		slots[2].update_plr_inv(null)
+		place_item(scene)
 
 #TODO update other slots after testing
 #func _on_inv_ui_slot_4_pressed():

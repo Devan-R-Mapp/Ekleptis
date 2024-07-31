@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://baq5ipx2qwj6s"]
+[gd_scene load_steps=8 format=3 uid="uid://baq5ipx2qwj6s"]
 
 [ext_resource type="Texture2D" uid="uid://cqgieqwk0b7ro" path="res://Assets/Weapons/Towers/orange_portal.png" id="1_uupfe"]
+[ext_resource type="Script" path="res://Scenes/Weapons/Towers/OrangePortal.gd" id="1_xlujx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6v8j"]
 atlas = ExtResource("1_uupfe")
@@ -32,16 +33,23 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wsfc0"]
-radius = 15.0
+radius = 10.198
 
-[node name="OrangePortal" type="CharacterBody2D"]
+[node name="OrangePortal" type="Area2D" groups=["Portals"]]
+collision_layer = 5
+script = ExtResource("1_xlujx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7b1ml")
 animation = &"idle"
-frame_progress = 0.474954
+frame_progress = 0.393835
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 16)
+position = Vector2(32, 31)
 shape = SubResource("CircleShape2D_wsfc0")
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["Portals"]]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

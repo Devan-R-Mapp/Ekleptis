@@ -24,7 +24,8 @@ var isOpen: bool = false
 var page = 1
 var orePrice
 var mercuryPrice
-var towerOwned = false
+var eyeTowerOwned = false
+var portalOwned = false
 
 var slots_selected = [false, false, false, false, false, false, false, false, false]
 
@@ -74,27 +75,28 @@ func _on_buy_pressed():
 			orePrice = 1
 			mercuryPrice = 1
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
-				if towerOwned == false:
+				if eyeTowerOwned == false:
 					craft(eye_tower)
 					Game.ore -= orePrice
 					Game.mercury -= mercuryPrice
+					eyeTowerOwned = true
 					hud_res.buy_pressed()
 		if slots_selected[1] and !slots[1] == null:
 			orePrice = 1
 			mercuryPrice = 1
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
-				if towerOwned == false:
+				if portalOwned == false:
 					craft(blue_tower)
 					craft(orange_tower)
 					Game.ore -= orePrice
 					Game.mercury -= mercuryPrice
+					portalOwned = true
 					hud_res.buy_pressed()
 		if slots_selected[2] and !slots[2] == null:
 			orePrice = 1
 			mercuryPrice = 1
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
-				if towerOwned == false:
-					
+				if eyeTowerOwned == false:
 					Game.ore -= orePrice
 					Game.mercury -= mercuryPrice
 					hud_res.buy_pressed()
@@ -151,7 +153,6 @@ func swap_page_next():
 		
 func craft(item: InventoryItem):
 	inventory.add_item(item)
-	towerOwned = true
 	hud_inv.update_inv()
 	
 

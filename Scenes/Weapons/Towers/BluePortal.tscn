@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://0j7tc5qmwjso"]
+[gd_scene load_steps=8 format=3 uid="uid://0j7tc5qmwjso"]
 
+[ext_resource type="Script" path="res://Scenes/Weapons/Towers/BluePortal.gd" id="1_mf73y"]
 [ext_resource type="Texture2D" uid="uid://ban66ahf01kmx" path="res://Assets/Weapons/Towers/blue_portal.png" id="1_pl56i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhcmf"]
@@ -32,16 +33,23 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4yoxf"]
-radius = 15.0
+radius = 11.0454
 
-[node name="BluePortal" type="CharacterBody2D"]
+[node name="BluePortal" type="Area2D" groups=["Portals"]]
+collision_layer = 5
+script = ExtResource("1_mf73y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cwnrx")
 animation = &"idle"
-frame_progress = 0.950235
+frame_progress = 0.302359
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 16)
+position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_4yoxf")
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["Portals"]]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
