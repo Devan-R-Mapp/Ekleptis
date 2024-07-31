@@ -7,3 +7,5 @@
 script = ExtResource("1_0w8yb")
 name = "atkup"
 texture = ExtResource("2_flsiu")
+oreCost = 3
+mercuryCost = 2

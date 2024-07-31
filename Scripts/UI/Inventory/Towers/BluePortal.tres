@@ -7,3 +7,5 @@
 script = ExtResource("1_i8xuy")
 name = "BluePortal"
 texture = ExtResource("2_fiwef")
+oreCost = 4
+mercuryCost = 4

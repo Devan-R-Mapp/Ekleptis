@@ -7,3 +7,5 @@
 script = ExtResource("1_2wmib")
 name = "autoshoot"
 texture = ExtResource("2_wkwit")
+oreCost = 5
+mercuryCost = 0
