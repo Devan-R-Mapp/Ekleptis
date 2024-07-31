@@ -79,14 +79,14 @@ func _on_day_timer_timeout():
 		$AudioStreamPlayer2D.play()
 		Wave.lightlevel = Wave.timeType.eclipse
 		spawn_basic_portals(total_portals)
-		eclipse_timer.start(45)
+		eclipse_timer.start(60)
 		base_portals += 1
 	else: 
 		Wave.lightlevel = Wave.timeType.eclipse
 		$AudioStreamPlayer2D.play()
 		spawn_basic_portals(total_portals)
 		spawn_boss_portals(3)
-		eclipse_timer.start(90)
+		eclipse_timer.start(120)
 		finalWave = true
 		
 	

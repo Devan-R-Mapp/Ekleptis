@@ -531,12 +531,12 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(188, 186)
 scale = Vector2(2, 2)
 script = ExtResource("1_r5lmh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 z_index = 1
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_yok8o")

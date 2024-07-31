@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://0j7tc5qmwjso"]
+
+[ext_resource type="Script" path="res://Scenes/Weapons/Towers/BluePortal.gd" id="1_mf73y"]
+[ext_resource type="Texture2D" uid="uid://ban66ahf01kmx" path="res://Assets/Weapons/Towers/blue_portal.png" id="1_pl56i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhcmf"]
+atlas = ExtResource("1_pl56i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbtxg"]
+atlas = ExtResource("1_pl56i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iiuv"]
+atlas = ExtResource("1_pl56i")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cwnrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhcmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbtxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iiuv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4yoxf"]
+radius = 11.0454
+
+[node name="BluePortal" type="Area2D" groups=["Portals"]]
+z_index = -1
+collision_layer = 5
+script = ExtResource("1_mf73y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cwnrx")
+animation = &"idle"
+frame_progress = 0.302359
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_4yoxf")
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["Portals"]]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

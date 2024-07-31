@@ -14,18 +14,16 @@ func _ready():
 	Game.portal_kills = 0
 	Wave.lightlevel = Wave.timeType.day
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	
 	Game.weaponInternalCD = .5
 	Game.automatic_upgrade = false
 	
 	if !player.collected.is_connected(hud._on_collected):
 		player.collected.connect(hud._on_collected)
-	
+
 
 func _process(_delta):
 	game_end_conditions()
 	light_level()
-	
 	
 func game_end_conditions():
 	
@@ -34,7 +32,8 @@ func game_end_conditions():
 		Game.cauldronHP = Game.base_cauldronHP
 		get_tree().change_scene_to_file("res://Scenes/Menus/game_over.tscn")
 
-		##TODO reset Game here
+	if Game.boss_kills == 3:
+		get_tree().change_scene_to_file("res://Scenes/Menus/credit_text.tscn")
 
 func light_level():
 	if is_inside_tree():

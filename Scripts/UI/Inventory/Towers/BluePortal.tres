@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://b2dp6ui662ldl"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/inventoryItem.gd" id="1_i8xuy"]
+[ext_resource type="Texture2D" uid="uid://djkbk3i1f01bw" path="res://Assets/Weapons/Towers/BlueStatic.png" id="2_fiwef"]
+
+[resource]
+script = ExtResource("1_i8xuy")
+name = "BluePortal"
+texture = ExtResource("2_fiwef")

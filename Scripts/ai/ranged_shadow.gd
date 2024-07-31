@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name ranged_shadow
 
 var isAlive = true
 var speed = 20
@@ -14,6 +15,11 @@ var has_projectile = 0
 
 @onready var navigation_agent:= $NavigationAgent2D as NavigationAgent2D
 
+func get_hp():
+	return health
+
+func set_hp(num: int):
+	health -= num
 
 func _ready():
 	bar.max_value = health

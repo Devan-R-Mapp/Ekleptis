@@ -1,7 +1,9 @@
-extends StaticBody2D
-class_name MagicMissleTower
+extends CharacterBody2D
+class_name EyeTower
 
 @export var itemResource = InventoryItem
+
+
 
 
 var health = 10
@@ -16,8 +18,9 @@ var target
 func bought(inventory: Inventory):
 	inventory.add_item(itemResource)
 	
-	
+
 func _ready():
+
 	pass
 
 func _physics_process(_delta):
@@ -57,3 +60,8 @@ func _on_shoot_bullet_timeout():
 	if has_projectile == 0:
 		has_projectile += 1
  # Replace with function body.
+
+
+
+
+
