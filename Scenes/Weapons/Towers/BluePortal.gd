@@ -2,7 +2,7 @@ extends Area2D
 class_name BluePortal
 
 @onready var blue_portal = $AnimatedSprite2D
-
+var offset = Vector2(100, 100)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +18,7 @@ func _on_body_entered(body):
 				OP = portal
 				break
 		if OP:
-			body.global_position = OP.global_position
+			body.global_position = OP.global_position + offset
 		
 
 

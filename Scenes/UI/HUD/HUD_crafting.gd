@@ -93,8 +93,8 @@ func _on_buy_pressed():
 					portalOwned = true
 					hud_res.buy_pressed()
 		if slots_selected[2] and !slots[2] == null:
-			orePrice = 1
-			mercuryPrice = 1
+			orePrice = 4
+			mercuryPrice = 4
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				if eyeTowerOwned == false:
 					Game.ore -= orePrice
