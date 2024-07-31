@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bi2grv8r0yiol" path="res://sounds/Portal_spawn_new.wav" id="3_io2ob"]
 
 [node name="ekleptis_boss_spawner" type="Node2D"]
+z_index = -20
 position = Vector2(-398, 155)
 script = ExtResource("1_tr45j")
 

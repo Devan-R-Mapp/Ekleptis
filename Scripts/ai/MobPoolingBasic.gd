@@ -2,7 +2,7 @@ extends Node2D
 
 var mobScene: PackedScene = preload("res://Scenes/ai/ai_mobs/melee_shadow_hunter.tscn")
 var mobScene2: PackedScene = preload("res://Scenes/ai/ai_mobs/melee_shadow_crusher.tscn")
-var poolSize: int = 9
+var poolSize: int = 5
 var mob_pool: Array = []
 var mob_pool2: Array = []
 var total_spawned_mobs: int = 0
@@ -24,8 +24,8 @@ func _ready() -> void:
 		mob_pool.append(mobTemp)
 		mobTemp2.hide()
 		mob_pool2.append(mobTemp2)
-		add_child(mobTemp)
-		add_child(mobTemp2)
+		call_deferred("add_child", mobTemp)
+		call_deferred("add_child", mobTemp2)
 
 func get_mob(pool: Array, scene: PackedScene) -> Node:
 	for mob in pool:

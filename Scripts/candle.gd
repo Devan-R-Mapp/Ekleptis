@@ -9,4 +9,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	$AnimationPlayer.play("flicker")
+	light_strength()
+
+func light_strength():
+	$PointLight2D.energy = Game.light_energy
 

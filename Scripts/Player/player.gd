@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	update_spawn_point_position_and_rotation()
 	handle_auto_firing()
 	handle_firing()
-	
+
 
 func player_movement_input_handler():
 	var inputDirection: Vector2 = Vector2(Input.get_axis("Left", "Right"),Input.get_axis("Up", "Down")).normalized()

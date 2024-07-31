@@ -28,8 +28,8 @@ func _ready() -> void:
 	for portal in portal_spawn_point:
 		if portal is Marker2D:
 			var global_pos = portal.global_position
-			spawn_mercury(5, global_pos)
-			spawn_ore(5, global_pos)
+			spawn_mercury(3, global_pos)
+			spawn_ore(3, global_pos)
 			#todo Install DefenderNodes here as well
 
 
@@ -93,11 +93,12 @@ func _on_day_timer_timeout():
 func _on_eclipse_timer_timeout():
 	if !finalWave:
 		currentWave += 1
-		spawn_mercury(resources, gen_random_pos(origin, spawnArea))
-		spawn_ore(resources, gen_random_pos(origin, spawnArea))
+		Game.dark_energy += .15
+		spawn_mercury(resources, spawnArea)
+		spawn_ore(resources, spawnArea)
 		total_portals = snappedi(base_portals + (currentWave/2), 1)
 		Wave.lightlevel = Wave.timeType.day
-		day_timer.start(15)
+		day_timer.start(25)
 		resources += 1
 	else:
 		Wave.lightlevel = Wave.timeType.night

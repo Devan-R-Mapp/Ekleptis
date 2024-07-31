@@ -4,7 +4,7 @@ class_name melee_shadow_crusher
 var isAlive = true
 var speed = 50
 var isMob = true
-var health: int = 1
+var health: int = 3
 
 @onready var cauldron: Node = get_node("../../Cauldron")
 @onready var player: Node = get_node("../../Player")
@@ -67,7 +67,7 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 			get_parent().reset_mob(self, false)
 
 func _on_pathfinding_timer_timeout() -> void:
-	make_path_to_cauldron()
+	call_deferred("make_path_to_cauldron")
 
 func _on_speak_timeout():
 	$RandomShadowSounds.play_random_sound()

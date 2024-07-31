@@ -581,3 +581,5 @@ offset = Vector2(-16, -16)
 [node name="Candle" parent="light_slot" instance=ExtResource("9_wtged")]
 position = Vector2(253, 89)
 scale = Vector2(0.2, 0.2)
+
+[editable path="light_slot/Candle"]

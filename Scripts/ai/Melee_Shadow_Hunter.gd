@@ -4,7 +4,7 @@ class_name melee_shadow_hunter
 var isAlive = true
 var speed = 50
 var isMob = true
-var health: int = 1
+var health: int = 2
 
 
 @onready var cauldron: Node = get_node("../../Cauldron")
@@ -66,7 +66,7 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 	
 
 func _on_pathfinding_timer_timeout() -> void:
-	make_path_to_player()
+	call_deferred("make_path_to_player")
 
 
 func _on_speak_timeout():

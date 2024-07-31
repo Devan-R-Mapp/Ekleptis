@@ -6,7 +6,12 @@ var paused = false
 
 
 func _ready():
-	
+	on_reset()
+	if !player.collected.is_connected(hud._on_collected):
+		player.collected.connect(hud._on_collected)
+
+
+func on_reset():
 	Game.ore = 0
 	Game.mercury = 0
 	Game.basic_kills = 0
@@ -16,10 +21,8 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	Game.weaponInternalCD = .5
 	Game.automatic_upgrade = false
-	
-	if !player.collected.is_connected(hud._on_collected):
-		player.collected.connect(hud._on_collected)
-
+	Game.light_energy = 2.5
+	Game.dark_energy = 0
 
 func _process(_delta):
 	game_end_conditions()
@@ -40,11 +43,11 @@ func light_level():
 		if Wave.lightlevel == Wave.timeType.day:
 			var tween = create_tween()
 		#tween.tween_property($SUN, "color" , Color8(0,0,0,0) , 5)
-			tween.tween_property($SUN, "energy" , 0 , 5)
+			tween.tween_property($SUN, "energy" , 0 + Game.dark_energy , 5)
 		
 		if Wave.lightlevel == Wave.timeType.eclipse:
 			var tween = create_tween()
-			tween.tween_property($SUN, "energy" , 1.25 , 5)
+			tween.tween_property($SUN, "energy" , 1.25 + Game.dark_energy , 5)
 		#tween.tween_property($SUN, "color" , Color8(204,251,234,255) , 5)
 		if Wave.lightlevel == Wave.timeType.night:
 			var tween = create_tween()

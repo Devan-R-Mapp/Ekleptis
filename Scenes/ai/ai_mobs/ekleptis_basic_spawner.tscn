@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btrbnvuu0m6sv" path="res://Assets/Map Assets/Portal.png" id="2_jp1kx"]
 
 [node name="ekleptis_basic_spawner" type="Node2D"]
+z_index = -20
 position = Vector2(270, 138)
 script = ExtResource("1_8gshg")
 
