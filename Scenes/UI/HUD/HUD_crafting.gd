@@ -72,8 +72,8 @@ func _on_next_pressed():
 func _on_buy_pressed():
 	if page == 1:
 		if slots_selected[0] and !slots[0] == null:
-			orePrice = 1
-			mercuryPrice = 1
+			orePrice = 2
+			mercuryPrice = 2
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				if eyeTowerOwned == false:
 					craft(eye_tower)
@@ -82,8 +82,8 @@ func _on_buy_pressed():
 					eyeTowerOwned = true
 					hud_res.buy_pressed()
 		if slots_selected[1] and !slots[1] == null:
-			orePrice = 1
-			mercuryPrice = 1
+			orePrice = 4
+			mercuryPrice = 4
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				if portalOwned == false:
 					craft(blue_tower)
@@ -102,7 +102,7 @@ func _on_buy_pressed():
 					hud_res.buy_pressed()
 	elif page == 2:
 		if slots_selected[0] and !slots[0] == null:
-			orePrice = 0
+			orePrice = 3
 			mercuryPrice = 2
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				Game.ore -= orePrice
@@ -113,8 +113,8 @@ func _on_buy_pressed():
 				hud_res.buy_pressed()
 				print("atk spd bought")
 		elif slots_selected[1] and !slots[1] == null and !Game.automatic_upgrade:
-			orePrice = 0
-			mercuryPrice = 2
+			orePrice = 5
+			mercuryPrice = 0
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				Game.ore -= orePrice
 				Game.mercury -= mercuryPrice
@@ -123,11 +123,11 @@ func _on_buy_pressed():
 				print("auto fire bought")
 		elif slots_selected[2] and !slots[2] == null:
 			orePrice = 0
-			mercuryPrice = 2
+			mercuryPrice = 4
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
 				Game.ore -= orePrice
 				Game.mercury -= mercuryPrice
-				Game.light_energy += .5 #this sets the light level for upgrade
+				Game.light_energy += .4 #this sets the light level for upgrade
 				hud_res.buy_pressed()
 				print("light up bought")
 

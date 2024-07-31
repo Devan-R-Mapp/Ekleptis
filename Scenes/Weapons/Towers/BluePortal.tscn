@@ -36,6 +36,7 @@ animations = [{
 radius = 11.0454
 
 [node name="BluePortal" type="Area2D" groups=["Portals"]]
+z_index = -1
 collision_layer = 5
 script = ExtResource("1_mf73y")
 

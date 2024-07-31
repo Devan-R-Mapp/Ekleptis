@@ -36,6 +36,7 @@ animations = [{
 radius = 10.198
 
 [node name="OrangePortal" type="Area2D" groups=["Portals"]]
+z_index = -1
 collision_layer = 5
 script = ExtResource("1_xlujx")
 
