@@ -11,6 +11,8 @@ class_name HUD_crafting
 @onready var hud_res: CanvasLayer = get_parent().get_child(0)
 
 @onready var eye_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/EyeTower.tres")
+@onready var blue_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/BluePortal.tres")
+@onready var orange_tower: InventoryItem = preload("res://Scripts/UI/Inventory/Towers/OrangePortal.tres")
 
 @onready var open_panel = $OpenPanel
 @onready var closed_panel = $ClosedPanel
@@ -22,7 +24,8 @@ var isOpen: bool = false
 var page = 1
 var orePrice
 var mercuryPrice
-var towerOwned = false
+var eyeTowerOwned = false
+var portalOwned = false
 
 var slots_selected = [false, false, false, false, false, false, false, false, false]
 
@@ -46,7 +49,6 @@ func update_craft_inv():
 func _physics_process(_delta):
 	if Game.crafting_zone == true:
 		open()
-		
 	else:
 		closed()
 
@@ -73,26 +75,28 @@ func _on_buy_pressed():
 			orePrice = 1
 			mercuryPrice = 1
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
-				if towerOwned == false:
+				if eyeTowerOwned == false:
 					craft(eye_tower)
 					Game.ore -= orePrice
 					Game.mercury -= mercuryPrice
+					eyeTowerOwned = true
 					hud_res.buy_pressed()
 		if slots_selected[1] and !slots[1] == null:
 			orePrice = 1
 			mercuryPrice = 1
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
-				if towerOwned == false:
-					craft(eye_tower)
+				if portalOwned == false:
+					craft(blue_tower)
+					craft(orange_tower)
 					Game.ore -= orePrice
 					Game.mercury -= mercuryPrice
+					portalOwned = true
 					hud_res.buy_pressed()
 		if slots_selected[2] and !slots[2] == null:
 			orePrice = 1
 			mercuryPrice = 1
 			if Game.ore >= orePrice && Game.mercury >= mercuryPrice:
-				if towerOwned == false:
-					craft(eye_tower)
+				if eyeTowerOwned == false:
 					Game.ore -= orePrice
 					Game.mercury -= mercuryPrice
 					hud_res.buy_pressed()
@@ -126,9 +130,7 @@ func _on_buy_pressed():
 				Game.light_energy += .5 #this sets the light level for upgrade
 				hud_res.buy_pressed()
 				print("light up bought")
-			
-	
-	
+
 func swap_page_prev():
 	if page == 1:
 		page = 2
@@ -151,7 +153,6 @@ func swap_page_next():
 		
 func craft(item: InventoryItem):
 	inventory.add_item(item)
-	towerOwned = true
 	hud_inv.update_inv()
 	
 

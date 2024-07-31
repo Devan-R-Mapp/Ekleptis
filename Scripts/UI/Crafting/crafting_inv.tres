@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CraftingInventory" load_steps=3 format=3 uid="uid://jtovki6b8u73"]
+[gd_resource type="Resource" script_class="CraftingInventory" load_steps=4 format=3 uid="uid://jtovki6b8u73"]
 
 [ext_resource type="Resource" uid="uid://dquy23344dntp" path="res://Scripts/UI/Inventory/Towers/EyeTower.tres" id="1_2cmb4"]
+[ext_resource type="Resource" uid="uid://doidk5cjf44va" path="res://Scripts/UI/Inventory/Towers/Portal.tres" id="2_3ad0a"]
 [ext_resource type="Script" path="res://Scripts/UI/Inventory/crafting_inventory.gd" id="2_oqq8b"]
 
 [resource]
 script = ExtResource("2_oqq8b")
-items = Array[Resource("res://Scripts/UI/Inventory/inventoryItem.gd")]([ExtResource("1_2cmb4"), null, null, null, null, null, null, null, null])
+items = Array[Resource("res://Scripts/UI/Inventory/inventoryItem.gd")]([ExtResource("1_2cmb4"), ExtResource("2_3ad0a"), null, null, null, null, null, null, null])

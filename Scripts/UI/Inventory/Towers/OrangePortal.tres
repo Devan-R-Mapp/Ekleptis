@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dt5ytndsip18l"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/inventoryItem.gd" id="1_jjq0f"]
+[ext_resource type="Texture2D" uid="uid://cu87jre4eqi6x" path="res://Assets/Weapons/Towers/OrangeStatic.png" id="2_7phns"]
+
+[resource]
+script = ExtResource("1_jjq0f")
+name = "OrangePortal"
+texture = ExtResource("2_7phns")
