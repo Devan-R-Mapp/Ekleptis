@@ -2,6 +2,7 @@ extends Area2D
 class_name OrangePortal
 
 @onready var orange_portal = $AnimatedSprite2D
+var offset = Vector2(100, 100)
 
 
 func _ready():
@@ -17,7 +18,7 @@ func _on_body_entered(body):
 					BP = portal
 					break
 			if BP:
-				body.global_position = BP.global_position
+				body.global_position = BP.global_position + offset
 		
 		
 		
