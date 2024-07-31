@@ -30,7 +30,7 @@ func _on_inv_ui_slot_pressed():
 		var item = slots[0].get_item()
 		var scene
 		if item.name == "EyeTower":
-			scene == tower_scene
+			scene = tower_scene
 		elif item.name == "BluePortal":
 			scene = blue_portal
 		elif item.name == "OrangePortal":
@@ -43,7 +43,7 @@ func _on_inv_ui_slot_2_pressed():
 		var item = slots[1].get_item()
 		var scene
 		if item.name == "EyeTower":
-			scene == tower_scene
+			scene = tower_scene
 		elif item.name == "BluePortal":
 			scene = blue_portal
 		elif item.name == "OrangePortal":
@@ -57,7 +57,7 @@ func _on_inv_ui_slot_3_pressed():
 		var item = slots[2].get_item()
 		var scene
 		if item.name == "EyeTower":
-			scene == tower_scene
+			scene = tower_scene
 		elif item.name == "BluePortal":
 			scene = blue_portal
 		elif item.name == "OrangePortal":

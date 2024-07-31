@@ -3,7 +3,9 @@ extends Node
 
 var weaponInternalCD = .3
 var automatic_upgrade = false
-var light_energy = 1
+var light_energy = 2.5
+var dark_energy = 0
+
 
 var playerHP = 10
 var base_playerHP = 10

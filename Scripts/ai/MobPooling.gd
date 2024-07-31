@@ -33,7 +33,7 @@ func get_mob()-> Node:
 	add_child(new_mob)
 	return new_mob
 	
-func reset_mob(mob: Node) -> void:
+func reset_mob(mob: Node, scoreUP: bool) -> void:
 	mob.isAlive = false
 	var tween = create_tween()
 	tween.tween_property(mob, "modulate", Color8(0,0,0,0) , .25)
@@ -42,8 +42,9 @@ func reset_mob(mob: Node) -> void:
 	mob.position = Vector2(-1000, -1000)
 	mob_pool.pop_front()
 	mob.hide()
-	Game.basic_kills += 1
 	total_killed_mobs += 1
+	if scoreUP:
+		Game.basic_kills += 1
 
 
 

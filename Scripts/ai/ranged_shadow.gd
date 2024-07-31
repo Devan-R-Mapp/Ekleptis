@@ -4,7 +4,7 @@ class_name ranged_shadow
 var isAlive = true
 var speed = 20
 var isMob = true
-var health: int = 3
+var health: int = 5
 
 @onready var cauldron: Node = get_node("../../Cauldron")
 @onready var player: Node = get_node("../../Player")

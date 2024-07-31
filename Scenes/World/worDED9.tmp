@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://bedmwjr2wdjui"]
+[gd_scene load_steps=26 format=3 uid="uid://bedmwjr2wdjui"]
 
 [ext_resource type="Script" path="res://Scripts/world/world.gd" id="1_04y0u"]
 [ext_resource type="Texture2D" uid="uid://ctoevlayqyeju" path="res://Assets/Map Assets/Center.png" id="1_bo05i"]
 [ext_resource type="Script" path="res://Scripts/world/NavigationRegion2D.gd" id="2_1cvmn"]
 [ext_resource type="PackedScene" uid="uid://b2ykmjja8idok" path="res://Scenes/World/wave_controller.tscn" id="2_8p21d"]
-[ext_resource type="PackedScene" uid="uid://c5hl32q2xyrkp" path="res://Scenes/ai/ai_mobs/ekleptis_boss_spawner.tscn" id="2_apgkf"]
 [ext_resource type="PackedScene" uid="uid://cmaj6bl3m57y6" path="res://Scenes/UI/HUD/HUD.tscn" id="2_ijsi4"]
 [ext_resource type="Texture2D" uid="uid://dimxks6yyk12t" path="res://Assets/Map Assets/sandy ground.png" id="2_qeilj"]
 [ext_resource type="Texture2D" uid="uid://b4rgqurb3l0qy" path="res://Assets/Map Assets/Floor.png" id="2_tf6pq"]
@@ -205,8 +204,6 @@ script = ExtResource("1_04y0u")
 metadata/_edit_horizontal_guides_ = [-2224.0, 2167.0]
 metadata/_edit_vertical_guides_ = [-2521.0, 2753.0]
 
-[node name="ekleptis_boss_spawner" parent="." instance=ExtResource("2_apgkf")]
-
 [node name="SUN" type="DirectionalLight2D" parent="."]
 scale = Vector2(147.337, -21.3086)
 color = Color(0.80372, 0.981751, 0.914193, 1)
@@ -277,7 +274,6 @@ position = Vector2(1542, 1171)
 position = Vector2(-355, -305)
 
 [node name="Instructions" type="Label" parent="."]
-z_index = -16
 offset_left = -282.0
 offset_top = 287.0
 offset_right = 328.0
@@ -286,9 +282,9 @@ pivot_offset = Vector2(296, 157)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "W A S D to move,  Left Click to Shoot
 
-Stand near the Cauldron to craft, the arrows at the top let you choose different pages.
+Stand near the Cauldron to craft, the arrows at the top let you choose different pages
 
-Left click on the item you wish to craft and then click craft.
+Left click on the Item you wish to craft and then click craft.
 
 Once an item is your inventory, left click on it and drag it to to where you want.
 
@@ -296,7 +292,7 @@ Then left click to place the item on the world.
 
 Upgrades are automatic.
 
-Survive waves, Explore the desert for resources and make sure to keep your flame strong.
+Survive waves, and make sure to keep your flame strong.
 
 "
 horizontal_alignment = 1
